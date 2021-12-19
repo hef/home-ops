@@ -30,8 +30,8 @@ spec:
     sources:
       - service
       - ingress
-      - istio-gateway
-      - istio-virtualservice
+      #- istio-gateway
+      #- istio-virtualservice
     provider: aws
     domainFilters:
       - hef.sh
