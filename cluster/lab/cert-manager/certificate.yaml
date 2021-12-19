@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hef.sh
+  namespace: kube-system
+spec:
+  secretName: hef.sh-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: hef.sh
+  dnsNames:
+    - "hef.sh"
+    - "*.hef.sh"
