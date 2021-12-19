@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-prod
+  name: letsencrypt-production
 spec:
   acme:
     email: hef@pbrfrat.com
@@ -12,7 +12,7 @@ spec:
     solvers:
       - dns01:
           route53:
-            accessKeyID: AKIA3LYTRPMGNRYXRAQJ
+            accessKeyID: AKIA3LYTRPMGNDDP27NA
             hostedZoneID: Z03821123JIJDGD4PLWRM
             region: us-east-2
             secretAccessKeySecretRef:
