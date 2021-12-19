@@ -1,0 +1,27 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: rook-ceph-cluster
+  namespace: rook-ceph
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: rook-ceph-cluster
+      sourceRef:
+        kind: HelmRepository
+        name: rook-charts
+        namespace: flux-system
+  dependsOn:
+    - name: rook-ceph
+  values:
+    ingress:
+      dashboard:
+        host:
+          name: rook.hef.sh
+          path: "/"
+    cephClusterSpec:
+      dashboard:
+        ssl: false
+
