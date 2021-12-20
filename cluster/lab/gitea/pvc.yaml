@@ -4,7 +4,7 @@ metadata:
   name: gitea-storage
   namespace: gitea
 spec:
-  volumeName: "gitea-storage"
+  volumeName: "gitea-storage:nam"
   accessModes:
     - ReadWriteOnce
   resources:

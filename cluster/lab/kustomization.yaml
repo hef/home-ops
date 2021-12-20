@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - cert-manager
   - external-dns
-  #- gitea
+  - gitea
   - longhorn
   - notifications
   #- rook-ceph
