@@ -21,6 +21,6 @@ spec:
       enabled: true
       hosts:
         - host: git.hef.sh
-          pahts:
+          paths:
             - path: /
               pathType: Prefix
