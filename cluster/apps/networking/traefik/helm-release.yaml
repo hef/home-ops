@@ -64,7 +64,7 @@ spec:
       websecure:
         tls:
           enabled: true
-          options: "default"
+          #options: "default"
       metrics:
         port: 8082
         expose: true
