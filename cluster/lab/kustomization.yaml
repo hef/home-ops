@@ -5,3 +5,4 @@ resources:
   - external-dns
   - notifications
   - rook-ceph
+  - traefik
