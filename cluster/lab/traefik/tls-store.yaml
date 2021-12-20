@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: TLSStore
+metadata:
+  #only the store with the name "default" matters, everything else is ignored
+  name: default
+  namespace: networking
+spec:
+  defaultCertificate:
+    secretName: "hef.sh-tls"
