@@ -23,6 +23,9 @@ spec:
         ssl: false
     ingress:
       dashboard:
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "chess-rook"
         host:
           name: rook.hef.sh
           path: "/"
