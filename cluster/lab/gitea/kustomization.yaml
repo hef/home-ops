@@ -4,5 +4,6 @@ resources:
   - deployment.yaml
   - namespace.yaml
   - pvc.yaml
+  - secret.sops.yaml
   - service.yaml
   - ingress.yaml
