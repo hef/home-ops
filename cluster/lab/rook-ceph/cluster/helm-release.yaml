@@ -11,7 +11,7 @@ spec:
       chart: rook-ceph-cluster
       sourceRef:
         kind: HelmRepository
-        name: rook-charts
+        name: rook-ceph-charts
         namespace: flux-system
   dependsOn:
     - name: rook-ceph
