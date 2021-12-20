@@ -16,12 +16,15 @@ spec:
   dependsOn:
     - name: rook-ceph
   values:
+    cephClusterSpec:
+      dashboard:
+        enabled: true
+        #urlPrefix: "/"
+        ssl: false
     ingress:
       dashboard:
         host:
           name: rook.hef.sh
           path: "/"
-    cephClusterSpec:
-      dashboard:
-        ssl: false
+
 
