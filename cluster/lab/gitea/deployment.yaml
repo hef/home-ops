@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gitea
+  name: gitea
+  namespace: gitea
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitea
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: gitea
+    spec:
+      containers:
+        - env:
+            - name: DOMAIN
+              value: git.hef.sh
+            - name: DISABLE_SSH
+              value: "true"
+            - name: ROOT_URL
+              value: https://git.hef.sh
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: SECRET_KEY
+                  name: gitea-secrets
+          image: gitea/gitea:1.15.7
+          imagePullPolicy: Always
+          name: gitea
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /data/
+              name: gitea-storage-volume
+      volumes:
+        - name: gitea-storage-volume
+          persistentVolumeClaim:
+            claimName: gitea-storage
