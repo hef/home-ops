@@ -29,3 +29,6 @@ spec:
     ingress:
       enabled: true
       host: longhorn.hef.sh
+      annotations:
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "harddisk"
