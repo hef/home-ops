@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: hajimari
-  namespace: hajimari
+  name: gitea
+  namespace: gitea
 spec:
   interval: 5m
   chart:
