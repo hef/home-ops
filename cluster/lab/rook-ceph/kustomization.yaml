@@ -5,3 +5,4 @@ resources:
   - cluster
   - namespace.yaml
   - operator
+  - https://raw.githubusercontent.com/rook/rook/master/deploy/examples/toolbox.yaml
