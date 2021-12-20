@@ -4,6 +4,7 @@ metadata:
   name: gitea-ingress
   namespace: gitea
   annotations:
+    hajimari.io/appName: "traefik"
     hajimari.io/enable: "true"
     hajimari.io/icon: "git"
 spec:

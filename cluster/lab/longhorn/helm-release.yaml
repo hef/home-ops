@@ -30,5 +30,6 @@ spec:
       enabled: true
       host: longhorn.hef.sh
       annotations:
+        hajimari.io/appName: "longhorn"
         hajimari.io/enable: "true"
         hajimari.io/icon: "harddisk"
