@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - cert-manager
   - external-dns
+  - gitea
   - notifications
   - rook-ceph
+  - sources
   - traefik
