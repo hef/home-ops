@@ -17,6 +17,10 @@ spec:
     dashboard:
       ingress:
         enabled: false
+        annotations:
+          hajimari.io/appName: "goldilocks"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "scale-unbalanced"
         hosts:
           - host: goldilocks.hef.sh
             paths:
