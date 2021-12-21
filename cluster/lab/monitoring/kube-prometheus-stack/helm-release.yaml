@@ -38,6 +38,15 @@ spec:
               runAsUser: 0
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
+    prometheusOperator:
+      prometheusConfigReloader:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+          limits:
+            cpu: 200m
+            memory: 100Mi
     prometheus-node-exporter:
       fullnameOverride: node-exporter
     grafana:
@@ -46,6 +55,11 @@ spec:
       forceDeployDashboards: true
       defaultDashboardsTimezone: America/Chicago
     prometheus:
+      ingress:
+        enabled: true
+        annotations:
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "campfire"
       prometheusSpec:
         # fooSelectorNilUsesHelmValues to false means scan everywhere, which we want.
         # otherwise we restrict to just values inside of this helm release
