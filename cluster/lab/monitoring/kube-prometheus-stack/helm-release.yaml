@@ -49,10 +49,14 @@ spec:
       prometheusSpec:
         # fooSelectorNilUsesHelmValues to false means scan everywhere, which we want.
         # otherwise we restrict to just values inside of this helm release
+        scrapeInterval: 5m
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
+        #retention: 6h
+        enableAdminAPI: true
+        walCompression: true
         storageSpec:
           volumeClaimTemplate:
             spec:
