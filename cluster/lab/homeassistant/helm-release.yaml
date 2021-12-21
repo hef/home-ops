@@ -28,10 +28,6 @@ spec:
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/icon: "home-assistant"
-        tls:
-          - hosts:
-              - hass.hef.sh
-            secretName: hass.hef.sh-tls
         hosts:
           - host: hass.hef.sh
             paths:
