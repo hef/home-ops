@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: goldilocks
   namespace: monitoring
+  annotations:
+    hajimari.io/appName: "goldilocks"
+    hajimari.io/enable: "true"
+    hajimari.io/icon: "scale-unbalanced"
 spec:
   rules:
     - host: goldilocks.hef.sh
