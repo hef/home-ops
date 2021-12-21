@@ -8,4 +8,3 @@ resources:
   - namespace.yaml
   - promtail
   - speedtest-exporter
-  - unifi-poller
