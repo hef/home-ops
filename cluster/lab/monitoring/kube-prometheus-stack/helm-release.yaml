@@ -62,7 +62,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "campfire"
         hosts:
-          - host: prometheus.hef.sh
+          - prometheus.hef.sh
       prometheusSpec:
         # fooSelectorNilUsesHelmValues to false means scan everywhere, which we want.
         # otherwise we restrict to just values inside of this helm release
