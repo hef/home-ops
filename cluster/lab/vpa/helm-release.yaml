@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: goldilocks
+  name: vpa
   namespace: vpa
 spec:
   interval: 10m
