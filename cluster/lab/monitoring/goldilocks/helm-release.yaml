@@ -1,0 +1,24 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: goldilocks
+  namespace: monitoring
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: goldilocks
+      sourceRef:
+        kind: HelmRepository
+        name: fairwinds-charts
+        namespace: flux-system
+  values:
+    dashboard:
+      ingress:
+        enabled: false
+        hosts:
+          - host: goldilocks.hef.sh
+            paths:
+              - path: /
+                pathType: Prefix

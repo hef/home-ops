@@ -1,0 +1,75 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 18.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community-charts
+        namespace: flux-system
+  values:
+    fullnameOverride: prometheus
+    alertmanager:
+      alertmanagerSpec:
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: longhorn
+              resources:
+                requests:
+                  storage: 20Gi
+        initContainers:
+          - name: app-data-permission-fix
+            image: busybox
+            command: [ "/bin/chown", "-R", "1000:2000", "/alertmanager" ]
+            volumeMounts:
+              - name: alertmanager-prometheus-alertmanager-db
+                mountPath: /alertmanager
+                subPath: alertmanager-db
+            securityContext:
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
+    kube-state-metrics:
+      fullnameOverride: kube-state-metrics
+    prometheus-node-exporter:
+      fullnameOverride: node-exporter
+    grafana:
+      enabled: false
+      forceDeployDatasources: true
+      forceDeployDashboards: true
+      defaultDashboardsTimezone: America/Chicago
+    prometheus:
+      prometheusSpec:
+        # fooSelectorNilUsesHelmValues to false means scan everywhere, which we want.
+        # otherwise we restrict to just values inside of this helm release
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: longhorn
+              resources:
+                requests:
+                  storage: 20Gi
+        initContainers:
+          - name: app-data-permission-fix
+            image: busybox
+            command: [ "/bin/chown", "-R", "1000:2000", "/prometheus" ]
+            volumeMounts:
+            - name: prometheus-prometheus-prometheus-db
+              mountPath: /prometheus
+              subPath: prometheus-db
+            securityContext:
+              runAsGroup: 0
+              runAsNonRoot: false
+              runAsUser: 0
