@@ -143,7 +143,7 @@ spec:
       # optional: Log level (one from debug, info, warn, error). Default: info
       logLevel: info
       # optional: Log format (text or json). Default: text
-      logFormat: text
+      logFormat: json
     resources:
       requests:
         memory: 100Mi
