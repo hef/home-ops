@@ -21,4 +21,19 @@ spec:
         - name: default
           protocol: layer2
           addresses:
-            - "${METALLB_LB_RANGE}"
+            - 192.168.4.220-192.168.4.230
+        - name: work-network
+          protocol: layer2
+          addresses:
+            - 192.168.2.2-192.168.2.5
+          auto-assign: false
+        - name: special
+          protocol: layer2
+          addresses:
+            - 192.168.4.2-192.168.4.5
+          auto-assign: false
+        - name: home
+          protocol: layer2
+          addresses:
+            - 192.168.1.2-192.168.1.5
+          auto-assign: false

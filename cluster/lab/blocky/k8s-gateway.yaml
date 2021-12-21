@@ -1,0 +1,19 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: k8s-gateway
+  namespace: blocky
+spec:
+  interval: 20m
+  chart:
+    spec:
+      chart: k8s-gateway
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-gateway-charts
+        namespace: flux-system
+  values:
+    domain: hef.sh
+    service:
+      type: ClusterIP
