@@ -63,9 +63,6 @@ spec:
           hajimari.io/icon: "campfire"
         hosts:
           - host: prometheus.hef.sh
-            paths:
-              - path: /
-                pathType: Prefix
       prometheusSpec:
         # fooSelectorNilUsesHelmValues to false means scan everywhere, which we want.
         # otherwise we restrict to just values inside of this helm release
@@ -74,7 +71,7 @@ spec:
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
-        #retention: 6h
+        #retention: h
         enableAdminAPI: true
         walCompression: true
         storageSpec:
