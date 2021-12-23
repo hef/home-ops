@@ -27,7 +27,7 @@ spec:
         initContainers:
           - name: app-data-permission-fix
             image: busybox
-            command: [ "/bin/chown", "-R", "1000:2000", "/alertmanager" ]
+            command: ["/bin/chown", "-R", "1000:2000", "/alertmanager"]
             volumeMounts:
               - name: alertmanager-prometheus-alertmanager-db
                 mountPath: /alertmanager
@@ -84,11 +84,11 @@ spec:
         initContainers:
           - name: app-data-permission-fix
             image: busybox
-            command: [ "/bin/chown", "-R", "1000:2000", "/prometheus" ]
+            command: ["/bin/chown", "-R", "1000:2000", "/prometheus"]
             volumeMounts:
-            - name: prometheus-prometheus-prometheus-db
-              mountPath: /prometheus
-              subPath: prometheus-db
+              - name: prometheus-prometheus-prometheus-db
+                mountPath: /prometheus
+                subPath: prometheus-db
             securityContext:
               runAsGroup: 0
               runAsNonRoot: false

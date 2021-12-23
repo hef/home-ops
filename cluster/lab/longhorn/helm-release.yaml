@@ -20,7 +20,7 @@ spec:
       backupTargetCredentialSecret: aws-secret
       defaultDataLocality: best-effort
       replicaAutoBalance: best-effort
-      nodeDownPodDeletionPolicy:  delete-both-statefulset-and-deployment-pod
+      nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
       mkfsExt4Parameters: -F
     persistence:
       recurringJobSelector:

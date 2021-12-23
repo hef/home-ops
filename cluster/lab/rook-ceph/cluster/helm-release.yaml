@@ -29,5 +29,3 @@ spec:
         host:
           name: rook.hef.sh
           path: "/"
-
-

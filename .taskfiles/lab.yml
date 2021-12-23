@@ -9,7 +9,6 @@ vars:
   ANSIBLE_INVENTORY_DIR: "{{.ANSIBLE_DIR}}/inventory"
 
 tasks:
-
   playbook:lab:
     desc: Prepare all the k8s nodes for running k3s
     dir: provision/ansible
