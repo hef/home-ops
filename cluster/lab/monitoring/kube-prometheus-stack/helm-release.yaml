@@ -48,6 +48,7 @@ spec:
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
     prometheusOperator:
+
       prometheusConfigReloader:
         resources:
           requests:
@@ -56,6 +57,7 @@ spec:
           limits:
             cpu: 200m
             memory: 100Mi
+
     prometheus-node-exporter:
       fullnameOverride: node-exporter
     grafana:
