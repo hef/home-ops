@@ -4,9 +4,9 @@ resources:
   - blocky
   - cert-manager
   - external-dns
-  - gitea
+  #- gitea
   #- homeassistant
-  - longhorn
+  #- longhorn
   #- monitoring
   - notifications
   #- rook-ceph
