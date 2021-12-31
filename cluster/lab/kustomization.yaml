@@ -9,7 +9,7 @@ resources:
   #- longhorn
   #- monitoring
   - notifications
-  #- rook-ceph
+  - rook-ceph
   - sources
   - traefik
   - vpa
