@@ -16,9 +16,6 @@ spec:
   values:
     crds:
       enabled: true # todo: make this false
-    csi:
-      enableCephfsDriver: false
-      enableCephfsSnapshotter: false
     monitoring:
       enabled: true
       resources:
