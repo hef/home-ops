@@ -13,18 +13,18 @@ spec:
         kind: HelmRepository
         name: rook-ceph-charts
         namespace: flux-system
-  values:
-    crds:
-      enabled: true # todo: make this false
-    csi:
-      enableCephfsDriver: true
-      enableCephfsSnapshotter: true
-    monitoring:
-      enabled: true
-      resources:
-        requests:
-          cpu: 100m
-          memory: 128Mi
-        limits:
-          cpu: 1000m
-          memory: 256Mi
+  #values:
+    #crds:
+    #  enabled: true # todo: make this false
+    #csi:
+    #  enableCephfsDriver: true
+    #  enableCephfsSnapshotter: true
+    #monitoring:
+    #  enabled: true
+    #  resources:
+    #    requests:
+    #      cpu: 100m
+    #      memory: 128Mi
+    #    limits:
+    #      cpu: 1000m
+    #      memory: 256Mi
