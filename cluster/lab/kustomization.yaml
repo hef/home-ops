@@ -4,10 +4,10 @@ resources:
   - blocky
   - cert-manager
   - external-dns
-  - gitea
-  - homeassistant
+  #- gitea
+  #- homeassistant
   #- longhorn
-  - monitoring
+  #- monitoring
   - notifications
   - rook-ceph
   - sources
