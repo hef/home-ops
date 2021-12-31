@@ -126,6 +126,6 @@ spec:
           secretName: grafana.hef.sh-tls-hacks
     persistence:
       enabled: true
-      storageClassName: longhorn
+      #storageClassName: longhorn
     imageRenderer:
       enabled: false
