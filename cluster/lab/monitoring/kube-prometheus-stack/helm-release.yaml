@@ -16,22 +16,22 @@ spec:
   values:
     fullnameOverride: prometheus
     alertmanager:
-      alertmanagerSpec:
-        storage:
-          volumeClaimTemplate:
-            spec:
+      #alertmanagerSpec:
+        #storage:
+          #volumeClaimTemplate:
+            #spec:
               #storageClassName: longhorn
-              resources:
-                requests:
-                  storage: 20Gi
-        resources:
-          resources:
-            requests:
-              cpu: 11m
-              memory: 53M
-            limits:
-              cpu: 11m
-              memory: 53M
+              #resources:
+              #  requests:
+              #    storage: 20Gi
+        #resources:
+        #  resources:
+        #    requests:
+        #      cpu: 11m
+        #      memory: 53M
+        #    limits:
+        #      cpu: 11m
+        #      memory: 53M
 
         initContainers:
           - name: app-data-permission-fix
