@@ -13,6 +13,9 @@ spec:
         kind: HelmRepository
         name: grafana-charts
         namespace: flux-system
+  dependsOn:
+    - name: rook-ceph-cluster
+      namespace: rook-ceph
   values:
     deploymentStrategy:
       type: Recreate

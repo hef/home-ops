@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: rook-ceph-charts
         namespace: flux-system
-  #values:
+  values:
     #crds:
     #  enabled: true # todo: make this false
     #csi:
