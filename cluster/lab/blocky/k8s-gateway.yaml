@@ -16,4 +16,5 @@ spec:
   values:
     domain: hef.sh
     service:
-      type: ClusterIP
+      type: LoadBlancer
+      loadBalancerIP: 192.168.4.3
