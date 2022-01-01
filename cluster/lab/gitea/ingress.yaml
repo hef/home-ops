@@ -8,6 +8,7 @@ metadata:
     hajimari.io/enable: "true"
     hajimari.io/icon: "git"
 spec:
+  ingressClassName: traefik
   rules:
     - host: git.hef.sh
       http:
