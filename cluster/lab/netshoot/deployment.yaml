@@ -16,6 +16,10 @@ spec:
         - name: netshoot
           image: nicolaka/netshoot:latest
           imagePullPolicy: Always
+          command:
+            - /bin/sh
+            - -c
+            - sleep infinity
           securityContext:
             capabilities:
               add:
