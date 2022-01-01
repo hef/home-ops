@@ -41,7 +41,7 @@ spec:
           printer.lan: 192.168.178.3
       conditional:
         mapping:
-          hef.sh: udp:k8s-gateway.blocky.svc.cluster.local
+          hef.sh: udp:192.168.4.3
       blocking:
         blackLists:
           ads:
