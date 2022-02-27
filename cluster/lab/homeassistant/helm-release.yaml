@@ -42,7 +42,7 @@ spec:
         existingClaim: home-assistant-config
     addons:
       codeserver:
-        enabled: true
+        enabled: false
         workingDir: "/config"
         args:
           - --auth
