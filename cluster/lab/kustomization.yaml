@@ -10,7 +10,7 @@ resources:
   #- monitoring
   - netshoot
   - notifications
-  - rook-ceph
+  #- rook-ceph
   - sources
   - traefik
   - vpa
