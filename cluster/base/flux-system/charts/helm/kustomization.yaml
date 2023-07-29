@@ -4,6 +4,7 @@ resources:
   - authentik-charts.yaml
   - bitnami-charts.yaml
   - cillium.yaml
+  - coredns.yaml
   - deliveryhero-charts.yaml
   - descheduler-charts.yaml
   - external-dns-charts.yaml
