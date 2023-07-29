@@ -5,4 +5,6 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
-  METALLB_TRAEFIK_ADDR: 192.168.4.220
+  KUBE_VIP_ADDR: 192.168.1.2
+  CLUSTER_CIDR: 10.42.0.0/16
+
