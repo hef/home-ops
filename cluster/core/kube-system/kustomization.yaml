@@ -4,6 +4,6 @@ resources:
   - cillium
   - coredns
   - local-path-provisioner
-  #- metrics-server
-  #- reloader
+  - metrics-server
+  - reloader
   - namespace.yaml
