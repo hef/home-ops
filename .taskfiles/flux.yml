@@ -3,14 +3,21 @@ version: "3"
 
 tasks:
 
+  verify:
+    desc: Verify flux meets the prerequisites
+    cmd: flux check --pre
+
   bootstrap:
     desc: Load flux into cluster
     cmds:
-      - cmd: kubectl --kubeconfig={{.PROJECT_DIR}}/provision/kubeconfig create namespace flux-system
-      - cmd: cat ~/.config/sops/age/keys.txt | kubectl --kubeconfig={{.PROJECT_DIR}}/provision/kubeconfig -n flux-system create secret generic sops-age --from-file=age.agekey=/dev/stdin
-      - cmd: kubectl --kubeconfig={{.PROJECT_DIR}}/provision/kubeconfig apply --kustomize={{.PROJECT_DIR}}/cluster/base/flux-system
+      - cmd: kubectl  apply --kustomize {{.PROJECT_DIR}}/cluster/bootstrap
+      - cmd: cat ~/.config/sops/age/keys.txt | kubectl -n flux-system create secret generic sops-age --from-file=age.agekey=/dev/stdin
         ignore_error: true
-      - kubectl --kubeconfig={{.PROJECT_DIR}}/provision/kubeconfig apply --kustomize={{.PROJECT_DIR}}/cluster/base/flux-system
+      - cmd: sops --decrypt {{.PROJECT_DIR}}/cluster/base/cluster-secrets.sops.yaml | kubectl apply -f -
+      - cmd: kubectl apply -f {{.PROJECT_DIR}}/cluster/base/cluster-settings.yaml
+      - cmd: kubectl apply --kustomize={{.PROJECT_DIR}}/cluster/base/flux-system
+        ignore_error: true
+      #- kubectl --kubeconfig={{.PROJECT_DIR}}/provision/kubeconfig apply --kustomize={{.PROJECT_DIR}}/cluster/base/flux-system
 
 
   sync:
