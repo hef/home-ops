@@ -3,3 +3,8 @@
 timezone: "America/Chicago"
 # (list) Additional ssh public keys to add to the nodes
 # ssh_authorized_keys:
+kube_vip_addr: 192.168.1.2
+node_cidr: 192.168.1.0/24
+cluster_cidr: 10.42.0.0/16
+service_cidr: 10.43.0.0/16
+coredns_addr: 10.43.0.10
