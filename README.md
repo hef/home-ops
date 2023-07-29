@@ -27,3 +27,7 @@ task ubuntu:prepare
 task ubuntu:upgrade
 task cluster:bootstrap
 ```
+
+# references
+
+*  https://github.com/onedr0p/flux-cluster-template
