@@ -27,7 +27,7 @@ spec:
   wait: false
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: home-ops
   decryption:
     provider: sops
     secretRef:
