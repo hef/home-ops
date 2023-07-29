@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - cillium
   - coredns
-  #- local-path-provisioner
+  - local-path-provisioner
   #- metrics-server
   #- reloader
   - namespace.yaml
