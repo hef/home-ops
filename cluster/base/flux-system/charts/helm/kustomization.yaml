@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - authentik-charts.yaml
   - bitnami-charts.yaml
+  - bjw-s.yaml
   - cillium.yaml
   - coredns.yaml
   - deliveryhero-charts.yaml
@@ -10,6 +11,7 @@ resources:
   - external-dns-charts.yaml
   - grafana-charts.yaml
   - hajimari-charts.yaml
+  - ingress-nginx.yaml
   - infracloudio-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
