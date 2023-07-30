@@ -14,13 +14,13 @@ resources:
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
   - metallb-charts.yaml
-  - metrics-server-charts.yaml
+  - metrics-server.yaml
   - minecraft-server-charts.yaml
   - minio-charts.yaml
   - nfs-subdir-external-provisioner-charts.yaml
   - node-feature-discovery-charts.yaml
   - prometheus-community-charts.yaml
   - rook-ceph-charts.yaml
-  - stakater-charts.yaml
+  - stakater.yaml
   - traefik-charts.yaml
   #- weaveworks-kured-charts.yaml # stopped working
