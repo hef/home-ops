@@ -4,7 +4,7 @@ metadata:
   name: cloudflared-configmap
   namespace: networking
 data:
-  X: |
+  config.yaml: |
     originRequest:
       http2Origin: true
 
