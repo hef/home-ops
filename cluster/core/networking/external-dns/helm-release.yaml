@@ -34,7 +34,7 @@ spec:
             name: credentials
             key: cloudflare_api_token
     extraArgs:
-      - --annotation-filter=external-dns.alpha.kubernetes.io/target
+      - --ingress-class=external
       - --cloudflare-proxied
       - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
       - --crd-source-kind=DNSEndpoint
