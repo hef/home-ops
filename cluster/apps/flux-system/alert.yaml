@@ -13,3 +13,61 @@ spec:
       name: '*'
     - kind: Kustomization
       name: '*'
+    - kind: HelmRepository
+      name: '*'
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Alert
+metadata:
+  name: core-alert
+  namespace: flux-system
+spec:
+  providerRef:
+    name: flux-system
+  eventSeverity: info
+  eventSources:
+    - kind: Kustomization
+      name: core
+      namespace: flux-system
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Alert
+metadata:
+  name: home-ops-alert
+  namespace: flux-system
+spec:
+  providerRef:
+    name: flux-system
+  eventSeverity: info
+  eventSources:
+    - kind: Kustomization
+      name: home-ops
+      namespace: flux-system
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Alert
+metadata:
+  name: crds-alert
+  namespace: flux-system
+spec:
+  providerRef:
+    name: flux-system
+  eventSeverity: info
+  eventSources:
+    - kind: Kustomization
+      name: crds
+      namespace: flux-system
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Alert
+metadata:
+  name: apps-alert
+  namespace: flux-system
+spec:
+  providerRef:
+    name: flux-system
+  eventSeverity: info
+  eventSources:
+    - kind: Kustomization
+      name: apps
+      namespace: flux-system

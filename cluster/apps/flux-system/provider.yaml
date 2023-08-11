@@ -1,0 +1,21 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Provider
+metadata:
+  name: slack
+  namespace: flux-system
+spec:
+  type: discord
+  channel: "#alerts"
+  secretRef:
+    name: discord-webhook-url
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Provider
+metadata:
+  name: github
+  namespace: flux-system
+spec:
+  type: github
+  address: https://github.com/hef/home-ops
+  secretRef:
+    name: github
