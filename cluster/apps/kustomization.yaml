@@ -4,6 +4,5 @@ resources:
   - cert-manager
   - default
   - flux-system
-  - kube-system
   - networking
   #- system-upgrade
