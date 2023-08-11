@@ -17,6 +17,8 @@ spec:
       name: '*'
     - kind: HelmRelease
       name: '*'
+  exclusionList:
+    - 'Dependencies do not meet ready condition'
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta2
 kind: Alert
