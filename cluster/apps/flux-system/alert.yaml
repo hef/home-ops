@@ -1,0 +1,15 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Alert
+metadata:
+  name: discord-flux-notification
+  namespace: flux-system
+spec:
+  summary: "home-ops"
+  providerRef:
+    name: discord
+  eventSeverity: info
+  eventSources:
+    - kind: GitRepository
+      name: '*'
+    - kind: Kustomization
+      name: '*'
