@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - cloudflared
   - external-dns
+  - namespace.yaml
   - nginx
   - k8s-gateway
