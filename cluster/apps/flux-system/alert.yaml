@@ -23,7 +23,7 @@ metadata:
   namespace: flux-system
 spec:
   providerRef:
-    name: flux-system
+    name: github
   eventSeverity: info
   eventSources:
     - kind: Kustomization
@@ -37,7 +37,7 @@ metadata:
   namespace: flux-system
 spec:
   providerRef:
-    name: flux-system
+    name: github
   eventSeverity: info
   eventSources:
     - kind: Kustomization
@@ -51,7 +51,7 @@ metadata:
   namespace: flux-system
 spec:
   providerRef:
-    name: flux-system
+    name: github
   eventSeverity: info
   eventSources:
     - kind: Kustomization
@@ -65,7 +65,7 @@ metadata:
   namespace: flux-system
 spec:
   providerRef:
-    name: flux-system
+    name: github
   eventSeverity: info
   eventSources:
     - kind: Kustomization
