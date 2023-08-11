@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - alert.yaml
   - ingress.yaml
-  - namespace.yaml
   - provider.yaml
   - receiver.yaml
   - secret.sops.yaml
