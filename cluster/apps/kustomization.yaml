@@ -5,5 +5,5 @@ resources:
   - default
   - flux-system
   - kube-system
-  #- networking
+  - networking
   #- system-upgrade
