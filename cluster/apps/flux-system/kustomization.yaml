@@ -4,3 +4,4 @@ resources:
   - ingress.yaml
   - namespace.yaml
   - receiver.yaml
+  - secret.sops.yaml
