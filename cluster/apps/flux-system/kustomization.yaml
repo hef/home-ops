@@ -5,3 +5,4 @@ resources:
   - namespace.yaml
   - receiver.yaml
   - secret.sops.yaml
+  - webhook-receiver.yaml
