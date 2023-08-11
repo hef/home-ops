@@ -4,5 +4,6 @@ resources:
   - helm-release.yaml
   - letsencrypt-production.yaml
   - letsencrypt-staging.yaml
+  - namespace.yaml
   - prometheus-rule.yaml
   - secret.sops.yaml
