@@ -1,0 +1,8 @@
+---
+area/ansible:
+  - "ansible/**/*"
+area/github:
+  - ".github/**/*"
+area/kubernetes:
+  - "cluster/**/*"
+area/bootstrap:
