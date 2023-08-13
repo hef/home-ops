@@ -33,6 +33,7 @@ spec:
       lightTheme: espresso
       defaultEnable: true
       showGreeting: false
+      namespaceSelector: {}
     env:
       TZ: America/Chicago
     ingress:
