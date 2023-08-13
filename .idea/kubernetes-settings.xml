@@ -2,5 +2,10 @@
 <project version="4">
   <component name="KubernetesSettings">
     <option name="getSpecFromCluster" value="true" />
+    <specSources>
+      <SpecSource>
+        <option name="pathOrUrl" value="https://kubernetes-schemas.devbu.io/postgresql.cnpg.io/cluster_v1.json" />
+      </SpecSource>
+    </specSources>
   </component>
 </project>
