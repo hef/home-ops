@@ -11,5 +11,5 @@
   tasks:
     - name: delete local-path data
       ansible.builtin.file:
-        path: /var/lib/rancher/k3s/storage
+        path: /var/lib/rancher/k3s/storage/
         state: absent
