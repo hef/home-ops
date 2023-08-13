@@ -4,4 +4,3 @@ resources:
   - fairwinds-charts.yaml
   #- gitea-charts.yaml
   - k8s_gateway-charts.yaml
-  - longhorn-chart.yaml
