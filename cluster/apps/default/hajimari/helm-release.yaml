@@ -33,7 +33,12 @@ spec:
       lightTheme: espresso
       defaultEnable: true
       showGreeting: false
-      namespaceSelector: {}
+      namespaceSelector:
+        matchExpression:
+          - key: fake
+            operator: NotIn
+            values:
+              - fake
     env:
       TZ: America/Chicago
     ingress:
