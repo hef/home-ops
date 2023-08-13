@@ -34,11 +34,9 @@ spec:
       defaultEnable: true
       showGreeting: false
       namespaceSelector:
-        matchExpression:
-          - key: fake
-            operator: NotIn
-            values:
-              - fake
+        matchNames:
+          - default
+          - kube-system
     env:
       TZ: America/Chicago
     ingress:
