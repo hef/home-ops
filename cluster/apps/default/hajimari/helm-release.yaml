@@ -39,6 +39,7 @@ spec:
         matchNames:
           - default
           - kube-system
+          - longhorn-system
     env:
       TZ: America/Chicago
     ingress:
