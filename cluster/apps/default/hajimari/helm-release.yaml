@@ -30,6 +30,7 @@ spec:
     hajimari:
       title: Apps
       darkTheme: espresso
+      lightTheme: espresso
       defaultEnable: true
     env:
       TZ: America/Chicago
