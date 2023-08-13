@@ -12,7 +12,7 @@ spec:
       chart: longhorn
       sourceRef:
         kind: HelmRepository
-        name: longhorn-charts
+        name: longhorn
         namespace: flux-system
       version: 1.5.1
   maxHistory: 2
