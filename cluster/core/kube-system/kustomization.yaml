@@ -6,5 +6,6 @@ resources:
   - descheduler
   - local-path-provisioner
   - metrics-server
+  - node-feature-discovery
   - reloader
   - namespace.yaml
