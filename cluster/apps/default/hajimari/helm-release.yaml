@@ -32,6 +32,7 @@ spec:
       darkTheme: espresso
       lightTheme: espresso
       defaultEnable: true
+      showGreeting: false
     env:
       TZ: America/Chicago
     ingress:
