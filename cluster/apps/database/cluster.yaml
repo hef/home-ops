@@ -18,7 +18,7 @@ spec:
     size: 2Gi
     storageClass: local-path
   superuserSecret:
-    name: cloudnative-pg-secret
+    name: superuser-secret
   bootstrap:
     recovery:
       source: &previousCluster postgres-v3
