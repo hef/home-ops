@@ -32,7 +32,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: INTERNAL
+        ingressClassName: internal
         hosts:
           - host: &host apps.${SECRET_DOMAIN}
             paths:
