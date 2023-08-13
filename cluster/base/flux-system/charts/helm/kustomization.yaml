@@ -5,6 +5,7 @@ resources:
   - bitnami-charts.yaml
   - bjw-s.yaml
   - cillium.yaml
+  - cloudnative-pg.yaml
   - coredns.yaml
   - deliveryhero-charts.yaml
   - descheduler.yaml
