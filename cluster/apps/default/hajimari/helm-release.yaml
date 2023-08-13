@@ -27,6 +27,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    hajimari:
+      title: Apps
+      darkTheme: espresso
+      defaultEnable: true
     env:
       TZ: America/Chicago
     ingress:
