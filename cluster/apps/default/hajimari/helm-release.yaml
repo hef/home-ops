@@ -33,6 +33,8 @@ spec:
       lightTheme: espresso
       defaultEnable: true
       showGreeting: false
+      showBookmarkGroups: false
+      showGlobalBookmarks: false
       namespaceSelector:
         matchNames:
           - default
