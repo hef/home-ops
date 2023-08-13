@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - cillium
   - coredns
+  - descheduler
   - local-path-provisioner
   - metrics-server
   - reloader
