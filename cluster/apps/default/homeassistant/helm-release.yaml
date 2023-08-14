@@ -42,6 +42,11 @@ spec:
         tls:
           - hosts:
               - *host
+    service:
+      main:
+        ports:
+          http:
+            port: 8123
     probes:
       liveness:
         enabled: false
