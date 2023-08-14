@@ -27,6 +27,8 @@ spec:
     image:
       repository: ghcr.io/onedr0p/home-assistant
       tag: 2023.8.2@sha256:ee7da9c68d9bfdbc4da8c907e454275ebe79e99f4fc373a02be8c56eed76f4f5
+    env:
+      TZ: America/Chicago
     service:
       main:
         ports:
@@ -40,7 +42,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "home-assistant"
         hosts:
-          - host: &host hass.hef.sh
+          - host: &host hass.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
@@ -66,3 +68,33 @@ spec:
         memory: 100Mi
       limits:
         memory: 750Mi
+    addons:
+      codeserver:
+        enabled: true
+        image:
+          repository: ghcr.io/coder/code-server
+          tag: 4.16.1
+        env:
+          TZ: America/Chicago
+        workingDir: /config
+        args:
+          - --auth
+          - "none"
+          - --user-data-dir
+          - "/config/.vscode"
+          - --extensions-dir
+          - "/config/.vscode"
+        ingress:
+          enabled: true
+          ingressClassName: internal
+          hosts:
+            - host: &code-host hass-code.${SECRET_DOMAIN}
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls:
+            - hosts:
+                - *code-host
+        volumeMounts:
+          - name: config
+            mountPath: /config
