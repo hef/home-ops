@@ -40,7 +40,7 @@ spec:
       LLDAP_HTTP_URL: https://lldap.${SECRET_DOMAIN}
       LLDAP_LDAP_PORT: &ldapPort 389
       LLDAP_LDAP_BASE_DN: dc=home,dc=arpa
-    envFrom: *envFrom
+    #envFrom: *envFrom
     service:
       main:
         ports:
