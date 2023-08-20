@@ -45,9 +45,6 @@ spec:
       AUTHELIA_AUTHENTICATION_BACKEND_FILE_WATCH: "false"
       AUTHELIA_ACCESS_CONTROL_DEFAULT_POLICY: two_factor
       AUTHELIA_LOG_LEVEL: debug
-      AUTHELIA_SESSION_NAME: home-ops
-      AUTHELIA_SESSION_DOMAIN: ${SECRET_DOMAIN}
-
     envFrom:
       - secretRef:
           name: authelia-secret

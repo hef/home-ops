@@ -6,3 +6,11 @@ metadata:
 data:
   configuration.yaml: |
     ---
+    session:
+      cookies:
+        - domain: "${SECRET_DOMAIN}"
+          name: authelia_session
+          secure: true
+          http_only: true
+          same_site: strict
+          expiration: 3600
