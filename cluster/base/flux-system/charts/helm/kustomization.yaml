@@ -26,6 +26,7 @@ resources:
   - node-feature-discovery.yaml
   - prometheus-community-charts.yaml
   - rook-ceph-charts.yaml
+  - runix.yaml
   - stakater.yaml
   - traefik-charts.yaml
   #- weaveworks-kured-charts.yaml # stopped working
