@@ -8,11 +8,11 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: runix
+      chart: pgadmin4
       version: 1.15.5
       sourceRef:
         kind: HelmRepository
-        name: pgadmin4
+        name: runix
         namespace: flux-system
   maxHistory: 2
   install:
