@@ -9,8 +9,7 @@ data:
     session:
       cookies:
         - domain: "${SECRET_DOMAIN}"
+          authelia_domain: https://auth.${SECRET_DOMAIN}
           name: authelia_session
           secure: true
-          http_only: true
-          same_site: strict
-          expiration: 3600
+          same_site: lax
