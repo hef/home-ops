@@ -108,9 +108,11 @@ spec:
         enabled: true
         type: pvc
         name: authelia-data
+        accessMode: ReadWriteOnce
         mountPath: /data
         size: 1Gi
         storageClass: longhorn
+
       config:
         enabled: true
         type: configMap
