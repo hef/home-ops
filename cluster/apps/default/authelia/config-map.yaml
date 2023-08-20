@@ -8,8 +8,10 @@ data:
     ---
     session:
       cookies:
-        - domain: "${SECRET_DOMAIN}"
-          authelia_domain: https://auth.${SECRET_DOMAIN}
+        - domain: ${SECRET_DOMAIN}
+          authelia_url: https://auth.${SECRET_DOMAIN}
           name: authelia_session
-          secure: true
           same_site: lax
+    storage:
+      local:
+        path: /data/db.sqlite3
