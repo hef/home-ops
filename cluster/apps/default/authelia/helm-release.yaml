@@ -112,7 +112,6 @@ spec:
         mountPath: /data
         size: 1Gi
         storageClass: longhorn
-
       config:
         enabled: true
         type: configMap
