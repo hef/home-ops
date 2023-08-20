@@ -1,7 +1,7 @@
 
 # Initial formate of drives
 
-* Flash drive with Etcher: ubuntu preinstalled server arm64 
+* Flash drive with Etcher: ubuntu preinstalled server arm64
 
 ````bash
 mount /dev/disk/by-label/system-boot /mnt/boot

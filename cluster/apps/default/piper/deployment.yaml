@@ -16,18 +16,18 @@ spec:
       containers:
         - name: piper
           image: rhasspy/wyoming-piper:1.3.0
-          args: [ "--voice", "en-us-lessac-low" ]
+          args: ["--voice", "en-us-lessac-low"]
           ports:
             - containerPort: 10200
           volumeMounts:
-          - name: data
-            mountPath: /data
+            - name: data
+              mountPath: /data
       volumes:
         - name: data
           ephemeral:
             volumeClaimTemplate:
               spec:
-                accessModes: [ "ReadWriteOnce" ]
+                accessModes: ["ReadWriteOnce"]
                 resources:
                   requests:
                     storage: 1Gi
