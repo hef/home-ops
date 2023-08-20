@@ -1,0 +1,124 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helm.toolkit.fluxcd.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app authelia
+  namespace: default
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 2
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  dependsOn:
+    - name: lldap
+      namespace: default
+    - name: redis
+      namespace: database
+  values:
+    controller:
+      replicas: 1
+      strategy: RollingUpdate
+      annotations:
+        reloader.stakater.com/auto: "true"
+    image:
+      repository: ghcr.io/authelia/authelia
+      tag: master@sha256:a3647c3dd136402745c7639e446944004145630c822f27e22f999c414c234d2f
+    args: ["--config", "/config/configuration.yaml", "--config.experimental.filters", "expand-env"]
+    env:
+
+    envFrom:
+      - secretRef:
+          name: authelia-secret
+    enableServiceLinks: false
+    service:
+      main:
+        ports:
+          http:
+            port: *port
+          metrics:
+            enabled: true
+            port: 8080
+    serviceMonitor:
+      main:
+        enabled: true
+        endpoints:
+          - port: metrics
+            scheme: http
+            path: /metrics
+            interval: 1m
+            scrapeTimeout: 10s
+    probes:
+      liveness: &probes
+        enabled: true
+        custom: true
+        spec:
+          httpGet:
+            path: /api/health
+            port: *port
+          initialDelaySeconds: 0
+          periodSeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 3
+      readiness: *probes
+      startup:
+        enabled: false
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        annotations:
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            add_header Cache-Control "no-store";
+            add_header Pragma "no-cache";
+            add_header X-Frame-Options "SAMEORIGIN";
+            add_header X-XSS-Protection "1; mode=block";
+        hosts:
+          - host: &host auth.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+    persistence:
+      config:
+        enabled: true
+        type: configMap
+        name: authelia-configmap
+        subPath: configuration.yaml
+        mountPath: /config/configuration.yaml
+        readOnly: false
+    topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/name: *app
+    resources:
+      requests:
+        cpu: 5m
+        memory: 10Mi
+      limits:
+        memory: 200Mi
