@@ -9,10 +9,10 @@ spec:
   chart:
     spec:
       chart: runix
-      version: 1.5.1
+      version: 1.15.5
       sourceRef:
         kind: HelmRepository
-        name: runix
+        name: pgadmin4
         namespace: flux-system
   maxHistory: 2
   install:
