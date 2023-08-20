@@ -43,6 +43,7 @@ spec:
       AUTHELIA_SERVER_ADDRESS: tcp://0.0.0.0:80
       AUTHELIA_AUTHENTICATION_BACKEND_FILE_PATH: /data/users_database.yml
       AUTHELIA_AUTHENTICATION_BACKEND_FILE_WATCH: "false"
+      AUTHELIA_ACCESS_CONTROL_DEFAULT_POLICY: two_factor
       AUTHELIA_LOG_LEVEL: debug
     envFrom:
       - secretRef:
