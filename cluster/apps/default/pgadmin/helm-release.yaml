@@ -32,3 +32,6 @@ spec:
       ingressClassName: internal
       hosts:
         - host: pgadmin.${SECRET_DOMAIN}
+          paths:
+            - path: /
+              pathType: Prefix
