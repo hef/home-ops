@@ -25,6 +25,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    strategy:
+      type: Recreate
     env:
       TZ: America/Chicago
     ingress:
