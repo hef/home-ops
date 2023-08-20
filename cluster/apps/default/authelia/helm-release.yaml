@@ -37,6 +37,7 @@ spec:
     args: ["--config", "/config/configuration.yaml", "--config.experimental.filters", "expand-env"]
     env:
       AUTHELIA_SERVER_PORT: &port 80
+      AUTHELIA_AUTHENTICATION_BACKEND_FILE_PATH: /data/users_database.yml
     envFrom:
       - secretRef:
           name: authelia-secret
@@ -97,6 +98,13 @@ spec:
       fsGroup: 568
       fsGroupChangePolicy: OnRootMismatch
     persistence:
+      data:
+        enabled: true
+        type: pvc
+        name: authelia-data
+        mountPath: /data
+        size: 1Gi
+        storageClass: longhorn
       config:
         enabled: true
         type: configMap
