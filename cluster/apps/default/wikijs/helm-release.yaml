@@ -27,6 +27,7 @@ spec:
     keepHistory: false
   values:
     postgresql:
+      enabled: false
       persistence:
         enabled: false
       postgresqlDatabase: wikijs
