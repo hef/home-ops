@@ -1,0 +1,10 @@
+# this doesn't get deployed with the rest of the postgres resources
+# this is here to make it easy to trigger a backup right now with
+# kuectl apply -f cluster/apps/database/postgres/backup.yaml
+apiVersion: postgresql.cnpg.io/v1
+kind: Backup
+metadata:
+  name: backup-now
+spec:
+  cluster:
+    name: postgres
