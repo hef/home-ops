@@ -33,7 +33,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: ghcr.io/authelia/authelia
-      tag: master@sha256:8f351fd8673dda6ec5ddde5587a59e409c3dcb753dd72666a43faeb8babac62b
+      tag: master@sha256:1d139096a64263dd9206a2c86ce6d37023d839814c2e9146a0b692c2ec5f49c0
     args:
       - "--config"
       - "/config/configuration.yaml"
