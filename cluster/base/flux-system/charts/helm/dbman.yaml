@@ -6,4 +6,4 @@ metadata:
 spec:
   type: oci
   interval: 5m
-  url: oci://ghcr.io/dbman/dbman
+  url: oci://ghcr.io/hef/dbman
