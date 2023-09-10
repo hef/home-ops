@@ -67,15 +67,15 @@ spec:
         enabled: true
         type: emptyDir
         mountPath: /config/.esphome
+      config:
+        enabled: true
+        type: longhorn
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        mountPath: /config
     resources:
       requests:
         cpu: 10m
         memory: 100Mi
       limits:
         memory: 750Mi
-    volumeClaimTemplates:
-      - name: config
-        mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 1Gi
-        storageClass: longhorn
