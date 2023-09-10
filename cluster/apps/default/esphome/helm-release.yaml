@@ -66,13 +66,14 @@ spec:
       esphome-cache:
         enabled: true
         type: emptyDir
-        mountPath: /config/.esphome
+        mountPath: /cache
       config:
         enabled: true
-        type: longhorn
+        type: pvc
         accessMode: ReadWriteOnce
         size: 1Gi
         mountPath: /config
+        storageClass: longhorn
     resources:
       requests:
         cpu: 10m
