@@ -63,15 +63,15 @@ spec:
       startup:
         enabled: false
     persistence:
-      esphome-cache:
-        enabled: true
-        type: emptyDir
-        mountPath: /cache
+      #esphome-cache:
+      #  enabled: true
+      #  type: emptyDir
+      #  mountPath: /cache
       config:
         enabled: true
         type: pvc
         accessMode: ReadWriteOnce
-        size: 1Gi
+        size: 5Gi
         mountPath: /config
         storageClass: longhorn
     resources:
