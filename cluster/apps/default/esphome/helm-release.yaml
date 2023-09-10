@@ -25,6 +25,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    hostNetwork: true
+    dnsPolicy: ClusterFirstWithHostNet
     image:
       repository: ghcr.io/esphome/esphome
       tag: 2023.8.3@sha256:242fb2221f338bb443bcc853f681dcc48d00cd099e15cdba90ecb905c500b8f5
