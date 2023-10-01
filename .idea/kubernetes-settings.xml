@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="KubernetesSettings">
-    <option name="getSpecFromCluster" value="true" />
-    <specSources>
-      <SpecSource>
-        <option name="pathOrUrl" value="https://kubernetes-schemas.devbu.io/postgresql.cnpg.io/cluster_v1.json" />
-      </SpecSource>
-    </specSources>
+  <component name="KubernetesApiSettings">
+    <option name="configPaths">
+      <list>
+        <option value="$PROJECT_DIR$/provision/kubeconfig" />
+      </list>
+    </option>
   </component>
 </project>
