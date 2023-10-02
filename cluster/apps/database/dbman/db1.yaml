@@ -1,0 +1,11 @@
+apiVersion: dbman.hef.sh/v1alpha2
+kind: Database
+metadata:
+  name: db1
+  namespace: database
+spec:
+  credentials_secret: db1-credentials
+  database_name: db1
+  database_server_ref:
+    namespace: database
+    name: postgres
