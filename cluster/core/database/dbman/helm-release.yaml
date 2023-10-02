@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: dbman
-      version: 0.19.1
+      version: 0.20.0
       sourceRef:
         kind: HelmRepository
         name: dbman
@@ -26,3 +26,6 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  values:
+    env:
+      RUST_LOG: debug
