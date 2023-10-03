@@ -28,4 +28,5 @@ spec:
     keepHistory: false
   values:
     env:
-      RUST_LOG: debug
+      - name: RUST_LOG
+        value: debug
