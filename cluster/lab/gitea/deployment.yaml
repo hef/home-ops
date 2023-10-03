@@ -30,7 +30,7 @@ spec:
                 secretKeyRef:
                   key: SECRET_KEY
                   name: gitea-secrets
-          image: gitea/gitea:1.20.4
+          image: gitea/gitea:1.20.5
           imagePullPolicy: Always
           name: gitea
           ports:
