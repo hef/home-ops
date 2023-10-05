@@ -4,5 +4,5 @@ metadata:
   name: postgres
   namespace: database
 spec:
-  conn_string: "host=postgres-rw.database"
+  conn_string: "host=192.168.1.6"
   superuser_secret: superuser-secret
