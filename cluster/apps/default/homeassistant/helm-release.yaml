@@ -29,7 +29,7 @@ spec:
     dnsPolicy: ClusterFirstWithHostNet
     image:
       repository: ghcr.io/onedr0p/home-assistant
-      tag: 2023.9.3@sha256:d6e4c153f71b544e0e216706beda9511e106d535f96a0fce75500efa7cbee01d
+      tag: 2023.10.1@sha256:d14438564b84c8ac9e163e09d510fb66bf9d7ac40d3cc9ac24c926513eb9d6fd
     env:
       TZ: America/Chicago
     service:
