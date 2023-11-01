@@ -25,13 +25,24 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    hostNetwork: true
-    dnsPolicy: ClusterFirstWithHostNet
-    image:
-      repository: ghcr.io/esphome/esphome
-      tag: 2023.10.4@sha256:1cba6aef639bcb89c010e6bc59148f089d496ed2804f27569dfb31bfcdb48d33
-    env:
-      TZ: America/Chicago
+    controllers:
+      main:
+        containers:
+          main:
+            hostNetwork: true
+            dnsPolicy: ClusterFirstWithHostNet
+            image:
+              repository: ghcr.io/esphome/esphome
+              tag: 2023.10.4@sha256:1cba6aef639bcb89c010e6bc59148f089d496ed2804f27569dfb31bfcdb48d33
+            env:
+              TZ: America/Chicago
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+              enabled: false
     service:
       main:
         #annotations:
@@ -55,13 +66,7 @@ spec:
         tls:
           - hosts:
               - *host
-    probes:
-      liveness:
-        enabled: false
-      readiness:
-        enabled: false
-      startup:
-        enabled: false
+
     persistence:
       #esphome-cache:
       #  enabled: true
