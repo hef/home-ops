@@ -41,6 +41,12 @@ spec:
                 enabled: false
               startup:
                 enabled: false
+            resources:
+              requests:
+                cpu: 10m
+                memory: 500Mi
+              limits:
+                memory: 2Gi
             hostNetwork: true
             dnsPolicy: ClusterFirstWithHostNet
             env:
@@ -57,7 +63,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        className: internal
         annotations:
           hajimari.io/enable: "true"
         hosts:
@@ -84,9 +90,3 @@ spec:
         size: 5Gi
         mountPath: /config
         storageClass: longhorn
-    resources:
-      requests:
-        cpu: 10m
-        memory: 500Mi
-      limits:
-        memory: 2Gi
