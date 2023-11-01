@@ -42,7 +42,7 @@ spec:
               readiness:
                 enabled: false
               startup:
-              enabled: false
+                enabled: false
     service:
       main:
         #annotations:
