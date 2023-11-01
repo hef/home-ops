@@ -47,10 +47,11 @@ spec:
                 memory: 500Mi
               limits:
                 memory: 2Gi
-            hostNetwork: true
-            dnsPolicy: ClusterFirstWithHostNet
             env:
               TZ: America/Chicago
+        pod:
+          hostNetwork: true
+          dnsPolicy: ClusterFirstWithHostNet
     service:
       main:
         #annotations:
