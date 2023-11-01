@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.0.3
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -25,22 +25,43 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    hostNetwork: true
-    dnsPolicy: ClusterFirstWithHostNet
-    image:
-      repository: ghcr.io/onedr0p/home-assistant
-      tag: 2023.10.5@sha256:24ce89830111fe19bb2df00621dfd631fd20abe07a453ea60c2027890d5b934e
-    env:
-      TZ: America/Chicago
+    controllers:
+      main:
+        image:
+          repository: ghcr.io/onedr0p/home-assistant
+          tag: 2023.10.5@sha256:24ce89830111fe19bb2df00621dfd631fd20abe07a453ea60c2027890d5b934e
+        env:
+          TZ: America/Chicago
+        podSecurityContext:
+          runAsUser: 568
+          runAsGroup: 568
+          fsGroup: 568
+          fsGroupChangePolicy: OnRootMismatch
+      pod:
+        hostNetwork: true
+        dnsPolicy: ClusterFirstWithHostNet
+      probes:
+        liveness:
+          enabled: false
+        readiness:
+          enabled: false
+        startup:
+          enabled: false
+      resources:
+        requests:
+          cpu: 10m
+          memory: 100Mi
+        limits:
+          memory: 750Mi
     service:
       main:
         ports:
           http:
-            port: 8123
+          port: 8123
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        className: internal
         annotations:
           hajimari.io/enable: "true"
           hajimari.io/icon: "home-assistant"
@@ -49,35 +70,23 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
-    probes:
-      liveness:
-        enabled: false
-      readiness:
-        enabled: false
-      startup:
-        enabled: false
-    podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-      fsGroupChangePolicy: OnRootMismatch
+
+
     persistence:
       config:
         enabled: true
         mountPath: /config
         accessMode: ReadWriteOnce
-        type: pvc
+        type: persistentVolumeClaim
         size: 1Gi
         storageClass: longhorn
-    resources:
-      requests:
-        cpu: 10m
-        memory: 100Mi
-      limits:
-        memory: 750Mi
+
     addons:
       codeserver:
         enabled: true
