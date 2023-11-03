@@ -6,6 +6,7 @@ resources:
   - hajimari
   - homeassistant
   - lldap
+  - mosquitto
   - pgadmin
   - piper
   - whisper
