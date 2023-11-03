@@ -22,10 +22,7 @@ spec:
       main:
         annotations:
           reloader.stakater.com/auto: "true"
-
         pod:
-          securityContext:
-            privileged: true
           nodeSelector:
             feature.node.kubernetes.io/usb-02_1a86_55d4.present: "true"
         containers:
@@ -42,6 +39,8 @@ spec:
               #ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: &port 8080
               #ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://zigbee2mqtt.${SECRET_DOMAIN}
               ZIGBEE2MQTT_CONFIG_SERIAL_PORT: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230525162016-if00
+            securityContext:
+              privileged: true
             resources:
               requests:
                 cpu: 10m
