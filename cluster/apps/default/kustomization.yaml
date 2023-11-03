@@ -10,4 +10,4 @@ resources:
   - piper
   - whisper
   - wikijs
-  #- zigbee2mqtt
+  - zigbee2mqtt
