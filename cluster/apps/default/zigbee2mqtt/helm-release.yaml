@@ -29,7 +29,8 @@ spec:
             runAsGroup: 568
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
-
+          nodeSelector:
+            feature.node.kubernetes.io/usb-02_1a86_55d4.present: "trye"
         containers:
           main:
             image:
@@ -52,7 +53,12 @@ spec:
         type: persistentVolumeClaim
         size: 1Gi
         storageClass: longhorn
-
+      usb:
+        type:
+        hostPath: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230525162016-if00
+        hostPathType: CharDevice
+        globalMounts:
+          - path: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230525162016-if00
     service:
       main:
         ports:
