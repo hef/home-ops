@@ -25,10 +25,6 @@ spec:
 
         pod:
           securityContext:
-            runAsUser: 568
-            runAsGroup: 568
-            fsGroup: 568
-            fsGroupChangePolicy: OnRootMismatch
             privileged: true
           nodeSelector:
             feature.node.kubernetes.io/usb-02_1a86_55d4.present: "true"
