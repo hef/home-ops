@@ -38,10 +38,11 @@ spec:
               tag: 1.33.2
             env:
               ZIGBEE2MQTT_DATA: /data
+              ZIGBEE2MQTT_CONFIG_ADVANCED_LEGACY_API: "false"
               ZIGBEE2MQTT_CONFIG_ADVANCED_LOG_LEVEL: debug
               ZIGBEE2MQTT_CONFIG_ADVANCED_LOG_OUTPUT: '["console"]'
-              #ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: &port 80
-              ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://zigbee2mqtt.${SECRET_DOMAIN}
+              #ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: &port 8080
+              #ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://zigbee2mqtt.${SECRET_DOMAIN}
             resources:
               requests:
                 cpu: 10m
