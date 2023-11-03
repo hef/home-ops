@@ -42,7 +42,7 @@ spec:
             resources:
               requests:
                 cpu: 10m
-                memory: 1282M
+                memory: 128M
               limits:
                 memory: 256M
     persistence:
@@ -70,7 +70,7 @@ spec:
         enabled: true
         className: internal
         hosts:
-          - host: &host "zigbee2mqtt.${secret_domain}"
+          - host: &host "zigbee2mqtt.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
