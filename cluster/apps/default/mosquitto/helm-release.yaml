@@ -44,6 +44,13 @@ spec:
             main:
               - path: /mosquitto/config/mosquitto.conf
                 subPath: mosquitto.conf
+      secret:
+        type: secret
+        name: mosquitto-secret
+        advancedMounts:
+          main:
+            main:
+              - path: /mosquitto/secret/
       data:
         enabled: true
         mountPath: /data
