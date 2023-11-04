@@ -45,8 +45,11 @@ spec:
               ZIGBEE2MQTT_CONFIG_DEVICE_OPTIONS_LEGACY: "false"
               ZIGBEE2MQTT_CONFIG_DEVICE_OPTIONS_RETAIN: "true"
               ZIGBEE2MQTT_CONFIG_EXPERIMENTAL_NEW_API: "true"
+              #ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: &port 8080
+              #ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://zigbee2mqtt.${SECRET_DOMAIN}
               ZIGBEE2MQTT_CONFIG_HOMEASSISTANT: "true"
               ZIGBEE2MQTT_CONFIG_MQTT_INCLUDE_DEVICE_INFORMATION: "true"
+              ZIGBEE2MQTT_CONFIG_MQTT_REJECT_UNAUTHORIZED: "true"
               ZIGBEE2MQTT_CONFIG_MQTT_SERVER: "mqtt://mosquitto.default.svc.cluster.local"
               ZIGBEE2MQTT_CONFIG_MQTT_USER:
                 valueFrom:
@@ -58,8 +61,7 @@ spec:
                   secretKeyRef:
                     name: mosquitto-secret
                     key: zigbee2mqtt_password
-              #ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: &port 8080
-              #ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://zigbee2mqtt.${SECRET_DOMAIN}
+              ZIGBEE2MQTT_CONFIG_PERMIT_JOIN: "false"
               # thank you /u/asinla1 https://www.reddit.com/r/homeassistant/comments/16j2k00/sonoff_zigbee_usb_differences/k0nob6w/
               ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: ezsp
               ZIGBEE2MQTT_CONFIG_SERIAL_PORT: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230525162016-if00
