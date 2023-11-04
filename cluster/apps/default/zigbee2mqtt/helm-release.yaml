@@ -36,9 +36,21 @@ spec:
               ZIGBEE2MQTT_CONFIG_ADVANCED_LEGACY_API: "false"
               ZIGBEE2MQTT_CONFIG_ADVANCED_LOG_LEVEL: debug
               ZIGBEE2MQTT_CONFIG_ADVANCED_LOG_OUTPUT: '["console"]'
+              ZIGBEE2MQTT_CONFIG_MQTT_SERVER: "mqtt://mosquitto.default.svc.cluster.local"
+              ZIGBEE2MQTT_CONFIG_MQTT_USER:
+                valueFrom:
+                  secretKeyRef:
+                    name: mosquitto-secret
+                    key: zigbee2mqtt_user
+              ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: mosquitto-secret
+                    key: zigbee2mqtt_password
               #ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: &port 8080
               #ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://zigbee2mqtt.${SECRET_DOMAIN}
               ZIGBEE2MQTT_CONFIG_SERIAL_PORT: /dev/serial/by-id/usb-ITEAD_SONOFF_Zigbee_3.0_USB_Dongle_Plus_V2_20230525162016-if00
+
             securityContext:
               privileged: true
             resources:
