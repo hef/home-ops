@@ -36,6 +36,14 @@ spec:
               limits:
                 memory: 16Mi
     persistence:
+      config:
+        type: configMap
+        name: mosquitto-configmap
+        advanceMounts:
+          main:
+            main:
+              - path: /mosquitto/config/mosquitto.conf
+                subPath: mosquitto.conf
       data:
         enabled: true
         mountPath: /data
