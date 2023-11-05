@@ -33,6 +33,7 @@ spec:
             env:
               TZ: america/chicago
               ZIGBEE2MQTT_DATA: /data
+              # [random.randint(0,255) for _ in range(8)]
               ZIGBEE2MQTT_CONFIG_ADVANCED_EXT_PAN_ID:
                 valueFrom:
                   secretKeyRef:
@@ -46,12 +47,14 @@ spec:
               ZIGBEE2MQTT_CONFIG_ADVANCED_LEGACY_API: "false"
               ZIGBEE2MQTT_CONFIG_ADVANCED_LEGACY_AVAILABILITY_PAYLOAD: "false"
               ZIGBEE2MQTT_CONFIG_ADVANCED_LOG_LEVEL: info
+              # [random.randint(0,255) for _ in range(16)]
               ZIGBEE2MQTT_CONFIG_ADVANCED_NETWORK_KEY:
                 valueFrom:
                   secretKeyRef:
                     name: zigbee2mqtt-secret
                     key: network_key
               ZIGBEE2MQTT_CONFIG_ADVANCED_LOG_OUTPUT: '["console"]'
+              # random.randint(1,0xffff-1)
               ZIGBEE2MQTT_CONFIG_ADVANCED_PAN_ID:
                 valueFrom:
                   secretKeyRef:
