@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - authelia
   - esphome
+  - foundry
   - hajimari
   - homeassistant
   - lldap
