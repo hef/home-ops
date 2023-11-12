@@ -4,6 +4,8 @@ metadata:
   name: foundry
   namespace: default
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: foundry
