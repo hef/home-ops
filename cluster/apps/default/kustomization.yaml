@@ -4,6 +4,7 @@ resources:
   - authelia
   - esphome
   - foundry
+  - grafana
   - hajimari
   - homeassistant
   - lldap
