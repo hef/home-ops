@@ -13,6 +13,7 @@ resources:
   - external-dns-charts.yaml
   - grafana-charts.yaml
   - hajimari.yaml
+  - influxdata.yaml
   - ingress-nginx.yaml
   - infracloudio-charts.yaml
   - jetstack-charts.yaml
