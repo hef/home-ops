@@ -17,7 +17,7 @@ resources:
   - ingress-nginx.yaml
   - infracloudio-charts.yaml
   - jetstack-charts.yaml
-  - k8s-at-home-charts.yaml
+  #- k8s-at-home-charts.yaml
   - k8s-gateway.yaml
   - longhorn.yaml
   - metallb-charts.yaml
