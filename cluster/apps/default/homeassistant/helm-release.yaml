@@ -29,7 +29,7 @@ spec:
       main:
         image:
           repository: ghcr.io/onedr0p/home-assistant
-          tag: 2023.10.5@sha256:24ce89830111fe19bb2df00621dfd631fd20abe07a453ea60c2027890d5b934e
+          tag: 2023.12.1@sha256:435264e826e5adcc6f669f80d2f2495faa793fe9a4bd357445ae7cf14bb89f0b
         env:
           TZ: America/Chicago
         podSecurityContext:
