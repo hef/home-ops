@@ -34,3 +34,5 @@ spec:
     persistence:
       storageClassName: longhorn
       enabled: true
+    strategy:
+      type: Recreate
