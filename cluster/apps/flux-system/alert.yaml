@@ -1,4 +1,4 @@
-apiVersion: notification.toolkit.fluxcd.io/v1beta2
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
   name: discord-flux-notification
@@ -20,7 +20,7 @@ spec:
   exclusionList:
     - 'Dependencies do not meet ready condition'
 ---
-apiVersion: notification.toolkit.fluxcd.io/v1beta2
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
   name: core-alert
@@ -34,7 +34,7 @@ spec:
       name: core
       namespace: flux-system
 ---
-apiVersion: notification.toolkit.fluxcd.io/v1beta2
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
   name: home-ops-alert
@@ -48,7 +48,7 @@ spec:
       name: home-ops
       namespace: flux-system
 ---
-apiVersion: notification.toolkit.fluxcd.io/v1beta2
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
   name: apps-alert
