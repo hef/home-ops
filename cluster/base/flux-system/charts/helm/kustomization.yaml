@@ -7,12 +7,12 @@ resources:
   - cillium.yaml
   - cloudnative-pg.yaml
   - coredns.yaml
-  - dbman.yaml
   - deliveryhero-charts.yaml
   - descheduler.yaml
   - external-dns-charts.yaml
   - grafana-charts.yaml
   - hajimari.yaml
+  - hef.yaml
   - influxdata.yaml
   - ingress-nginx.yaml
   - infracloudio-charts.yaml

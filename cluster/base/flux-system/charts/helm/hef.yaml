@@ -1,9 +1,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: dbman
+  name: hef
   namespace: flux-system
 spec:
   type: oci
   interval: 5m
-  url: oci://ghcr.io/hef/dbman
+  url: oci://ghcr.io/hef/charts

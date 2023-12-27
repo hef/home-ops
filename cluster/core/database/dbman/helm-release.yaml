@@ -10,10 +10,9 @@ spec:
   chart:
     spec:
       chart: dbman
-      version: 0.45.0
       sourceRef:
         kind: HelmRepository
-        name: dbman
+        name: hef
         namespace: flux-system
   maxHistory: 2
   install:
