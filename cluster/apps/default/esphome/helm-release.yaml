@@ -48,7 +48,7 @@ spec:
               limits:
                 memory: 2Gi
             env:
-              TZ: America/Chicago
+              TZ: ${SECRET_TZ}
         pod:
           hostNetwork: true
           dnsPolicy: ClusterFirstWithHostNet

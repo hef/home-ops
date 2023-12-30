@@ -35,11 +35,10 @@ spec:
       # TODO: Switch to release tag on next release
       tag: latest-alpine@sha256:dc8f96e7042373ab20fe8346b0a0c9c277f4d35af43c428ade951bc2d3c68502
     env:
-      TZ: America/Chicago
+      TZ: ${SECRET_TZ}
       LLDAP_HTTP_PORT: &port 80
       LLDAP_HTTP_URL: https://lldap.${SECRET_DOMAIN}
       LLDAP_LDAP_PORT: &ldapPort 389
-      LLDAP_LDAP_BASE_DN: dc=home,dc=arpa
     envFrom:
       - secretRef:
           name: lldap-secret

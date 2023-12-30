@@ -41,7 +41,7 @@ spec:
           - kube-system
           - longhorn-system
     env:
-      TZ: America/Chicago
+      TZ: ${SECRET_TZ}
     ingress:
       main:
         enabled: true

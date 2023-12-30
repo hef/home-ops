@@ -67,7 +67,7 @@ spec:
       enabled: false
       forceDeployDatasources: true
       forceDeployDashboards: true
-      defaultDashboardsTimezone: America/Chicago
+      defaultDashboardsTimezone: ${SECRET_TZ}
     prometheus:
       ingress:
         enabled: true

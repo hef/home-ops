@@ -15,7 +15,7 @@ spec:
         namespace: flux-system
   values:
     env:
-      TZ: America/Chicago
+      TZ: ${SECRET_TZ}
     service:
       dns-tcp:
         type: LoadBalancer

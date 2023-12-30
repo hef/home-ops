@@ -28,7 +28,7 @@ spec:
     strategy:
       type: Recreate
     env:
-      TZ: America/Chicago
+      TZ: ${SECRET_TZ}
     ingress:
       enabled: true
       ingressClassName: internal

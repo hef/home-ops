@@ -31,7 +31,7 @@ spec:
           repository: ghcr.io/onedr0p/home-assistant
           tag: 2023.12.4@sha256:fbf40169fd70409280bfce460be144a2f49e1bb9f3350e3f775e308bd3379885
         env:
-          TZ: America/Chicago
+          TZ: ${SECRET_TZ}
         podSecurityContext:
           runAsUser: 568
           runAsGroup: 568
@@ -94,7 +94,7 @@ spec:
           repository: ghcr.io/coder/code-server
           tag: 4.20.0
         env:
-          TZ: America/Chicago
+          TZ: ${SECRET_TZ}
         workingDir: /config
         args:
           - --auth
