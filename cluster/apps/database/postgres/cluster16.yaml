@@ -16,7 +16,7 @@ spec:
     name: superuser-secret
   bootstrap:
     recovery:
-      source: &previousCluster postgres
+      source: &previousCluster postgres-v1
   postgresql:
     parameters:
       max_connections: "600"
