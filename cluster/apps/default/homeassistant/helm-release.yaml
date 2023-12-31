@@ -51,7 +51,7 @@ spec:
                 memory: 1Gi
               requests:
                 <<: *resources
-                cpu: 10me
+                cpu: 10m
           codeserver:
             dependsOn: main
             image:
@@ -82,7 +82,7 @@ spec:
                 <<: *resources
               requests:
                 <<: *resources
-                cpu: 10me
+                cpu: 10m
         pod:
           securityContext:
             runAsUser: 568
