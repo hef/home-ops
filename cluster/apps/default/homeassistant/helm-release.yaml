@@ -125,7 +125,7 @@ spec:
             paths:
               - path: /
                 service:
-                  name: codeserver
+                  name: homeassistant-codeserver
                   port: http
         tls:
           - hosts:
