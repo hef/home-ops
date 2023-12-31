@@ -34,7 +34,7 @@ spec:
               repository: ghcr.io/onedr0p/home-assistant
               tag: 2023.12.4@sha256:fbf40169fd70409280bfce460be144a2f49e1bb9f3350e3f775e308bd3379885
             env:
-              TZ: America/New_York
+              TZ: ${SECRET_TZ}
             probes:
               liveness:
                 enabled: false
@@ -51,7 +51,37 @@ spec:
                 memory: 1Gi
               requests:
                 <<: *resources
-                cpu: 10m
+                cpu: 10me
+          codeserver:
+            image:
+              repository: ghcr.io/coder/code-server
+              tag: 4.20.0
+            env:
+              TZ: ${SECRET_TZ}
+            workingDir: /config
+            args:
+              - --auth
+              - "none"
+              - --user-data-dir
+              - "/config/.vscode"
+              - --extensions-dir
+              - "/config/.vscode"
+              - --port
+              - "8081"
+              - /config
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+                enabled: false
+            resources:
+              limits:
+                <<: *resources
+              requests:
+                <<: *resources
+                cpu: 10me
         pod:
           securityContext:
             runAsUser: 568
@@ -64,6 +94,10 @@ spec:
         ports:
           http:
             port: 8123
+      codeserver:
+        ports:
+          http:
+            port: 8081
     ingress:
       main:
         enabled: true
@@ -81,8 +115,19 @@ spec:
         tls:
           - hosts:
               - *host
-
-
+      codeserver:
+        enabled: true
+        className: internal
+        hosts:
+          - host: &host-code hass-code.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                service:
+                  name: codeserver
+                  port: http
+        tls:
+          - hosts:
+              - *host-code
     persistence:
       config:
         enabled: true
@@ -91,33 +136,5 @@ spec:
         type: persistentVolumeClaim
         size: 1Gi
         storageClass: longhorn
-    addons:
-      codeserver:
-        enabled: true
-        image:
-          repository: ghcr.io/coder/code-server
-          tag: 4.20.0
-        env:
-          TZ: ${SECRET_TZ}
-        workingDir: /config
-        args:
-          - --auth
-          - "none"
-          - --user-data-dir
-          - "/config/.vscode"
-          - --extensions-dir
-          - "/config/.vscode"
-        ingress:
-          enabled: true
-          ingressClassName: internal
-          hosts:
-            - host: &code-host hass-code.${SECRET_DOMAIN}
-              paths:
-                - path: /
-                  pathType: Prefix
-          tls:
-            - hosts:
-                - *code-host
-        volumeMounts:
-          - name: config
-            mountPath: /config
+        globalMounts:
+          - path: /config
