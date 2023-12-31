@@ -95,6 +95,7 @@ spec:
           http:
             port: 8123
       codeserver:
+        controller: main
         ports:
           http:
             port: 8081
