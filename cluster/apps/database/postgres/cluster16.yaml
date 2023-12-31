@@ -3,7 +3,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: postgres15
+  name: postgres16
   namespace: database
 spec:
   instances: 3
@@ -15,8 +15,13 @@ spec:
   superuserSecret:
     name: superuser-secret
   bootstrap:
-    recovery:
-      source: &previousCluster postgres-v1
+    initdb:
+      import:
+        type: monolith
+        databases: ['*']
+        roles: ['*']
+        source:
+          externalCluster: &previousCluster postgres-v1
   postgresql:
     parameters:
       max_connections: "600"
@@ -31,7 +36,7 @@ spec:
         maxParallel: 4
       destinationPath: s3://hef-cpng/
       endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
-      serverName: &currentCluster postgres-15
+      serverName: &currentCluster postgres-16
       s3Credentials:
         accessKeyId:
           name: cloudnative-pg-secret
