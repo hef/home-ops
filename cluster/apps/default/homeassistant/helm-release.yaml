@@ -133,9 +133,6 @@ spec:
     persistence:
       config:
         enabled: true
-        accessMode: ReadWriteOnce
-        type: persistentVolumeClaim
-        size: 1Gi
-        storageClass: longhorn
+        existingClaim: hass-config
         globalMounts:
           - path: /config
