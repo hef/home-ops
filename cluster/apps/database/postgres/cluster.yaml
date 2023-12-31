@@ -9,7 +9,7 @@ metadata:
     kyverno.io/ignore: "true"
 spec:
   instances: 3
-  imageName: ghcr.io/cloudnative-pg/postgresql:14.10-11
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.1-12
   inheritedMetadata:
     labels:
       kube-image-keeper.enix.io/image-caching-policy: ignore
@@ -21,8 +21,15 @@ spec:
     name: superuser-secret
   enableSuperuserAccess: true
   bootstrap:
-    recovery:
-      source: &previousCluster postgres-v1
+    #recovery:
+    #  source: &previousCluster postgres-v1
+    initdb:
+      import:
+        type: monolith
+        databases: ['*']
+        roles: ['*']
+        source:
+          externalCluster: postgres16
   postgresql:
     parameters:
       max_connections: "600"
@@ -37,7 +44,7 @@ spec:
         maxParallel: 4
       destinationPath: s3://hef-cpng/
       endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
-      serverName: &currentCluster postgres-v3
+      serverName: &currentCluster postgres-v4
       s3Credentials:
         accessKeyId:
           name: cloudnative-pg-secret
@@ -47,17 +54,24 @@ spec:
           key: aws-secret-access-key
   # Note: externalClusters is needed when recovering from an existing cnpg cluster
   externalClusters:
-    - name: *previousCluster
-      barmanObjectStore:
-        wal:
-          compression: bzip2
-          maxParallel: 8
-        destinationPath: s3://hef-cpng/
-        endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
-        s3Credentials:
-          accessKeyId:
-            name: cloudnative-pg-secret
-            key: aws-access-key-id
-          secretAccessKey:
-            name: cloudnative-pg-secret
-            key: aws-secret-access-key
+    #- name: *previousCluster
+    #  barmanObjectStore:
+    #    wal:
+    #      compression: bzip2
+    #      maxParallel: 8
+    #    destinationPath: s3://hef-cpng/
+    #    endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
+    #    s3Credentials:
+    #      accessKeyId:
+    #        name: cloudnative-pg-secret
+    #        key: aws-access-key-id
+    #      secretAccessKey:
+    #        name: cloudnative-pg-secret
+    #        key: aws-secret-access-key
+    - name: postgres16
+      connectionParameters:
+        host: postgres16-rw
+        user: postgres
+      password:
+        name: superuser-secret
+        key: password
