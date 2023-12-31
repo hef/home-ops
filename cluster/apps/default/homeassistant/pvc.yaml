@@ -4,7 +4,7 @@ metadata:
   name: hass-config
   namespace: default
 spec:
-  storageClassName: longhorn
+  storageClassName: longhorn-static
   claimRef:
     namespace: default
     name: hass-config
