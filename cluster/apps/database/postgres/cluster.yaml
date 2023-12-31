@@ -19,6 +19,7 @@ spec:
     storageClass: longhorn
   superuserSecret:
     name: superuser-secret
+  enableSuperuserAccess: true
   bootstrap:
     recovery:
       source: &previousCluster postgres-v1
