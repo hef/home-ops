@@ -133,7 +133,6 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: /config
         accessMode: ReadWriteOnce
         type: persistentVolumeClaim
         size: 1Gi
