@@ -6,7 +6,6 @@ metadata:
 spec:
   storageClassName: longhorn-static
   claimRef:
-    namespace: default
     name: hass-config
   accessModes:
     - ReadWriteOnce
