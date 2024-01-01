@@ -90,6 +90,8 @@ spec:
             runAsNonRoot: true
             fsGroup: 568
             fsGroupChangePolicy: OnRootMismatch
+          hostNetwork: true
+          dnsPolicy: ClusterFirstWithHostNet
     service:
       main:
         ports:
@@ -142,7 +144,3 @@ spec:
         type: persistentVolumeClaim
         size: 1Gi
         storageClass: longhorn-single
-        advancedMounts:
-          main:
-            main:
-              - path: /tmp
