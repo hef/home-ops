@@ -36,6 +36,6 @@ spec:
     envFromSecret: grafana-secrets
     env:
       GF_DATABASE_TYPE: postgres
-      GF_DATABASE_HOST: postgres.database.svc.cluster.local
+      GF_DATABASE_HOST: postgres-rw.database.svc.cluster.local
       GF_DATABASE_NAME: grafana
       GF_DATABASE_USER: grafana
