@@ -1,0 +1,11 @@
+apiVersion: dbman.hef.sh/v1alpha2
+kind: Database
+metadata:
+  name: grafana
+  namespace: default
+spec:
+  credentials_secret: grafana-db-credentials
+  database_name: grafana
+  database_server_ref:
+    namespace: database
+    name: postgres
