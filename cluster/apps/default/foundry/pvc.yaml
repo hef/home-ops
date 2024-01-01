@@ -10,3 +10,6 @@ spec:
   storageClassName: longhorn-static
   claimRef:
     name: foundry-data
+  resources:
+    requests:
+      storage: 1Gi
