@@ -136,3 +136,10 @@ spec:
         existingClaim: hass-config
         globalMounts:
           - path: /config
+      tmp: # todo: enable emptydir and use that instead
+        enabled: true
+        mountPath: /tmp
+        accessMode: ReadWriteOnce
+        type: persistentVolumeClaim
+        size: 1Gi
+        storageClass: longhorn-single
