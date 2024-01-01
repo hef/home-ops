@@ -33,8 +33,6 @@ spec:
         - grafana.${SECRET_DOMAIN}
     persistence:
       enabled: false # defaults to false
-    strategy:
-      type: Recreate
     envFromSecret: grafana-secrets
     env:
       GF_DATABASE_TYPE: postgres
