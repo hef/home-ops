@@ -28,4 +28,4 @@ spec:
   values:
     env:
       - name: RUST_LOG
-        value: debug
+        value: info
