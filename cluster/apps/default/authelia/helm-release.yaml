@@ -75,10 +75,11 @@ spec:
                 cpu: 10m
         pod:
           enableServiceLinks: false
-          securityContext:
-            runAsUser: 568
-            runAsGroup: 568
-            runAsNonRoot: true
+          # todo: re enable when notifications are working
+          #securityContext:
+          #  runAsUser: 568
+          #  runAsGroup: 568
+          #  runAsNonRoot: true
           topologySpreadConstraints:
             - maxSkew: 1
               topologyKey: kubernetes.io/hostname
