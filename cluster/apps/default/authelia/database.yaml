@@ -1,0 +1,11 @@
+apiVersion: dbman.hef.sh/v1alpha2
+kind: Database
+metadata:
+  name: authelia
+  namespace: default
+spec:
+  credentials_secret: authelia-credentials
+  database_name: authelia
+  database_server_ref:
+    namespace: database
+    name: postgres

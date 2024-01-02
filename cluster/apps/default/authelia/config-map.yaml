@@ -8,10 +8,29 @@ data:
     ---
     authentication_backend:
       ldap: ldap://lldap.default.cluster.svc.local:389
-      implementation: lldap
+      base_dn: $P{SECRET_DN}
+      additional_users_dn: ou=People
+      users_filter: (&({username_attribute}={input})(objectClass=person))
+      additional_groups_dn: ou=groups
+      groups_filter: (member={dn})
+      group_search_mode: filter
+      user: uid=admin,ou=people,dc=home,dc=arpa
+      password: password
+      attributes:
+        username: uid
+        display_name: displayName
+        mail: mail
+        member_of: memberOf
+        group_name: cn
     session:
       cookies:
         - domain: ${SECRET_DOMAIN}
           authelia_url: https://auth.${SECRET_DOMAIN}
           name: authelia_session
           same_site: lax
+      postgresql:
+        host: postgres-rw.database.svc.cluster.local
+        port: 5432
+        database: authelia
+        username: authelia
+        password: password
