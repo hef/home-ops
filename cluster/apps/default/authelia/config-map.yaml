@@ -9,7 +9,7 @@ data:
     authentication_backend:
       ldap:
         address: ldap://lldap.default.cluster.svc.local:389
-        base_dn: $P{SECRET_DN}
+        base_dn: ${SECRET_DN}
         additional_users_dn: ou=People
         users_filter: (&({username_attribute}={input})(objectClass=person))
         additional_groups_dn: ou=groups
