@@ -136,3 +136,6 @@ spec:
         type: persistentVolumeClaim
         size: 1Gi
         storageClass: longhorn-single
+        globalMounts:
+          - path: /hacks
+            readOnly: false
