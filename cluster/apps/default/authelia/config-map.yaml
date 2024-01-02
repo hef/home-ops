@@ -15,8 +15,7 @@ data:
         additional_groups_dn: ou=groups
         groups_filter: (member={dn})
         group_search_mode: filter
-        user: uid=admin,ou=people,dc=home,dc=arpa
-        password: password
+        user: uid=admin,ou=people,${SECRET_DN}
         attributes:
           username: uid
           display_name: displayName
@@ -38,4 +37,4 @@ data:
       default_policy: two_factor
     notifier:
       filesystem:
-        filename: /var/lib/authelia/notification.txt
+        filename: /tmp/notification.txt
