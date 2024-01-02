@@ -64,7 +64,8 @@ spec:
                 enabled: false
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
+              # todo: reenable readOnlyRootFilesystem when notifications are working
+              #readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
               limits: &resources
@@ -136,6 +137,3 @@ spec:
         type: persistentVolumeClaim
         size: 1Gi
         storageClass: longhorn-single
-        globalMounts:
-          - path: /hacks
-            readOnly: false
