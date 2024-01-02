@@ -6,12 +6,12 @@ metadata:
 data:
   configuration.yaml: |
     ---
+    authentication_backend:
+      ldap: ldap://lldap.default.cluster.svc.local:389
+      implementation: lldap
     session:
       cookies:
         - domain: ${SECRET_DOMAIN}
           authelia_url: https://auth.${SECRET_DOMAIN}
           name: authelia_session
           same_site: lax
-    storage:
-      local:
-        path: /data/db.sqlite3

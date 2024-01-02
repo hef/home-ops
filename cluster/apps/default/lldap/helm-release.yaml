@@ -40,6 +40,7 @@ spec:
               LLDAP_HTTP_PORT: &port 80
               LLDAP_HTTP_URL: https://lldap.${SECRET_DOMAIN}
               LLDAP_LDAP_PORT: &ldapPort 389
+              LLDAP_LDAP_BASE_DN: ${SECRET_DN}
             envFrom:
               - secretRef:
                   name: lldap-secret
