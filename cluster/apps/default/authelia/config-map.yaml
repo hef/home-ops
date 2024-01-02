@@ -37,4 +37,4 @@ data:
       default_policy: two_factor
     notifier:
       filesystem:
-        filename: /tmp/notification.txt
+        filename: /hacks/notification.txt

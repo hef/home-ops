@@ -130,7 +130,7 @@ spec:
           - path: /config/configuration.yaml
             subPath: configuration.yaml
             readOnly: true
-      tmp: # todo: stop using file notification
+      hacks: # todo: stop using file notification
         enabled: true
         accessMode: ReadWriteOnce
         type: persistentVolumeClaim
