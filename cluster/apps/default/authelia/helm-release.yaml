@@ -63,10 +63,10 @@ spec:
               startup:
                 enabled: false
             securityContext:
-              allowPrivilegeEscalation: false
+              #allowPrivilegeEscalation: false
               # todo: reenable readOnlyRootFilesystem when notifications are working
               #readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
+              #capabilities: { drop: ["ALL"] }
             resources:
               limits: &resources
                 memory: 128Mi
