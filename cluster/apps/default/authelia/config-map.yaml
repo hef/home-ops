@@ -34,7 +34,6 @@ data:
         address: postgres-rw.database.svc.cluster.local
         database: authelia
         username: authelia
-        password: password
     access_control:
       default_policy: two_factor
     notifier:
