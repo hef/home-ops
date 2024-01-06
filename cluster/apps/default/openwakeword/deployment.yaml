@@ -16,7 +16,6 @@ spec:
       containers:
         - name: openwakeword
           image: dalehumby/openwakeword-rhasspy:1.8.1
-          args: ["--model", "tiny-int8", "--language", "en"]
           ports:
             - containerPort: 12202
           volumeMounts:
