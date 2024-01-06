@@ -31,6 +31,3 @@ spec:
                   requests:
                     storage: 1Gi
                 storageClassName: local-path
-        - name: config
-          configMap:
-            name: openwakeword-config
