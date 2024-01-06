@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openwakeword-config
+  namespace: default
+data:
+  config.yaml: |
+    oww:
+      model_names:  # From https://github.com/dscripka/openWakeWord/blob/main/openwakeword/__init__.py
+      # - alexa  # Delete to ignore this wake-word
+      - hey_mycroft
+      - hey_jarvis
+      - hey_rhasspy
+      - timer
+      - weather
+    activation_samples: 3  # Number of samples in moving average
+    activation_threshold: 0.7  # Trigger wakeword when average above this threshold
+    deactivation_threshold: 0.2  # Do not trigger again until average falls below this threshold
+    # OWW config, see https://github.com/dscripka/openWakeWord#recommendations-for-usage
+    vad_threshold: 0.5
+    enable_speex_noise_suppression: false

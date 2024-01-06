@@ -9,6 +9,7 @@ resources:
   - homeassistant
   - lldap
   - mosquitto
+  - openwakeword
   - pgadmin
   - piper
   - whisper
