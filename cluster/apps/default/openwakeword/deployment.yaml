@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,8 +17,9 @@ spec:
       containers:
         - name: openwakeword
           image: rhasspy/wyoming-openwakeword:1.8.1
+          args: ["--custom-model-dir", "/data", "--debug"]
           ports:
-            - containerPort: 12202
+            - containerPort: 10400
           volumeMounts:
             - name: data
               mountPath: /data
