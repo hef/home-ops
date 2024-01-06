@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: openwakeword
-          image: rhasspy/openwakeword-rhasspy:1.8.1
+          image: rhasspy/wyoming-openwakeword:1.8.1
           ports:
             - containerPort: 12202
           volumeMounts:
