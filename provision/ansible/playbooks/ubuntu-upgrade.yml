@@ -16,3 +16,13 @@
       register: apt_upgrade
       retries: 5
       until: apt_upgrade is success
+    - block:
+        - name: Upgrade all packages to the latest version
+          apt: update_cache=yes upgrade=full
+        - name: Ensure update-manager-core is installed.
+          apt: name=update-manager-core state=present
+        - name: Run do-release-upgrade non-interactively.
+          command: do-release-upgrade -f DistUpgradeViewNonInteractive
+        - name: Reboot the server.
+          reboot:
+      when: ansible_distribution == 'Ubuntu' and ansible_distribution_version != '22.04'

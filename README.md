@@ -23,8 +23,8 @@ todo: add `cgroup_memory=1 cgroup_enable=memory`  to the end of /mnt/boot/firmwa
 # installing cluster
 
 ```
-task ubuntu:prepare
-task ubuntu:upgrade
+task ansible:playbook:ubuntu-prepare
+task ansible:playbook:ubuntu-upgrade
 task cluster:bootstrap
 ```
 
