@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -14,7 +15,7 @@ spec:
       port: 69
 ---
 apiVersion: v1
-Kind: Service
+kind: Service
 metadata:
   name: netboot-http
   namespace: default
