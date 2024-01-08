@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: netboot_xyz
+  name: netboot-xyz
   namespace: default
 spec:
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: netboot-xyz
+      app: netboot_xyz
   template:
     metadata:
       labels:
