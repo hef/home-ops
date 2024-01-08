@@ -8,14 +8,14 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: netboot_xyz
+      app: netboot-xyz
   template:
     metadata:
       labels:
-        app: netboot_xyz
+        app: netboot-xyz
     spec:
       containers:
-        - name: netboot_xyz
+        - name: netboot-xyz
           image: "ghcr.io/netbootxyz/netbootxyz:0.7.0-nbxyz2"
           env:
             - name: TZ
