@@ -20,5 +20,7 @@ spec:
           - backend:
               service:
                 name: netboot-http
+                port:
+                  name: assets
             path: /assets
             pathType: Prefix
