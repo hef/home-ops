@@ -13,6 +13,7 @@ spec:
     - name: tftp
       targetPort: tftp
       port: 69
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service
