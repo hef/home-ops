@@ -1,0 +1,24 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: netboot_xyz
+  namespace: default
+spec:
+  ingressClassName: internal
+  rules:
+    - host: netboot.${SECRET_DOMAIN}
+      http:
+        paths:
+          - backend:
+              service:
+                name: netboot-http
+                port:
+                  name: webapp
+            pathType: Prefix
+            path: /
+          - backend:
+              service:
+                name: netboot-http
+            path: /assets
+            pathType: Prefix

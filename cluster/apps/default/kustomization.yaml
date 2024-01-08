@@ -9,6 +9,7 @@ resources:
   - homeassistant
   - lldap
   - mosquitto
+  - netboot_xyz
   - openwakeword
   - pgadmin
   - piper

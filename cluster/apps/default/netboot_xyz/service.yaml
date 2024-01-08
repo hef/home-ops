@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: netboot_xyz
+  namespace: default
+  annotations:
+    io.cilium/lb-ipam-ips: 192.168.1.9
+spec:
+  selector:
+    app: netboot_xyz
+  ports:
+    - name: tftp
+      targetPort: tftp
+      port: 69
+---
+apiVersion: v1
+Kind: Service
+metadata:
+  name: netboot-http
+  namespace: default
+spec:
+  selector:
+    app: netboot_xyz
+  ports:
+    - name: webapp
+      targetPort: webapp
+      port: 80
+    - name: assets
+      targetPort: assets
+      port: 3000
