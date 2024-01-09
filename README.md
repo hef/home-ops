@@ -28,6 +28,14 @@ task ansible:playbook:ubuntu-upgrade
 task cluster:bootstrap
 ```
 
+# adding a node
+ * install ubuntu server
+ * add an entry to provision/ansible/inventory/hosts.yml
+ * add some values to provision/ansible/inventory/host_vars/*node-name*.sops.yml.
+   * `ansible_user` and `ansible_become_pass`
+ * run `task ansible:playbook:ubuntu-prepare`
+ * run `task ansible:playbook:k3s-install`
+
 # references
 
 *  https://github.com/onedr0p/flux-cluster-template
