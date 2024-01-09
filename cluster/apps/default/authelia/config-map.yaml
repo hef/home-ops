@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: authelia-configmap
   namespace: default
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
 data:
   configuration.yaml: |
     ---
