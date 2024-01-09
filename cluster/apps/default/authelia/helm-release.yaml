@@ -63,10 +63,9 @@ spec:
               startup:
                 enabled: false
             securityContext:
-              #allowPrivilegeEscalation: false
-              # todo: reenable readOnlyRootFilesystem when notifications are working
-              #readOnlyRootFilesystem: true
-              #capabilities: { drop: ["ALL"] }
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
             resources:
               limits: &resources
                 memory: 128Mi
@@ -75,11 +74,10 @@ spec:
                 cpu: 10m
         pod:
           enableServiceLinks: false
-          # todo: re enable when notifications are working
-          #securityContext:
-          #  runAsUser: 568
-          #  runAsGroup: 568
-          #  runAsNonRoot: true
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            runAsNonRoot: true
           topologySpreadConstraints:
             - maxSkew: 1
               topologyKey: kubernetes.io/hostname
@@ -132,9 +130,3 @@ spec:
           - path: /config/configuration.yaml
             subPath: configuration.yaml
             readOnly: true
-      hacks: # todo: stop using file notification
-        enabled: true
-        accessMode: ReadWriteOnce
-        type: persistentVolumeClaim
-        size: 1Gi
-        storageClass: longhorn-single

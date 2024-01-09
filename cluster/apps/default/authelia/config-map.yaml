@@ -35,6 +35,10 @@ data:
         username: authelia
     access_control:
       default_policy: two_factor
+
     notifier:
-      filesystem:
-        filename: /hacks/notification.txt
+      disable_startup_check: true
+      smtp:
+        address: smtp-relay.default.svc.cluster.local:25
+        sender: Authelia <authelia@${SECRET_DOMAIN}>
+        disable_require_tls: true
