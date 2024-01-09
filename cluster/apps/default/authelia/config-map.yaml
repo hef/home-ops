@@ -23,6 +23,10 @@ data:
           member_of: memberOf
           group_name: cn
     session:
+      same_site: lax
+      inactivity: 5m
+      expiration: 1h
+      remember_me: 1M
       cookies:
         - domain: ${SECRET_DOMAIN}
           authelia_url: https://auth.${SECRET_DOMAIN}
@@ -35,6 +39,11 @@ data:
         username: authelia
     access_control:
       default_policy: two_factor
+      networks:
+        - name: internal
+          networks:
+          - "10.0.0.0/8"
+          - "192.168.0.0/16"
 
     notifier:
       disable_startup_check: true
