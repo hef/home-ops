@@ -46,5 +46,5 @@ spec:
     metrics:
       enabled: true
       serviceMonitor:
-        enabled: true
+        enabled: false
         interval: 1m
