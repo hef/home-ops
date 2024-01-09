@@ -4,7 +4,7 @@ metadata:
   name: smtp-relay-configmap
   namespace: default
 data:
-  configuration.yaml: |
+  maddy.conf: |
     state_dir /cache/state
     runtime_dir /cache/run
 
