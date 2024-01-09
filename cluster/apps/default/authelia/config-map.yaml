@@ -42,3 +42,7 @@ data:
         address: smtp-relay.default.svc.cluster.local:25
         sender: Authelia <authelia@${SECRET_DOMAIN}>
         disable_require_tls: true
+    totp:
+      disable: false
+      issuer: ${SECRET_DOMAIN}
+      algorithm: sha512
