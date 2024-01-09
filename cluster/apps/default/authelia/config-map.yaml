@@ -68,4 +68,4 @@ data:
       disable: false
       issuer: ${SECRET_DOMAIN}
       algorithm: sha512
-      digits: 8
+      digits: 6
