@@ -30,6 +30,7 @@ data:
       cookies:
         - domain: ${SECRET_DOMAIN}
           authelia_url: https://auth.${SECRET_DOMAIN}
+          default_redirection_url: https://${SECRET_DOMAIN}
           name: authelia_session
           same_site: lax
       redis:
