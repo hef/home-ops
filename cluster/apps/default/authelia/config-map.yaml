@@ -44,6 +44,7 @@ data:
               port: 26379
             - host: redis-node-2.redis-headless.database.svc.cluster.local
               port: 26379
+
     storage:
       postgres:
         address: postgres-rw.database.svc.cluster.local
@@ -67,3 +68,4 @@ data:
       disable: false
       issuer: ${SECRET_DOMAIN}
       algorithm: sha512
+      digits: 8
