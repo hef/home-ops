@@ -32,6 +32,18 @@ data:
           authelia_url: https://auth.${SECRET_DOMAIN}
           name: authelia_session
           same_site: lax
+      redis:
+        host: redis.database.svc.cluster.local
+        database_index: 14
+        high_availability:
+          sentinel_name: redis-master
+          nodes:
+            - host: redis-node-0.redis-headless.database.svc.cluster.local
+              port: 26379
+            - host: redis-node-1.redis-headless.database.svc.cluster.local
+              port: 26379
+            - host: redis-node-2.redis-headless.database.svc.cluster.local
+              port: 26379
     storage:
       postgres:
         address: postgres-rw.database.svc.cluster.local

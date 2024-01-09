@@ -4,4 +4,4 @@ resources:
   - dbman
   - influxdb
   - postgres
-  #- redis
+  - redis
