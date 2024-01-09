@@ -13,6 +13,7 @@ resources:
   - openwakeword
   - pgadmin
   - piper
+  - smtp-relay
   - whisper
   - wikijs
   - zigbee2mqtt
