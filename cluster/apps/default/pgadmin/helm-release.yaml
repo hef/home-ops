@@ -33,6 +33,12 @@ spec:
       - pgadmin-config
     envVarsFromSecrets:
       - pgadmin-secrets
+    extraConfigmapMounts:
+      - name: pgadmin-config
+        mountPath: /pgadmin4/
+        subPath: config_local.py
+        configMap: pgadmin-config
+        readOnly: true
     ingress:
       enabled: true
       ingressClassName: internal
