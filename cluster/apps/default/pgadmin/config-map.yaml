@@ -20,3 +20,6 @@ data:
   PGADMIN_CONFIG_OAUTH2_ICON: "'fa-signin'"
   #PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: "'logging.DEBUG'"
   #PGADMIN_CONFIG_OAUTH2_BUTTON_COLOR: "#ffffff"
+  config_local.py: |
+    import logging
+    CONSOLE_LOG_LEVEL = logging.DEBUG
