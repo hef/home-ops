@@ -10,11 +10,12 @@ data:
     import logging
     import os
     CONSOLE_LOG_LEVEL = logging.DEBUG
+    MASTER_PASSWORD_REQUIRED = False
     AUTHENTICATION_SOURCES = ['oauth2']
     OAUTH2_CONFIG = [
       {
-        'OAUTH2_NAME': 'Authelia',
-        'OAUTH2_DISPLAY_NAME': 'Authelia',
+        'OAUTH2_NAME': '${SECRET_DOMAIN}',
+        'OAUTH2_DISPLAY_NAME': 'auth.${SECRET_DOMAIN}',
         'OAUTH2_CLIENT_ID': 'pgadmin',
         'OAUTH2_CLIENT_SECRET': os.environ['OAUTH2_CLIENT_SECRET'],
         'OAUTH2_TOKEN_URL': 'https://auth.${SECRET_DOMAIN}/api/oidc/token',
