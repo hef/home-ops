@@ -6,20 +6,27 @@ metadata:
 data:
   TZ: ${SECRET_TZ}
   # quirk of the env to config_distro.py process: a bunch of these need to be stringified with `'` before becoming python
-  PGADMIN_CONFIG_AUTHENTICATION_SOURCES: "['oauth2']"
-  PGADMIN_CONFIG_OAUTH2_NAME: "'Authelia'"
-  PGADMIN_CONFIG_OAUTH2_DISPLAY_NAME: "'Authelia'"
-  PGADMIN_CONFIG_OAUTH2_CLIENT_ID: "'pgadmin'"
-  PGADMIN_CONFIG_OAUTH2_TOKEN_URL: "'https://auth.${SECRET_DOMAIN}/api/oidc/token'"
-  PGADMIN_CONFIG_OAUTH2_AUTHORIZATION_URL: "'https://auth.${SECRET_DOMAIN}/api/oidc/authorization'"
-  PGADMIN_CONFIG_OAUTH2_SERVER_METADATA_URL: "'https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration'"
-  #PGADMIN_CONFIG_OAUTH2_API_BASE_URL: "'https://auth.${SECRET_DOMAIN}/api/oidc/userinfo'"
-  PGADMIN_CONFIG_OAUTH2_USERINFO_ENDPOINT: "'https://auth.${SECRET_DOMAIN}/api/oidc/userinfo'"
-  PGADMIN_CONFIG_OAUTH2_SCOPE: "'openid profile email groups'"
-  PGADMIN_CONFIG_OAUTH2_AUTO_CREATE_USER: "True"
-  PGADMIN_CONFIG_OAUTH2_ICON: "'fa-signin'"
-  #PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: "'logging.DEBUG'"
-  #PGADMIN_CONFIG_OAUTH2_BUTTON_COLOR: "#ffffff"
   config_local.py: |
     import logging
     CONSOLE_LOG_LEVEL = logging.DEBUG
+    AUTHENTICATION_SOURCES: ['oauth2']
+    OAUTH2_CONFIG = [
+      {
+        'OAUTH2_NAME': 'Authelia',
+        'OAUTH2_DISPLAY_NAME': 'Authelia',
+        'OAUTH2_CLIENT_ID': 'pgadmin',
+        'OAUTH2_CLIENT_SECRET': '${SECRET_PGADMIN_OAUTH2_CLIENT_SECRET}',
+        'OAUTH2_TOKEN_URL': 'https://auth.${SECRET_DOMAIN}/api/oidc/token',
+        'OAUTH2_AUTHORIZATION_URL': 'https://auth.${SECRET_DOMAIN}/api/oidc/authorization',
+        'OAUTH2_SERVER_METADATA_URL': 'https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration',
+        #'OAUTH2_API_BASE_URL': 'https://auth.${SECRET_DOMAIN}/api/oidc/',
+        'OAUTH2_USERINFO_ENDPOINT': 'https://auth.${SECRET_DOMAIN}/api/oidc/userinfo',
+        'OAUTH2_SCOPE': 'openid profile email groups',
+        #'OAUTH2_USERNAME_CLAIM': None
+        #'OAUTH2_ICON': None
+        'OAUTH2_BUTTON_COLOR': '#0000ff',
+        #'OAUTH2_ADDITIONAL_CLAIMS': None
+        'OAUTH2_SSL_CERT_VERIFICATION': False,
+      }
+    ]
+    OAUTH2_AUTO_CREATE_USER: True
