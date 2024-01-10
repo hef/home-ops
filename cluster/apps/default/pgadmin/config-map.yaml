@@ -5,11 +5,11 @@ metadata:
   namespace: default
 data:
   TZ: ${SECRET_TZ}
-  AUTHENTICATION_SOURCES: "['internal']"
-  PGADMIN_CONFIG_OAUTH2_NAME: "Authelia"
-  PGADMIN_CONFIG_OAUTH2_DISPLAY_NAME: "Authelia"
-  PGADMIN_CONFIG_OAUTH2_CLIENT_ID: "pgadmin"
   # quirk of the env to config_distro.py process: a bunch of these need to be stringified with `'` before becoming python
+  PGADMIN_CONFIG_AUTHENTICATION_SOURCES: "['internal']"
+  PGADMIN_CONFIG_OAUTH2_NAME: "'Authelia'"
+  PGADMIN_CONFIG_OAUTH2_DISPLAY_NAME: "'Authelia'"
+  PGADMIN_CONFIG_OAUTH2_CLIENT_ID: "'pgadmin'"
   PGADMIN_CONFIG_OAUTH2_TOKEN_URL: "'https://auth.${SECRET_DOMAIN}/api/oidc/token'"
   PGADMIN_CONFIG_OAUTH2_AUTHORIZATION_URL: "'https://auth.${SECRET_DOMAIN}/api/oidc/authorization'"
   PGADMIN_CONFIG_OAUTH2_SERVER_METADATA_URL: "'https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration'"
