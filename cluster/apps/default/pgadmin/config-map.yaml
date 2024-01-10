@@ -20,13 +20,13 @@ data:
         'OAUTH2_TOKEN_URL': 'https://auth.${SECRET_DOMAIN}/api/oidc/token',
         'OAUTH2_AUTHORIZATION_URL': 'https://auth.${SECRET_DOMAIN}/api/oidc/authorization',
         'OAUTH2_SERVER_METADATA_URL': 'https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration',
-        #'OAUTH2_API_BASE_URL': 'https://auth.${SECRET_DOMAIN}/api/oidc/',
+        'OAUTH2_API_BASE_URL': None,
         'OAUTH2_USERINFO_ENDPOINT': 'https://auth.${SECRET_DOMAIN}/api/oidc/userinfo',
         'OAUTH2_SCOPE': 'openid profile email groups',
-        #'OAUTH2_USERNAME_CLAIM': None
-        #'OAUTH2_ICON': None
+        'OAUTH2_USERNAME_CLAIM': None,
+        'OAUTH2_ICON': None,
         'OAUTH2_BUTTON_COLOR': '#0000ff',
-        #'OAUTH2_ADDITIONAL_CLAIMS': None
+        'OAUTH2_ADDITIONAL_CLAIMS': None,
         'OAUTH2_SSL_CERT_VERIFICATION': False,
       }
     ]
