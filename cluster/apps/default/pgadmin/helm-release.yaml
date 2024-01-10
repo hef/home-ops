@@ -27,20 +27,8 @@ spec:
   values:
     strategy:
       type: Recreate
-    env:
-      TZ: ${SECRET_TZ}
-      AUTHENTICATION_SOURCES: "['internal']"
-      PGADMIN_CONFIG_OAUTH2_NAME: "Authelia"
-      PGADMIN_CONFIG_OAUTH2_DISPLAY_NAME: "Authelia"
-      PGADMIN_CONFIG_OAUTH2_CLIENT_ID: "pgadmin"
-      PGADMIN_CONFIG_OAUTH2_TOKEN_URL: "https://auth.${SECRET_DOMAIN}/api/oidc/token"
-      PGADMIN_CONFIG_OAUTH2_AUTHORIZATION_URL: "https://auth.${SECRET_DOMAIN}/api/oidc/authorization"
-      PGADMIN_CONFIG_OAUTH2_SERVER_METADATA_URL: "https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration"
-      PGADMIN_CONFIG_OAUTH2_API_BASE_URL: "https://auth.${SECRET_DOMAIN}/api/oidc/userinfo"
-      PGADMIN_CONFIG_OAUTH2_USERINFO_ENDPOINT: "https://auth.${SECRET_DOMAIN}/api/oidc/userinfo"
-      PGADMIN_CONFIG_OAUTH2_SCOPE: "openid profile email groups"
-      #PGADMIN_CONFIG_OAUTH2_ICON: "fa-signin"
-      #PGADMIN_CONFIG_OAUTH2_BUTTON_COLOR: "#ffffff"
+    envVarsFromConfigMaps:
+      - pgadmin-config
     envVarsFromSecrets:
       - pgadmin-secrets
     ingress:
