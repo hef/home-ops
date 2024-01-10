@@ -32,4 +32,4 @@ spec:
     crds:
       create: true
     nodeSelector:
-      beta.kubernetes.io/arch: "arm64"
+      kubernetes.io/arch: "arm64"
