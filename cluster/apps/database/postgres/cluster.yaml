@@ -30,6 +30,7 @@ spec:
     #    roles: ['*']
     #    source:
     #      externalCluster: postgres16
+  priorityClassName: high-priority
   affinity:
     nodeSelector:
       kubernetes.io/arch: "arm64"

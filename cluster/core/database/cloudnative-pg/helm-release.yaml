@@ -31,5 +31,6 @@ spec:
   values:
     crds:
       create: true
+    priorityClassName: high-priority
     nodeSelector:
       kubernetes.io/arch: "arm64"

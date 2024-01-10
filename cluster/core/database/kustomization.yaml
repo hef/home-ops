@@ -4,3 +4,4 @@ resources:
   - cloudnative-pg
   - dbman
   - namespace.yaml
+  - priority-class.yaml
