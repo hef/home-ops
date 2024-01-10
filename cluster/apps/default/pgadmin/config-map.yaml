@@ -16,5 +16,6 @@ data:
   PGADMIN_CONFIG_OAUTH2_API_BASE_URL: "'https://auth.${SECRET_DOMAIN}/api/oidc/userinfo'"
   PGADMIN_CONFIG_OAUTH2_USERINFO_ENDPOINT: "'https://auth.${SECRET_DOMAIN}/api/oidc/userinfo'"
   PGADMIN_CONFIG_OAUTH2_SCOPE: "'openid profile email groups'"
-  #PGADMIN_CONFIG_OAUTH2_ICON: "fa-signin"
+  PGADMIN_CONFIG_OAUTH2_AUTO_CREATE_USER: "True"
+  PGADMIN_CONFIG_OAUTH2_ICON: "'fa-signin'"
   #PGADMIN_CONFIG_OAUTH2_BUTTON_COLOR: "#ffffff"
