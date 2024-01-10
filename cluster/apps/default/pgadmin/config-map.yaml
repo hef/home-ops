@@ -10,7 +10,8 @@ data:
     import logging
     import os
     CONSOLE_LOG_LEVEL = logging.DEBUG
-    MASTER_PASSWORD_REQUIRED = False
+    # without MASTER_PASSWORD_REQUIRED, pgadmin won't save DB passwords
+    MASTER_PASSWORD_REQUIRED = True
     CONFIG_DATABASE_URI = "postgresql://pgadmin:{password}@postgres-rw.database.svc.cluster.local:5432/pgadmin".format(
       password=os.environ['password'],
     )
