@@ -29,7 +29,7 @@ data:
         'OAUTH2_USERINFO_ENDPOINT': 'https://auth.${SECRET_DOMAIN}/api/oidc/userinfo',
         'OAUTH2_SCOPE': 'openid profile email groups',
         'OAUTH2_USERNAME_CLAIM': None,
-        'OAUTH2_ICON': 'fa-arrow-right-to-bracket',
+        'OAUTH2_ICON': 'fa-sign-in-alt',
         'OAUTH2_BUTTON_COLOR': '#0000ff',
         'OAUTH2_ADDITIONAL_CLAIMS': None,
         'OAUTH2_SSL_CERT_VERIFICATION': False,
