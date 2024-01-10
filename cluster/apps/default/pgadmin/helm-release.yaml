@@ -29,8 +29,8 @@ spec:
       reloader.stakater.com/auto: "true"
     strategy:
       type: Recreate
-    envVarsFromConfigMaps:
-      - pgadmin-config
+    env:
+      TZ: ${SECRET_TZ}
     envVarsFromSecrets:
       - pgadmin-secrets
     extraConfigmapMounts:
