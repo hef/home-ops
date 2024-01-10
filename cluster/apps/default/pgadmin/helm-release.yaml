@@ -25,6 +25,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    annotations:
+      reloader.stakater.com/auto: "true"
     strategy:
       type: Recreate
     envVarsFromConfigMaps:
