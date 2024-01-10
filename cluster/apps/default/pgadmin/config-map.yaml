@@ -29,6 +29,7 @@ data:
         'OAUTH2_USERINFO_ENDPOINT': 'https://auth.${SECRET_DOMAIN}/api/oidc/userinfo',
         'OAUTH2_SCOPE': 'openid profile email groups',
         'OAUTH2_USERNAME_CLAIM': None,
+        # pgadmin doesn't look like it is loading font awesome correctly, so this just looks like a missing icon
         'OAUTH2_ICON': 'fa-sign-in-alt',
         'OAUTH2_BUTTON_COLOR': '#0000ff',
         'OAUTH2_ADDITIONAL_CLAIMS': None,
