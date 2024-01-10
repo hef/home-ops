@@ -91,5 +91,5 @@ data:
             authorization_policy: two_factor
             pre_configured_consent_duration: 1y
             scopes: [ "openid", "profile", "groups", "email" ]
-            redirect_uris: [ "https://grafana.${SECRET_DOMAIN}/oauth2/authorize" ]
+            redirect_uris: [ "https://pgadmin.${SECRET_DOMAIN}/oauth2/authorize" ]
             userinfo_signed_response_alg: none
