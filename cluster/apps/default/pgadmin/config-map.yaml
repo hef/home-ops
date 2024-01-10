@@ -11,6 +11,9 @@ data:
     import os
     CONSOLE_LOG_LEVEL = logging.DEBUG
     MASTER_PASSWORD_REQUIRED = False
+    CONFIG_DATABASE_URI = "postgresql://pgadmin:{password}@postgres-rw.database.svc.cluster.local:5432/pgadmin".format(
+      password=os.environ['PASSWORD'],
+    )
     AUTHENTICATION_SOURCES = ['oauth2']
     OAUTH2_CONFIG = [
       {

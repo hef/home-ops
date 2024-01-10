@@ -33,6 +33,7 @@ spec:
       TZ: ${SECRET_TZ}
     envVarsFromSecrets:
       - pgadmin-secrets
+      - pgadmin-credentials
     extraConfigmapMounts:
       - name: pgadmin-config
         mountPath: /pgadmin4/config_local.py

@@ -1,0 +1,11 @@
+apiVersion: dbman.hef.sh/v1alpha2
+kind: Database
+metadata:
+  name: pgadmin
+  namespace: default
+spec:
+  credentials_secret: pgadmin-credentials
+  database_name: pgadmin
+  database_server_ref:
+    namespace: database
+    name: postgres
