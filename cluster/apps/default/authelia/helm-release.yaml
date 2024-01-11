@@ -104,7 +104,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: internal
+        className: external
         annotations:
           nginx.ingress.kubernetes.io/configuration-snippet: |
             add_header Cache-Control "no-store";
