@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: factorio
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: factorio
+  template:
+    metadata:
+      labels:
+        app: factorio
+    spec:
+      containers:
+        - name: factorio
+          image: factoriotools/factorio:1.1.101
+          ports:
+            - containerPort: 34197
+              type: UDP
+              name: game
+            - containerPort: 27015
+              type: TCP
+              name: rcon
+          resources:
+            requests:
+              cpu: "2"
+              memory: "1Gi"
+            limits:
+              cpu: "2"
+              memory: "2Gi"
+          volumeMounts:
+            - name: data
+              mountPath: /factorio
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: factorio-data

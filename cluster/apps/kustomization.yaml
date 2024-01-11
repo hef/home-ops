@@ -5,6 +5,7 @@ resources:
   - cert-manager
   - database
   - default
+  - factorio
   - flux-system
   - longhorn
   - networking
