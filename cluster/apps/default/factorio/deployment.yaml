@@ -25,6 +25,12 @@ spec:
             - containerPort: 27015
               type: TCP
               name: rcon
+          env:
+            - name: UPDATE_MODS_ON_START
+              value: "true"
+          envFrom:
+            - secretRef:
+                name: factorio-secrets
           resources:
             requests:
               cpu: "2"
