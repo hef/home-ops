@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: factorio
   namespace: default
+  annotations:
+    reloader.stakater.com/auto: "true"
 spec:
   replicas: 1
   strategy:
@@ -25,10 +27,9 @@ spec:
             - containerPort: 27015
               type: TCP
               name: rcon
-          env:
-            - name: UPDATE_MODS_ON_START
-              value: "true"
           envFrom:
+            - configMapRef:
+                name: factorio-config
             - secretRef:
                 name: factorio-secrets
           resources:
