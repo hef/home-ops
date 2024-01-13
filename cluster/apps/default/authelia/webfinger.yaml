@@ -17,6 +17,9 @@ spec:
                 name: webfinger
                 port:
                   name: http
+  tls:
+    - hosts:
+        - ${SECRET_DOMAIN}
 ---
 apiVersion: v1
 kind: Service
