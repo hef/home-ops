@@ -35,6 +35,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webfinger
+  namespace: default
 spec:
   selector:
     matchLabels:
