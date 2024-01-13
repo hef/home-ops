@@ -52,8 +52,8 @@ spec:
               memory: "20Mi"
               cpu: "10m"
           env:
-            - name: SECRET_DOMAIN
-              value: ${SECRET_DOMAIN}
+            - name: EASYWEBFINGER_ISSUER
+              value: https://auth.${SECRET_DOMAIN}
           ports:
             - containerPort: 3000
               name: http
