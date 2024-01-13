@@ -1,0 +1,59 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webfinger
+  namespace: default
+spec:
+  ingressClassName: external
+  rules:
+    - host: ${SECRET_DOMAIN}
+      http:
+        paths:
+          - pathType: Exact
+            path: "/.well-known/webfinger"
+            backend:
+              service:
+                name: webfinger
+                port:
+                  name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webfinger
+  namespace: default
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: "http"
+  selector:
+    app: webfinger
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webfinger
+spec:
+  selector:
+    matchLabels:
+      app: webfinger
+  template:
+    metadata:
+      labels:
+        app: webfinger
+    spec:
+      containers:
+        - name: webfinger
+          image: "ghcr.io/hef/easy-webfinger:0.1.4"
+          resources:
+            limits:
+              memory: "20Mi"
+              cpu: "10m"
+          env:
+            - name: SECRET_DOMAIN
+              value: ${SECRET_DOMAIN}
+          ports:
+            - containerPort: 3000
+              name: http
