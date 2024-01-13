@@ -4,6 +4,8 @@ kind: Ingress
 metadata:
   name: webfinger
   namespace: default
+  annotations:
+    external-dns.alpha.kubernetes.io/target: external.${SECRET_DOMAIN}
 spec:
   ingressClassName: external
   rules:
