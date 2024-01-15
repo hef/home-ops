@@ -93,6 +93,11 @@ spec:
               tlsSkipVerify: true
             secureJsonData:
               token: ${INFLUXDB_TOKEN}
+    sidecar:
+      datasources:
+        enabled: true
+        searchNamespace: ALL
+        labelValues: ""
     topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
