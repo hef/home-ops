@@ -93,7 +93,7 @@ spec:
               organization: cc7bcb0be72a28f5
               defaultBucket: 9370db05764a4153
             secureJsonData:
-              token: $${GF_Z_INFLUXDB_TOKEN}
+              token: $${INFLUXDB_TOKEN}
     sidecar:
       datasources:
         enabled: true
