@@ -73,6 +73,26 @@ spec:
         enabled: false
       news:
         news_feed_enabled: false
+    datasources:
+      envFromSecret: grafana-secrets
+      datasources.yaml:
+        apiVersion: 1
+        deleteDatasources:
+          - name: InfluxDb
+            orgId: 1
+        datasources:
+          - name: InfluxDb
+            type: influxdb
+            access: proxy
+            orgId: 1
+            url: http://influxdb-influxdb2.database.svc.cluster.local
+            jsonData:
+              version: Flux
+              organization: cc7bcb0be72a28f5
+              defaultBucket: "Home Assistant"
+              tlsSkipVerify: true
+            secureJsonData:
+              token: ${INFLUXDB_TOKEN}
     topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: kubernetes.io/hostname
