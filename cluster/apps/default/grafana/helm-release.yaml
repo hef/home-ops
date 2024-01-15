@@ -33,6 +33,8 @@ spec:
         - grafana.${SECRET_DOMAIN}
     persistence:
       enabled: false # defaults to false
+    testFramework:
+      enabled: false
     envFromSecret: grafana-secrets
     env:
       GF_AUTH_GENERIC_OAUTH_API_URL: https://auth.${SECRET_DOMAIN}/api/oidc/userinfo
@@ -51,8 +53,8 @@ spec:
         check_for_plugin_updates: false
         reporting_enabled: false
       auth:
-        oauth_auto_login: true
         oauth_allow_insecure_email_lookup: true
+        disable_login_form: true
       auth.generic_oauth:
         enabled: true
         name: Authelia
@@ -63,6 +65,7 @@ spec:
         groups_attribute_path: groups
         name_attribute_path: name
         use_pkce: true
+        auto_login: true
       auth.generic_oauth.group_mapping:
         org_id: 1
         role_attribute_path: |
@@ -74,7 +77,6 @@ spec:
       news:
         news_feed_enabled: false
     datasources:
-      envFromSecret: grafana-secrets
       datasources.yaml:
         apiVersion: 1
         deleteDatasources:
