@@ -91,8 +91,7 @@ spec:
             jsonData:
               version: Flux
               organization: cc7bcb0be72a28f5
-              defaultBucket: "Home Assistant"
-              tlsSkipVerify: true
+              defaultBucket: 9370db05764a4153
             secureJsonData:
               token: ${INFLUXDB_TOKEN}
     sidecar:
