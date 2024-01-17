@@ -3,7 +3,11 @@ kind: Service
 metadata:
   name: factorio
   namespace: default
+  annotations:annotations:
+    external-dns.alpha.kubernetes.io/hostname: factorio.${SECRET_DOMAIN}
+    io.cilium/lb-ipam-ips: 192.168.1.10
 spec:
+  type: LoadBalancer
   selector:
     app: factorio
   ports:
