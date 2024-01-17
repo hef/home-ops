@@ -15,7 +15,7 @@ spec:
       kube-image-keeper.enix.io/image-caching-policy: ignore
   primaryUpdateStrategy: unsupervised
   storage:
-    size: 2Gi
+    size: 3Gi
     storageClass: longhorn-single
   superuserSecret:
     name: superuser-secret
