@@ -45,9 +45,9 @@ metadata:
   name: another-autoscaler
   namespace: another
 data:
-  LOG_LEVEL: "DEBUG"
+  LOG_LEVEL: "INFO"
   LOG_FORMAT: "JSON"
-  CHECK_EVERY: "5"
+  CHECK_EVERY: "60"
 
 ---
 apiVersion: apps/v1
