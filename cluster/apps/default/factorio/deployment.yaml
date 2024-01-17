@@ -19,6 +19,9 @@ spec:
       labels:
         app: factorio
     spec:
+      nodeSelector:
+        kubernetes.io/arch: "amd64"
+      priorityClassName: high-priority
       containers:
         - name: factorio
           image: factoriotools/factorio:1.1.101
