@@ -5,8 +5,10 @@ metadata:
   namespace: default
   annotations:
     reloader.stakater.com/auto: "true"
+    another-autoscaler/start-time: "30 01 * * 4"
+    another-autoscaler/stop-time: "30 03 * * 4"
 spec:
-  replicas: 1
+  #replicas: 1
   strategy:
     type: Recreate
   selector:
