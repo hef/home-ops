@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: hef
         namespace: flux-system
-      version: 0.119.1
+      version: 0.120.0
   maxHistory: 2
   install:
     remediation:

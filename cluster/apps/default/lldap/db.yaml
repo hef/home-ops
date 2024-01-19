@@ -1,11 +1,12 @@
-apiVersion: dbman.hef.sh/v1alpha2
+apiVersion: dbman.hef.sh/v1alpha3
 kind: Database
 metadata:
   name: lldap
   namespace: default
 spec:
-  credentials_secret: lldap-credentials
-  database_name: lldap
-  database_server_ref:
+  credentials:
+    basicAuthSecretRef: lldap-credentials
+  databaseName: lldap
+  databaseServerRef:
     namespace: database
     name: postgres

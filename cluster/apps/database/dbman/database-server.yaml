@@ -1,9 +1,10 @@
-apiVersion: dbman.hef.sh/v1alpha1
+apiVersion: dbman.hef.sh/v1alpha2
 kind: DatabaseServer
 metadata:
   name: postgres
   namespace: database
 spec:
-  #conn_string: "host=192.168.1.6"
-  conn_string: "host=postgres-rw.database"
-  superuser_secret: superuser-secret
+  #connString: "host=192.168.1.6"
+  connString: "host=postgres-rw.database"
+  credentials:
+    basicAuthSecretRef: superuser-secret
