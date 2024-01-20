@@ -7,7 +7,7 @@ collections:
   - name: ansible.posix
     version: 1.5.4
   - name: devsec.hardening
-    version: 9.0.0
+    version: 9.0.1
 roles:
   - src: xanmanning.k3s
     version: v3.4.3
