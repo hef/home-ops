@@ -10,3 +10,15 @@ spec:
   databaseServerRef:
     namespace: database
     name: postgres
+---
+apiVersion: dbman.hef.sh/v1alpha3
+kind: Database
+metadata:
+  name: db2
+  namespace: database
+spec:
+  databaseName: db2
+  databaseServerRef:
+    namespace: database
+    name: postgres
+  ownerRef: db1
