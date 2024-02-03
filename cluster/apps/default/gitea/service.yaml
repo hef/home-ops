@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: gitea-service
-  namespace: gitea
+  namespace: default
 spec:
   ports:
     - port: 3000
       protocol: TCP
-      targetPort: 3000
+      targetPort: http
   selector:
     app: gitea

@@ -2,15 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: gitea-ingress
-  namespace: gitea
-  annotations:
-    hajimari.io/appName: "gitea"
-    hajimari.io/enable: "true"
-    hajimari.io/icon: "git"
+  namespace: default
 spec:
-  ingressClassName: traefik
+  ingressClassName: internal
   rules:
-    - host: git.hef.sh
+    - host: git.${SECRET_DOMAIN}
       http:
         paths:
           - backend:
@@ -20,3 +16,7 @@ spec:
                   number: 3000
             path: /
             pathType: Prefix
+      tls:
+        - hosts:
+            - git.${SECRET_DOMAIN}
+          secretName: gitea-tls

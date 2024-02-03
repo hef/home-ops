@@ -1,10 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: gitea
   name: gitea
-  namespace: gitea
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -20,11 +18,11 @@ spec:
       containers:
         - env:
             - name: DOMAIN
-              value: git.hef.sh
+              value: git.${SECRET_DOMAIN}
             - name: DISABLE_SSH
               value: "true"
             - name: ROOT_URL
-              value: https://git.hef.sh
+              value: https://git.${SECRET_DOMAIN}
             - name: SECRET_KEY
               valueFrom:
                 secretKeyRef:
@@ -36,6 +34,14 @@ spec:
           ports:
             - containerPort: 3000
               protocol: TCP
+              name: http
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
           volumeMounts:
             - mountPath: /data/
               name: gitea-storage-volume
