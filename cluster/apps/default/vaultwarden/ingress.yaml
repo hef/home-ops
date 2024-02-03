@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vaultwarden
+  namespace: default
+spec:
+  ingressClassName: internal
+  rules:
+    - host: vaultwarden.${SECRET_DOMAIN}
+      http:
+        paths:
+          - backend:
+              service:
+                name: vaultwarden
+                port:
+                  name: http
+            pathType: Prefix
+            path: /
