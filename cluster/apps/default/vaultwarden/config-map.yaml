@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vaultwarden-config
+  namespace: default
+data:
+  SMTP_HOST: smtp-relay.default.svc.cluster.local
+  SMTP_PORT: "25"
+  SMTP_FROM: vaultwarden@${SECRET_DOMAIN}
+  SMTP_SECURITY: "off"
+  DOMAIN: vaultwarden.${SECRET_DOMAIN}

@@ -29,5 +29,7 @@ spec:
             - containerPort: 80
               name: http
           envFrom:
+            - configMapRef:
+                name: vaultwarden-config
             - secretRef:
                 name: vaultwarden-secret
