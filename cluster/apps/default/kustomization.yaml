@@ -16,6 +16,7 @@ resources:
   - pgadmin
   - piper
   - smtp-relay
+  - vaultwarden
   - whisper
   - wikijs
   - zigbee2mqtt
