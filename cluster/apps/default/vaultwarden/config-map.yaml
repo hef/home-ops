@@ -8,4 +8,4 @@ data:
   SMTP_PORT: "25"
   SMTP_FROM: vaultwarden@${SECRET_DOMAIN}
   SMTP_SECURITY: "off"
-  DOMAIN: vaultwarden.${SECRET_DOMAIN}
+  DOMAIN: https://vaultwarden.${SECRET_DOMAIN}
