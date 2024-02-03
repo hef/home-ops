@@ -1,0 +1,12 @@
+apiVersion: dbman.hef.sh/v1alpha3
+kind: Database
+metadata:
+  name: vaultwarden
+  namespace: default
+spec:
+  credentials:
+    basicAuthSecretRef: vaultwarden-credentials
+  databaseName: vaultwarden
+  databaseServerRef:
+    namespace: database
+    name: postgres
