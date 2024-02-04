@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: default
 resources:
   - config-map.yaml
+  - db.yaml
   - deployment.yaml
   - pvc.yaml
   - secret.sops.yaml
