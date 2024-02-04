@@ -1,0 +1,12 @@
+apiVersion: dbman.hef.sh/v1alpha3
+kind: Database
+metadata:
+  name: gitea
+  namespace: default
+spec:
+  credentials:
+    basicAuthSecretRef: gitea-credentials
+  databaseName: gitea
+  databaseServerRef:
+    namespace: database
+    name: postgres
