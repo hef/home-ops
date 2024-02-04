@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,21 +17,14 @@ spec:
         app: gitea
     spec:
       containers:
-        - env:
-            - name: DOMAIN
-              value: git.${SECRET_DOMAIN}
-            - name: DISABLE_SSH
-              value: "true"
-            - name: ROOT_URL
-              value: https://git.${SECRET_DOMAIN}
-            - name: SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  key: SECRET_KEY
-                  name: gitea-secrets
+        - name: gitea
           image: gitea/gitea:1.21.4
           imagePullPolicy: Always
-          name: gitea
+          envFrom:
+            - configMapRef:
+                name: gitea-config
+            - secretRef:
+                name: gitea-secrets
           ports:
             - containerPort: 3000
               protocol: TCP

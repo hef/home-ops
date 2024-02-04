@@ -1,9 +1,13 @@
+---
 apiVersion: apps/v1
 kind: ConfigMap
 metadata:
   name: gitea-config
   namespace: default
 data:
+  DOMAIN: git.${SECRET_DOMAIN}
+  DISABLE_SSH: "true"
+  ROOT_URL: https://git.${SECRET_DOMAIN}
   GITEA__database__DB_TYPE: postgres
   GITEA__database__HOST: postgres-rw.database.svc.cluster.local:5432
   GITEA__database__NAME: gitea
