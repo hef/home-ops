@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
         - name: webfinger
-          image: "ghcr.io/hef/easy-webfinger:1.0.0"
+          image: "ghcr.io/hef/easy-webfinger:1.0.1"
           resources:
             limits:
               memory: "20Mi"
