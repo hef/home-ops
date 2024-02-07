@@ -6,4 +6,6 @@ resources:
   - kube-system
   - longhorn
   - networking
+  #- snapshot-controller
   - system-upgrade
+  - volsync
