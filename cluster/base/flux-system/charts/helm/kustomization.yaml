@@ -27,6 +27,7 @@ resources:
   - minio-charts.yaml
   - nfs-subdir-external-provisioner-charts.yaml
   - node-feature-discovery.yaml
+  - piraeus.yaml
   - prometheus-community-charts.yaml
   - requarks.yaml
   - rook-ceph-charts.yaml
