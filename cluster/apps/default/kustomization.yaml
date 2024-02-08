@@ -18,6 +18,7 @@ resources:
   - piper
   - smtp-relay
   - vaultwarden
+  - volsync
   - whisper
   - wikijs
   - zigbee2mqtt

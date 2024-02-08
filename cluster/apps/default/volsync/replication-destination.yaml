@@ -1,0 +1,12 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: test-data-restore
+  namespace: default
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: restic-config
+    destinationPvc: test-data
+    copyMethod: Direct
