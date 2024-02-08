@@ -15,6 +15,10 @@ spec:
       labels:
         app: code
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       strategy:
         type: Recreate
       containers:
@@ -42,8 +46,7 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
-          securityContext:
-            fsGroup: 1000
+
       volumes:
         - name: data
           persistentVolumeClaim:
