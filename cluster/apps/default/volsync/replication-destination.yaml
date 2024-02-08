@@ -8,5 +8,5 @@ spec:
     manual: restore-once
   restic:
     repository: restic-config
-    destinationPvc: test-data
+    destinationPVC: test-data
     copyMethod: Direct
