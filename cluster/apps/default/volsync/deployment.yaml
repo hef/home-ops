@@ -23,6 +23,18 @@ spec:
           ports:
             - containerPort: 8080
               name: http
+          env:
+            - name: TZ
+              value: ${SECRET_TZ}
+          workingDir: /data
+          args:
+            - --auth
+            - "none"
+            - --user-data-dir
+            - "/data/.vscode"
+            - --extensions-dir
+            - "/data/.vscode"
+            - /data
           resources:
             limits:
               cpu: "1"
