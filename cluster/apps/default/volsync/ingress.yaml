@@ -2,11 +2,12 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: volsync
+  name: code
   namespace: default
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
+  ingressClassName: internal
   rules:
     - host: code.${SECRET_DOMAIN}
       http:
