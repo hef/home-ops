@@ -6,10 +6,10 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  #dataSourceRef:
-  #  apiGroup: volsync.backube
-  #  kind: ReplicationDestination
-  #  name: test-data
+  dataSourceRef:
+    apiGroup: volsync.backube
+    kind: ReplicationDestination
+    name: test-data
   resources:
     requests:
       storage: 1Gi
