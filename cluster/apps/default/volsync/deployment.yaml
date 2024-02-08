@@ -15,6 +15,8 @@ spec:
       labels:
         app: code
     spec:
+      strategy:
+        type: Recreate
       containers:
         - name: code
           image: ghcr.io/coder/code-server:4.20.1
