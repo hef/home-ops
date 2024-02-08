@@ -12,7 +12,7 @@ resources:
   - homeassistant
   - lldap
   - mosquitto
-  - namespace
+  - namespace.yaml
   - netboot_xyz
   - openwakeword
   - pgadmin
