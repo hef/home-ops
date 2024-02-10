@@ -31,7 +31,7 @@ metadata:
   namespace: kube-system
 spec:
   interval: 10m0s
-  path: ./kubernetes/snapshot-controller
+  path: ./deploy/kubernetes/snapshot-controller
   prune: true
   wait: false
   sourceRef:
