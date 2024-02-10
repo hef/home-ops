@@ -13,4 +13,4 @@ spec:
     storageClassName: longhorn
     # hacks
     accessModes: ["ReadWriteOnce"]
-    capacity: 8Gi
+    capacity: 1Gi
