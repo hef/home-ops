@@ -6,7 +6,6 @@ resources:
   - kube-system
   - longhorn
   - networking
-  #- snapshot-controller
+  - snapshot-controller
   - system-upgrade
   - volsync
-  - https://github.com/kubernetes-csi/external-snapshotter/tree/v6.3.2/deploy/kubernetes/snapshot-controller
