@@ -10,3 +10,5 @@ spec:
     repository: restic-config
     destinationPVC: test-data
     copyMethod: Snapshot
+    volumeSnapshotClassName: longhorn
+    storageClassName: longhorn
