@@ -11,6 +11,6 @@ spec:
     copyMethod: Snapshot
     volumeSnapshotClassName: longhorn
     storageClassName: longhorn
-    # hacks
+    # these should match the restored PVC
     accessModes: ["ReadWriteOnce"]
-    capacity: 1Gi # same as destination PVC
+    capacity: 1Gi
