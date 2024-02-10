@@ -11,4 +11,6 @@ spec:
     copyMethod: Snapshot
     volumeSnapshotClassName: longhorn
     storageClassName: longhorn
+    # hacks
     accessModes: ["ReadWriteOnce"]
+    capacity: 8Gi
