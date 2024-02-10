@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - cert-manager
   - database
+  - external-secrets
   - kube-system
   - longhorn
   - networking
