@@ -15,6 +15,13 @@ spec:
         kind: HelmRepository
         name: jetstack-charts
         namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
   values:
     installCRDs: true
     webhook:
@@ -29,7 +36,7 @@ spec:
         - "1.1.1.1"
         - "9.9.9.9"
     prometheus:
-      enabled: true
+      enabled: false
       servicemonitor:
-        enabled: true
+        enabled: false
         prometheusInstance: monitoring
