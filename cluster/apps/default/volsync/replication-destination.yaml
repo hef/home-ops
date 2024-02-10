@@ -13,4 +13,4 @@ spec:
     storageClassName: longhorn
     # hacks
     accessModes: ["ReadWriteOnce"]
-    capacity: 1Gi
+    capacity: 1Gi # same as destination PVC

@@ -12,5 +12,5 @@ spec:
     name: test-data
   resources:
     requests:
-      storage: 1Gi
+      storage: 8Gi
   storageClassName: longhorn
