@@ -8,7 +8,6 @@ spec:
     manual: restore-once
   restic:
     repository: restic-config
-    destinationPVC: test-data
     copyMethod: Snapshot
     volumeSnapshotClassName: longhorn
     storageClassName: longhorn
