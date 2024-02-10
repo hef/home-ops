@@ -11,7 +11,7 @@ resources:
   - deliveryhero-charts.yaml
   - descheduler.yaml
   - external-dns-charts.yaml
-  - external-secrets-charts.yaml
+  - external-secrets.yaml
   - grafana-charts.yaml
   - hajimari.yaml
   - hef.yaml
