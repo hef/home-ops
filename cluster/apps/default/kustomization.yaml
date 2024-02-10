@@ -13,7 +13,6 @@ resources:
   - lldap
   - mosquitto
   - namespace.yaml
-  - netboot_xyz
   - openwakeword
   - pgadmin
   - piper
