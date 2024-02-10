@@ -4,7 +4,7 @@ resources:
   - deployment.yaml
   - ingress.yaml
   - pvc.yaml
-  - replication-destination.yaml
-  #- replication-source.yaml
+  #- replication-destination.yaml
+  - replication-source.yaml
   - secrets.sops.yaml
   - service.yaml

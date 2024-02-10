@@ -8,7 +8,7 @@ spec:
     - ReadWriteOnce
   dataSourceRef:
     apiGroup: volsync.backube
-    kind: ReplicationDestination
+    kind: ReplicationSource
     name: test-data
   resources:
     requests:
