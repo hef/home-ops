@@ -9,4 +9,4 @@ spec:
   restic:
     repository: restic-config
     destinationPVC: test-data
-    copyMethod: Direct
+    copyMethod: Snapshot
