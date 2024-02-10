@@ -11,3 +11,4 @@ spec:
     copyMethod: Snapshot
     volumeSnapshotClassName: longhorn
     storageClassName: longhorn
+    accessModes: ["ReadWriteOnce"]
