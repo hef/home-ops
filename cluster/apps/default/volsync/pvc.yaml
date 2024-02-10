@@ -8,9 +8,9 @@ spec:
     - ReadWriteOnce
   dataSourceRef:
     apiGroup: volsync.backube
-    kind: ReplicationSource
+    kind: ReplicationDestination
     name: test-data
   resources:
     requests:
       storage: 1Gi
-  storageClassName: longhorn-single
+  storageClassName: longhorn
