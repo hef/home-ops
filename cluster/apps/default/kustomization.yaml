@@ -1,8 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - authelia
   - another-autoscaler
+  - authelia
+  - code
   - esphome
   - factorio
   - foundry
@@ -18,7 +19,6 @@ resources:
   - piper
   - smtp-relay
   - vaultwarden
-  - volsync
   - whisper
   - wikijs
   - zigbee2mqtt

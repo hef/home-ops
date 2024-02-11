@@ -1,0 +1,15 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: "${CLAIM}"
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: ${CLAIM}-backup-config
+    copyMethod: Snapshot
+    volumeSnapshotClassName: longhorn
+    storageClassName: longhorn
+    # these should match the restored PVC
+    accessModes: ["ReadWriteOnce"]
+    capacity: 1Gi
