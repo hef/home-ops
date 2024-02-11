@@ -8,3 +8,4 @@ resources:
   #- replication-source.yaml
   - secrets.sops.yaml
   - service.yaml
+  - ../../../../template/backup
