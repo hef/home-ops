@@ -6,6 +6,7 @@ resources:
   - db.yaml
   - deployment.yaml
   - pvc.yaml
+  - replication-source.yaml
   - secret.sops.yaml
   - service.yaml
   - ingress.yaml
