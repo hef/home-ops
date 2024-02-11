@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 30m0s
   ref:
-    tag: "v6.3.2"
+    tag: "v6.3.3"
   url: https://github.com/kubernetes-csi/external-snapshotter
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
