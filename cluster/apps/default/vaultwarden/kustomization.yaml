@@ -5,6 +5,5 @@ resources:
   - db.yaml
   - deployment.yaml
   - ingress.yaml
-  - secret-store.yaml
   - secrets.sops.yaml
   - service.yaml
