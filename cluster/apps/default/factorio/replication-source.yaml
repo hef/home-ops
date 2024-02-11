@@ -3,6 +3,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: factorio-data
+  namespace: default
 spec:
   # The PVC to be backed up
   sourcePVC: factorio-data
