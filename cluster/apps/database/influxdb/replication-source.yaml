@@ -3,7 +3,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: influxdb-influxdb2
-  namespace: default
+  namespace: database
 spec:
   # The PVC to be backed up
   sourcePVC: influxdb-influxdb2
