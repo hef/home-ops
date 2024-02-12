@@ -8,8 +8,8 @@ spec:
   # The PVC to be backed up
   sourcePVC: influxdb-influxdb2
   trigger:
-    # Take a backup every 30 minutes
-    schedule: "*/30 * * * *"
+    # Take a backup every 4 hours
+    schedule: "0 */4 * * *"
   restic:
     # Prune the repository (repack to free space) every 2 weeks
     pruneIntervalDays: 14
