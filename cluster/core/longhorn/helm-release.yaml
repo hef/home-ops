@@ -54,3 +54,8 @@ spec:
         nginx.ingress.kubernetes.io/auth-response-headers: Remote-User,Remote-Name,Remote-Groups,Remote-Email
         nginx.ingress.kubernetes.io/auth-snippet: |
           proxy_set_header X-Forwarded-Method $request_method;
+    image:
+      longhorn:
+        instanceManager:
+          repository: webericjames/longhorn-instance-manager
+          tag: c49b76187e1c80dff7dfd22e0fc980a7200fb585
