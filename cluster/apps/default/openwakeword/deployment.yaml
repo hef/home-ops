@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: openwakeword
-          image: rhasspy/wyoming-openwakeword:1.9.0
+          image: rhasspy/wyoming-openwakeword:1.10.0
           args: ["--custom-model-dir", "/data", "--debug"]
           ports:
             - containerPort: 10400
