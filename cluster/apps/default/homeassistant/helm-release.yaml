@@ -140,8 +140,4 @@ spec:
         globalMounts:
           - path: /config
       tmp: # todo: enable emptydir and use that instead
-        enabled: true
-        accessMode: ReadWriteOnce
-        type: persistentVolumeClaim
-        size: 1Gi
-        storageClass: longhorn-single
+        type: emptyDir
