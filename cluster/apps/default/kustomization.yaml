@@ -6,6 +6,7 @@ resources:
   - code/ks.yaml
   - esphome
   - factorio
+  - factorioz
   - foundry
   - gitea
   - grafana

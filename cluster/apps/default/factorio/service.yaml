@@ -9,7 +9,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: factorio
+    factorio: active
   ports:
     - name: game
       port: 34197

@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: factorio
+  name: factorioz
   namespace: default
   annotations:
     reloader.stakater.com/auto: "true"
-    another-autoscaler/start-time: "30 01 * * 5"
+    another-autoscaler/start-time: "30 01 * * 4"
     another-autoscaler/stop-time: "30 04 * * *"
 spec:
   #replicas: 1
@@ -13,18 +13,18 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: factorio
+      app: factorioz
   template:
     metadata:
       labels:
-        app: factorio
+        app: factorioz
         factorio: active
     spec:
       nodeSelector:
         kubernetes.io/arch: "amd64"
       priorityClassName: high-priority
       containers:
-        - name: factorio
+        - name: factorioz
           image: factoriotools/factorio:1.1.104
           ports:
             - containerPort: 34197
@@ -35,9 +35,9 @@ spec:
               name: rcon
           envFrom:
             - configMapRef:
-                name: factorio-config
+                name: factorioz-config
             - secretRef:
-                name: factorio-secrets
+                name: factorioz-secrets
           resources:
             requests:
               cpu: "2"
@@ -51,4 +51,4 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: factorio-data
+            claimName: factorioz-data
