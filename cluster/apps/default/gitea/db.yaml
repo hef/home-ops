@@ -10,4 +10,4 @@ spec:
   databaseServerRef:
     namespace: database
     name: postgres
-  prune: falseg
+  prune: false
