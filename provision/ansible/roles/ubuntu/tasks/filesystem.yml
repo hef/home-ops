@@ -18,3 +18,13 @@
   loop:
     - swap
     - none
+- name: disable multipath.service (this is just a better fix)
+  ansible.builtin.systemd:
+    name: multipathd.service
+    state: stopped
+    enabled: no
+- name: disable multipath.socket (this is just a better fix)
+  ansible.builtin.systemd:
+    name: multipathd.socket
+    state: stopped
+    enabled: no
