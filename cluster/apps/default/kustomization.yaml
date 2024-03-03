@@ -22,4 +22,4 @@ resources:
   - vaultwarden
   - whisper
   - wikijs
-  - zigbee2mqtt
+  - zigbee2mqtt/ks.yaml

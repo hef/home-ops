@@ -97,11 +97,8 @@ spec:
     persistence:
       data:
         enabled: true
+        existingClaim: zigbee2mqtt-data
         mountPath: /data
-        accessMode: ReadWriteOnce
-        type: persistentVolumeClaim
-        size: 1Gi
-        storageClass: longhorn
       usb:
         type: hostPath
         # I have the "ZDongle-E" version of the zigbee USB Dongle Plus, not the original
