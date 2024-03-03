@@ -5,8 +5,7 @@ resources:
   - authelia
   - code/ks.yaml
   - esphome/ks.yaml
-  - factorio
-  - factorioz
+  - factorio/ks.yaml
   - foundry/ks.yaml
   - gitea/ks.yaml
   - grafana
