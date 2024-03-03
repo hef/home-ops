@@ -8,7 +8,7 @@ resources:
   - factorio
   - factorioz
   - foundry/ks.yaml
-  - gitea
+  - gitea/ks.yaml
   - grafana
   - hajimari
   - homeassistant/ks.yaml
