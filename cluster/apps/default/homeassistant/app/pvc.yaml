@@ -5,6 +5,10 @@ metadata:
   namespace: default
 spec:
   storageClassName: longhorn
+  dataSourceRef:
+    apiGroup: volsync.backube
+    kind: ReplicationDestination
+    name: hass-config
   accessModes:
     - ReadWriteOnce
   resources:
