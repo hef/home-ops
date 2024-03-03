@@ -12,4 +12,4 @@ spec:
     storageClassName: longhorn
     # these should match the restored PVC
     accessModes: ["ReadWriteOnce"]
-    capacity: 1Gi
+    capacity: ${CAPACITY:-1Gi}

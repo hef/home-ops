@@ -11,5 +11,5 @@ spec:
     name: "${CLAIM}-restore"
   resources:
     requests:
-      storage: 1Gi
+      storage: ${CAPACITY:-1Gi}
   storageClassName: longhorn
