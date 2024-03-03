@@ -16,7 +16,7 @@ resources:
   - mosquitto
   - namespace.yaml
   - openwakeword
-  - pgadmin/ks.yamlG
+  - pgadmin/ks.yaml
   - piper
   - smtp-relay
   - vaultwarden
