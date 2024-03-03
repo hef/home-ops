@@ -11,7 +11,7 @@ resources:
   - gitea
   - grafana
   - hajimari
-  - homeassistant
+  - homeassistant/ks.yaml
   - lldap
   - mosquitto
   - namespace.yaml
