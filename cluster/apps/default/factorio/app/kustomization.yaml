@@ -3,8 +3,6 @@ kind: Kustomization
 resources:
   - config-map.yaml
   - deployment.yaml
-  - pvc.yaml
-  - replication-source.yaml
   - secrets.sops.yaml
   - service.yaml
   - ../../../../template/backup
