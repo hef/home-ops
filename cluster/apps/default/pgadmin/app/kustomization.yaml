@@ -4,5 +4,5 @@ resources:
   - config-map.yaml
   - database.yaml
   - helm-release.yaml
-  - replication-source.yaml
   - secrets.sops.yaml
+  - ../../../../template/backup

@@ -49,5 +49,4 @@ spec:
             - path: /
               pathType: Prefix
     persistentVolume:
-      size: 1Gi
-      storageClass: longhorn
+      existingClaim: pgadmin-pgadmin4
