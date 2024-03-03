@@ -5,7 +5,6 @@ resources:
   - config-map.yaml
   - db.yaml
   - deployment.yaml
-  - replication-source.yaml
   - secret.sops.yaml
   - service.yaml
   - ingress.yaml
