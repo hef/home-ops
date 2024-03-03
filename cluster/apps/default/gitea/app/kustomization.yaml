@@ -8,3 +8,4 @@ resources:
   - secret.sops.yaml
   - service.yaml
   - ingress.yaml
+  - ../../../../template/backup
