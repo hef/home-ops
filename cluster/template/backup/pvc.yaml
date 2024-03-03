@@ -8,7 +8,7 @@ spec:
   dataSourceRef:
     apiGroup: volsync.backube
     kind: ReplicationDestination
-    name: "${CLAIM}"
+    name: "${CLAIM}-restore"
   resources:
     requests:
       storage: 1Gi
