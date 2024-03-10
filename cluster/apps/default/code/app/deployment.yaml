@@ -23,7 +23,7 @@ spec:
         type: Recreate
       containers:
         - name: code
-          image: ghcr.io/coder/code-server:4.21.1
+          image: ghcr.io/coder/code-server:4.22.0
           ports:
             - containerPort: 8080
               name: http
