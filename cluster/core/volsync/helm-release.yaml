@@ -26,3 +26,5 @@ spec:
     keepHistory: false
   values:
     manageCRDs: true
+    nodeSelector:
+      kubernetes.io/arch: "amd64"
