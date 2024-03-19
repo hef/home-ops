@@ -24,8 +24,8 @@ data:
           group_name: cn
     session:
       same_site: lax
-      inactivity: 5m
-      expiration: 1h
+      inactivity: 24h
+      expiration: 24h
       remember_me: 1M
       cookies:
         - domain: ${SECRET_DOMAIN}
