@@ -22,7 +22,7 @@ spec:
   enableSuperuserAccess: true
   bootstrap:
     recovery:
-      source: &previousCluster postgres-v5
+      source: &previousCluster postgres-v7
     #initdb:
     #  import:
     #    type: monolith
@@ -48,7 +48,7 @@ spec:
         maxParallel: 4
       destinationPath: s3://hef-cpng/
       endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
-      serverName: &currentCluster postgres-v7
+      serverName: &currentCluster postgres-v8
       s3Credentials:
         accessKeyId:
           name: cloudnative-pg-secret
