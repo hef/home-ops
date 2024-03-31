@@ -8,4 +8,4 @@ resources:
   - flux-system
   - longhorn
   - networking
-  - system-upgrade
+  #- system-upgrade
