@@ -36,7 +36,7 @@ spec:
       existingSecret: wikijs-secrets
     ingress:
       enabled: true
-      ingressClassName: external
+      className: external
       annotations:
         nginx.ingress.kubernetes.io/auth-method: GET
         nginx.ingress.kubernetes.io/auth-url: http://authelia.default.svc.cluster.local/api/verify
