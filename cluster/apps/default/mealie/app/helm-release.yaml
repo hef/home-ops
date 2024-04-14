@@ -23,7 +23,7 @@ spec:
           main:
             image:
               repository: ghcr.io/mealie-recipes/mealie
-              tag: 1.4.0
+              tag: v1.4.0
     service:
       main:
         controller: main
