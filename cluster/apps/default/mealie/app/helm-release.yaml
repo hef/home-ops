@@ -17,26 +17,26 @@ spec:
         name: bjw-s
         namespace: flux-system
   values:
-controllers:
-  main:
-    containers:
+    controllers:
       main:
-        image:
-          repository: ghcr.io/mealie-recipes/mealie
-          tag: 1.4.0
-service:
-  main:
-    controller: main
-    ports:
-      http:
-        port: 80
-ingress:
-  main:
-    hosts:
-      - host: mealie.${SECRET_DOMAIN}
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-            service:
-              identifier: main
-              port: http
+        containers:
+          main:
+            image:
+              repository: ghcr.io/mealie-recipes/mealie
+              tag: 1.4.0
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 80
+    ingress:
+      main:
+        hosts:
+          - host: mealie.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: ImplementationSpecific
+                service:
+                  identifier: main
+                  port: http
