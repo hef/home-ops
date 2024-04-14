@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: gitea
-          image: gitea/gitea:1.21.7
+          image: gitea/gitea:1.21.10
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
