@@ -1,96 +1,42 @@
 ---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/app-template-3.1.0/charts/other/app-template/values.schema.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
-  name: esphome
+  name: mealie
   namespace: default
 spec:
-  interval: 5m
+  interval: 30m
   chart:
     spec:
       chart: app-template
-      version: 2.6.0
+      version: 3.1.0
+      interval: 30m
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  maxHistory: 2
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    cleanupOnFail: true
-    remediation:
-      retries: 3
-  uninstall:
-    keepHistory: false
   values:
-    controllers:
+controllers:
+  main:
+    containers:
       main:
-        replicas: 1
-        strategy: Recreate
-        containers:
-          main:
-            image:
-              repository: ghcr.io/esphome/esphome
-              tag: 2024.2.2@sha256:96e4ea5664de466af3549f28862290bbbc2bd1cadf444393c91a97256ed51ae8
-            probes:
-              liveness:
-                enabled: false
-              readiness:
-                enabled: false
-              startup:
-                enabled: false
-            resources:
-              requests:
-                cpu: 10m
-                memory: 500Mi
-              limits:
-                memory: 2Gi
-            env:
-              TZ: ${SECRET_TZ}
-        pod:
-          hostNetwork: true
-          dnsPolicy: ClusterFirstWithHostNet
-    service:
-      main:
-        #annotations:
-        #  io.cilium/lb-ipam-ips: 192.168.1.7
-        ports:
-          http:
-            port: 6052
-          api:
-            port: 6053
-    ingress:
-      main:
-        enabled: true
-        className: internal
-        annotations:
-          hajimari.io/enable: "true"
-          nginx.ingress.kubernetes.io/auth-method: GET
-          nginx.ingress.kubernetes.io/auth-url: http://authelia.default.svc.cluster.local/api/verify
-          nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}?rm=$request_method
-          nginx.ingress.kubernetes.io/auth-response-headers: Remote-User,Remote-Name,Remote-Groups,Remote-Email
-          nginx.ingress.kubernetes.io/auth-snippet: |
-            proxy_set_header X-Forwarded-Method $request_method;
-        hosts:
-          - host: &host esphome.${SECRET_DOMAIN}
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  name: main
-                  port: http
-        tls:
-          - hosts:
-              - *host
-
-    persistence:
-      #esphome-cache:
-      #  enabled: true
-      #  type: emptyDir
-      #  mountPath: /cache
-      config:
-        enabled: true
-        existingClaim: esphome-config
-        mountPath: /config
+        image:
+          repository: ghcr.io/mealie-recipes/mealie
+          tag: 1.4.0
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 80
+ingress:
+  main:
+    hosts:
+      - host: mealie.${SECRET_DOMAIN}
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            service:
+              identifier: main
+              port: http

@@ -12,6 +12,7 @@ resources:
   - hajimari
   - homeassistant/ks.yaml
   - lldap
+  - mealie/ks.yaml
   - mosquitto
   - namespace.yaml
   - openwakeword
