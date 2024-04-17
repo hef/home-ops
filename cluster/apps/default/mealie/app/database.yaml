@@ -1,0 +1,12 @@
+apiVersion: dbman.hef.sh/v1alpha3
+kind: Database
+metadata:
+  name: mealie
+  namespace: default
+spec:
+  credentials:
+
+  databaseName: mealie
+  databaseServerRef:
+    namespace: database
+    name: postgres
