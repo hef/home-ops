@@ -29,6 +29,8 @@ spec:
       enabled: false
     postgresql:
       enabled: false
+    postgresql-ha:
+      enabled: false
     gitea:
       additionalConfigSources:
         - configMap:
