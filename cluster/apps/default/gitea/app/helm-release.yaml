@@ -63,3 +63,12 @@ spec:
           HOST: postgres-rw.database.svc.cluster.local:5432
           NAME: gitea
           USER: gitea
+        session:
+          provider: db.yaml
+        cache:
+          ADAPTER: memory
+        queue:
+          TYPE: level
+        indexer:
+          ISSUE_INDEXER_TYPE: bleve
+          REPO_INDEXER_ENABLED: true
