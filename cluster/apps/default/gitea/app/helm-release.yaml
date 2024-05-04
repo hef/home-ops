@@ -34,6 +34,9 @@ spec:
     ingress:
       enabled: true
       className: internal
+      annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /user/oauth2/auth.${SECRET_DOMAIN}/$2
+        nginx.ingress.kubernetes.io/use-regex: "true"
       hosts:
         - host: git.${SECRET_DOMAIN}
           paths:
