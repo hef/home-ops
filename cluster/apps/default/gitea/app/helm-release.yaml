@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: gitea
-      version: 7.0.2
+      version: 9.6.1
       sourceRef:
         kind: HelmRepository
         name: gitea
@@ -22,95 +22,3 @@ spec:
   upgrade:
     remediation:
       retries: 5
-  values:
-    statefulset:
-      annotations:
-        reloader.stakater.com/auto: "true"
-    image:
-      rootless: true
-    containerSecurityContext:
-      capabilities:
-        add: ["SYS_CHROOT"]
-    ingress:
-      enabled: true
-      ingressClassName: internal
-      annotations:
-      hosts:
-        - host: &host git.${SECRET_DOMAIN}
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - *host
-    memcached:
-      enabled: false
-    postgresql:
-      enabled: false
-    persistence:
-      enabled: true
-      storageClass: longhorn-static
-      claimName: gitea-storage
-    gitea:
-      admin:
-        email: hef@pbrfrat.com
-        username: hef
-      config:
-        APP_NAME: Tea, Git, Hot
-        server:
-          DISABLE_SSH: true
-          DOMAIN: git.${SECRET_DOMAIN}
-          ROOT_URL: https://git.${SECRET_DOMAIN}
-          ENABLE_GZIP: true
-          LANDING_PAGE: login
-          LFS_START_SERVER: true
-        admin:
-          DISABLE_REGULAR_ORG_CREATION: true
-        ui:
-          DEFAULT_THEME: arc-green
-        repository:
-          DEFAULT_BRANCH: main
-          DEFAULT_PRIVATE: true
-        database:
-          DB_TYPE: postgres
-          HOST: postgres-rw.database.svc.cluster.local:5432
-          NAME: gitea
-          USER: gitea
-          PASSWD:
-        service:
-          DISABLE_REGISTRATION: false
-          ALLOW_ONLY_EXTERNAL_REGISTRATION: true
-          SHOW_REGISTRATION_BUTTON: false
-          REQUIRE_SIGNIN_VIEW: true
-          DEFAULT_KEEP_EMAIL_PRIVATE: true
-          DEFAULT_ALLOW_CREATE_ORGANIZATION: false
-          DEFAULT_USER_IS_RESTRICTED: true
-        cron:
-          ENABLED: true
-        mailer:
-          ENABLED: true
-          MAILER_TYPE: smtp
-          SMTP_ADDR: smtp-relay.default.svc.cluster.local
-          SMTP_PORT: 25
-          FROM: "gitea <gitea@${SECRET_DOMAIN}>"
-        openid:
-          ENABLE_OPENID_SIGNIN: true
-          ENABLE_OPENID_SIGNUP: true
-          WHITELISTED_URIS: auth.${SECRET_DOMAIN}
-      oauth:
-        - name: authelia
-          existingSecret: gitea-config-secret
-          provider: openidConnect
-          autoDiscoverUrl: https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration
-          groupClaimName: groups
-          adminGroup: admins
-          restrictedGroup: people
-      metrics:
-        enabled: true
-        serviceMonitor:
-          enabled: true
-  valuesFrom:
-    - targetPath: gitea.admin.password
-      kind: Secret
-      name: gitea-config-secret
-      valuesKey: adminPassword
