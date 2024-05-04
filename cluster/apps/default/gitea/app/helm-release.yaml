@@ -22,3 +22,22 @@ spec:
   upgrade:
     remediation:
       retries: 5
+  values:
+    image:
+      rootless: true
+    redis-cluster:
+      enabled: false
+    postgresql:
+      enabled: false
+    gitea:
+      additionalConfigSources:
+        - configMap:
+            name: gitea-config
+        - secret:
+            name: gitea-secrets
+      config:
+        database:
+          DB_TYPE: postgres
+          HOST: postgres-rw.database.svc.cluster.local:5432
+          NAME: gitea
+          USER: gitea
