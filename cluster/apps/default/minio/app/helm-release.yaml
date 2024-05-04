@@ -24,7 +24,8 @@ spec:
   uninstall:
     keepHistory: false
 values:
-  ingress:
-    enabled: true
-    ingressClassName: internal
-    host: minio.${SECRET_DOMAIN}
+  congress:
+    ingress:
+      enabled: true
+      ingressClassName: internal
+      host: minio.${SECRET_DOMAIN}
