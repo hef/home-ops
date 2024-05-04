@@ -66,10 +66,11 @@ spec:
         session:
           provider: db.yaml
         cache:
-          ADAPTER: memory
+          ADAPTER: redis
+          HOST: redis://redis.database.svc.cluster.local:6379/0?pool_size=100&idle_timeout=180s
         queue:
           TYPE: redis
-          CONN_STR: redis+cluster://redis-headless.database.svc.cluster.local:6379
+          CONN_STR: redis://redis.database.svc.cluster.local:6379
         indexer:
           ISSUE_INDEXER_TYPE: bleve
           REPO_INDEXER_ENABLED: true
