@@ -68,7 +68,8 @@ spec:
         cache:
           ADAPTER: memory
         queue:
-          TYPE: level
+          TYPE: redis
+          CONN_STR: redis+cluster://redis-headless.database.svc.cluster.local:6379
         indexer:
           ISSUE_INDEXER_TYPE: bleve
           REPO_INDEXER_ENABLED: true
