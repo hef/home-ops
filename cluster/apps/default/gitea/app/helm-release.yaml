@@ -32,11 +32,11 @@ spec:
     postgresql-ha:
       enabled: false
     gitea:
-      additionalConfigSources:
-        - configMap:
-            name: gitea-config
-        - secret:
-            name: gitea-secrets
+      #additionalConfigSources:
+      #  - configMap:
+      #      name: gitea-config
+      #  - secret:
+      #      name: gitea-secrets
       admin:
         existingSecret: gitea-admin-secret
       ingress:
