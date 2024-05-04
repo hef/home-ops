@@ -94,4 +94,4 @@ spec:
         storage:
           STORAGE_TYPE: minio
           SERVE_DIRACT: true
-          MINIO_ENDPOINT: minio-hl.default.svc.cluster.local:9000
+          MINIO_ENDPOINT: https://minio.default.svc.cluster.local
