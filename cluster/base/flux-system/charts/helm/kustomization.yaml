@@ -26,7 +26,7 @@ resources:
   - metallb-charts.yaml
   - metrics-server.yaml
   - minecraft-server-charts.yaml
-  - minio-charts.yaml
+  - minio.yaml
   - nfs-subdir-external-provisioner-charts.yaml
   - node-feature-discovery.yaml
   - piraeus.yaml
