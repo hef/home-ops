@@ -39,9 +39,10 @@ spec:
       #      name: gitea-secrets
       additionalConfigFromEnvs:
         - name: GITEA__DATABASE__PASSWD
-          secretRef:
-            name: gitea-credentials
-            key: password
+          valueFrom:
+            secretKeyRef:
+              name: gitea-credentials
+              key: password
       admin:
         existingSecret: gitea-admin-secret
       ingress:
