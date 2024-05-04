@@ -36,8 +36,10 @@ spec:
         - secret:
             name: gitea-secrets
       config:
-        database:
-          DB_TYPE: postgres
-          HOST: postgres-rw.database.svc.cluster.local:5432
-          NAME: gitea
-          USER: gitea
+        ROOT_URL: https://git.${SECRET_DOMAIN}
+        DOMAIN: git.${SECRET_DOMAIN}
+        DISABLE_SSH: "true"
+        DB_TYPE: postgres
+        HOST: postgres-rw.database.svc.cluster.local:5432
+        NAME: gitea
+        USER: gitea
