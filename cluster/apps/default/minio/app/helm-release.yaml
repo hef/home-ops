@@ -23,9 +23,9 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-values:
-  congress:
-    ingress:
-      enabled: true
-      ingressClassName: internal
-      host: minio.${SECRET_DOMAIN}
+  values:
+    congress:
+      ingress:
+        enabled: true
+        ingressClassName: internal
+        host: minio.${SECRET_DOMAIN}
