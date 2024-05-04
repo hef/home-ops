@@ -50,6 +50,11 @@ spec:
         className: internal
         hosts:
           - host: git.${SECRET_DOMAIN}
+      oauth:
+        - name: "auth.${SECRET_DOMAIN}"
+          existingSecret: gitea-oauth-secret
+          provder: "openidConnect"
+          autoDiscoverUrl: https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration
       persistence:
         enabled: false
       config:
