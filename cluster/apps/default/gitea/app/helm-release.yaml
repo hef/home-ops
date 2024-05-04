@@ -74,3 +74,9 @@ spec:
         indexer:
           ISSUE_INDEXER_TYPE: bleve
           REPO_INDEXER_ENABLED: true
+        mailer:
+          ENABLED: true
+          PROTOCOL: smtp
+          SMTP_ADDR: smtp-relay.default.svc.cluster.local
+          SMTP_PORT: 25
+          FROM: gitea <gitea@${SECRET_DOMAIN}>
