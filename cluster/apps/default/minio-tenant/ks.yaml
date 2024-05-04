@@ -3,14 +3,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: &app minio-operator
+  name: &app minio-tenant
   namespace: flux-system
 spec:
   targetNamespace: default
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./cluster/apps/default/minio-operator/app
+  dependsOn:
+    - name: minio-operator
+  path: ./cluster/apps/default/minio-tenant/app
   prune: true
   sourceRef:
     kind: GitRepository

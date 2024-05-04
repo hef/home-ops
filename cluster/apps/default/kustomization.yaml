@@ -13,7 +13,8 @@ resources:
   - homeassistant/ks.yaml
   - lldap
   - mealie/ks.yaml
-  - minio-opreator/ks.yaml
+  - minio-operator/ks.yaml
+  - minio-tenant/ks.yaml
   - mosquitto
   - namespace.yaml
   - openwakeword

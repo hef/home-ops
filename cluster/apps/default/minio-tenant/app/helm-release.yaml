@@ -2,13 +2,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
-  name: &app minio-opreator
+  name: &app minio-tenant
   namespace: default
 spec:
   interval: 30m
   chart:
     spec:
-      chart: operator
+      chart: tenant
       version: 5.0.14
       sourceRef:
         kind: HelmRepository
@@ -23,9 +23,3 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-  values:
-    console:
-      ingress:
-        enabled: true
-        ingressClassName: internal
-        host: minio.${SECRET_DOMAIN}
