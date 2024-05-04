@@ -31,6 +31,11 @@ spec:
       enabled: false
     postgresql-ha:
       enabled: false
+    ingress:
+      enabled: true
+      className: internal
+      hosts:
+        - host: git.${SECRET_DOMAIN}
     gitea:
       #additionalConfigSources:
       #  - configMap:
@@ -45,11 +50,6 @@ spec:
               key: password
       admin:
         existingSecret: gitea-admin-secret
-      ingress:
-        enabled: true
-        className: internal
-        hosts:
-          - host: git.${SECRET_DOMAIN}
       oauth:
         - name: "auth.${SECRET_DOMAIN}"
           existingSecret: gitea-oauth-secret
