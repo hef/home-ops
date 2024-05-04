@@ -67,6 +67,8 @@ spec:
         service:
           DISABLE_REGISTRATION: true
           ENABLE_NOTIFY_MAIL: true
+          ENABLE_BASIC_AUTHENTICATION: false
+          VALID_SITE_URL_SCHEMES: https
         database:
           DB_TYPE: postgres
           HOST: postgres-rw.database.svc.cluster.local:5432
