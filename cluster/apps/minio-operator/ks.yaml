@@ -6,7 +6,7 @@ metadata:
   name: &app minio-operator
   namespace: flux-system
 spec:
-  targetNamespace: default
+  targetNamespace: minio-operator
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
