@@ -24,7 +24,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    congress:
+    console:
       ingress:
         enabled: true
         ingressClassName: internal
