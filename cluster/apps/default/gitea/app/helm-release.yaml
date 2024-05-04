@@ -37,10 +37,12 @@ spec:
             name: gitea-secrets
       admin:
         existingSecret: gitea-admin-secret
+      ingress:
+        enabled: true
+        className: internal
+        hosts:
+          - host: git.${SECRET_DOMAIN}
       config:
-        ROOT_URL: https://git.${SECRET_DOMAIN}
-        DOMAIN: git.${SECRET_DOMAIN}
-        DISABLE_SSH: "true"
         database:
           DB_TYPE: postgres
           HOST: postgres-rw.database.svc.cluster.local:5432
