@@ -37,6 +37,11 @@ spec:
       #      name: gitea-config
       #  - secret:
       #      name: gitea-secrets
+      additionalConfigFromEnvs:
+        - name: GITEA__DATABASE__PASSWD
+          secretRef:
+            name: gitea-credentials
+            key: password
       admin:
         existingSecret: gitea-admin-secret
       ingress:
