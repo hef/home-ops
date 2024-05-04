@@ -44,6 +44,8 @@ spec:
         className: internal
         hosts:
           - host: git.${SECRET_DOMAIN}
+      persistence:
+        enabled: false
       config:
         database:
           DB_TYPE: postgres
