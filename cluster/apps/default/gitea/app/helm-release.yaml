@@ -64,6 +64,8 @@ spec:
         server:
           DISABLE_SSH: true
           ROOT_URL: https://git.${SECRET_DOMAIN}
+        service:
+          DISABLE_REGISTRATION: true
         database:
           DB_TYPE: postgres
           HOST: postgres-rw.database.svc.cluster.local:5432
