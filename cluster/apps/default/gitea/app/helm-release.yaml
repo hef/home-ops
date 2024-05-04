@@ -91,3 +91,7 @@ spec:
           SMTP_ADDR: smtp-relay.default.svc.cluster.local
           SMTP_PORT: 25
           FROM: gitea <gitea@${SECRET_DOMAIN}>
+        storage:
+          STORAGE_TYPE: minio
+          SERVE_DIRACT: true
+          MINIO_ENDPOINT: minio-hl.default.svc.cluster.local:9000
