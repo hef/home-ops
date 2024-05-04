@@ -58,6 +58,8 @@ spec:
       persistence:
         enabled: false
       config:
+        server:
+          DISABLE_SSH: true
         database:
           DB_TYPE: postgres
           HOST: postgres-rw.database.svc.cluster.local:5432
