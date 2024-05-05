@@ -47,6 +47,6 @@ spec:
       scopes: "openid,profile,email,groups"
       redirectUri: "https://minio-console.${SECRET_DOMAIN}/oauth_callback"
       # Can leave empty
-      claimPrefix: "minio_"
+      claimPrefix: ""
       comment: ""
       displayName: "auth.${SECRET_DOMAIN}"
