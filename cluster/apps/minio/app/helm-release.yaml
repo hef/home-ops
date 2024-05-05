@@ -31,4 +31,5 @@ spec:
     consoleIngress:
       enabled: true
       ingressClassName: internal
-      host: minio-console.${SECRET_DOMAIN}
+      hosts:
+        - minio-console.${SECRET_DOMAIN}
