@@ -4,4 +4,4 @@ namespace: default
 resources:
   - helm-release.yaml
   - namespace.yaml
-  - secret.sops.yaml
+  - secrets.sops.yaml
