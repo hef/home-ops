@@ -7,5 +7,6 @@ resources:
   - default
   - flux-system
   - longhorn
+  - minio/ks.yaml
   - networking
   #- system-upgrade
