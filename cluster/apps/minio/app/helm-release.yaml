@@ -28,3 +28,7 @@ spec:
       enabled: true
       storageClass: longhorn-single
       size: 10Gi
+    consoleIngress:
+      enabled: true
+      ingressClassName: internal
+      host: minio-console.${SECRET_DOMAIN}
