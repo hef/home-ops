@@ -43,7 +43,7 @@ spec:
       existingClientSecretName: "minio-secret"
       existingClientIdKey: "id"
       existingClientSecretKey: "secret"
-      claimName: "policy"
+      claimName: "groups"
       scopes: "openid,profile,email,groups"
       redirectUri: "https://minio-console.${SECRET_DOMAIN}/oauth_callback"
       # Can leave empty
