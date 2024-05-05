@@ -22,3 +22,9 @@ spec:
   upgrade:
     remediation:
       retries: 5
+  values:
+    replicas: 5
+    persistence:
+      enabled: true
+      storageClass: longhorn-single
+      size: 10Gi
