@@ -33,3 +33,18 @@ spec:
       ingressClassName: internal
       hosts:
         - minio-console.${SECRET_DOMAIN}
+    oidc:
+      enabled: true
+      issuerUrl: https://auth.${SECRET_DOMAIN}
+      clientId: minio
+      clientSecret:
+        secretKeyRef:
+          name: minio-oidc
+          key: clientSecret
+      groupsClaim: groups
+      usernameClaim: email
+      additionalScopes:
+        - openid
+        - email
+        - profile
+        - groups
