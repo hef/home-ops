@@ -33,6 +33,9 @@ spec:
       ingressClassName: internal
       hosts:
         - minio-console.${SECRET_DOMAIN}
+    resources:
+      requests:
+        memory: 2Gi
     oidc:
       enabled: true
       cofigUrl: https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration
