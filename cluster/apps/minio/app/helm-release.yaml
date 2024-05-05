@@ -35,16 +35,15 @@ spec:
         - minio-console.${SECRET_DOMAIN}
     oidc:
       enabled: true
-      issuerUrl: https://auth.${SECRET_DOMAIN}
+      cofigUrl: https://auth.${SECRET_DOMAIN}/.well-known/openid-configuration
       clientId: minio
-      clientSecret:
-        secretKeyRef:
-          name: minio-oidc
-          key: clientSecret
-      groupsClaim: groups
-      usernameClaim: email
-      additionalScopes:
-        - openid
-        - email
-        - profile
-        - groups
+      existingClientSecretName: "minio-secret"
+      existingClientIdKey: "id"
+      existingClientSecretKey: "secret"
+      claimName: "policy"
+      scopes: "openid,profile,email,groups"
+      redirectUri: "https://minio-console.${SECRET_DOMAIN}/oauth_callback"
+      # Can leave empty
+      claimPrefix: ""
+      comment: ""
+      displayName: "auth.${SECRET_DOMAIN}"
