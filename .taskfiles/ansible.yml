@@ -68,3 +68,23 @@ tasks:
     dir: provision/ansible
     cmds:
       - "ansible kubernetes -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml -a '/usr/bin/systemctl poweroff' --become"
+
+  lab:
+    desc: ansible lab
+    cmds:
+      - task: run
+        vars:
+          playbook: lab
+
+  run:
+    desc: Run an Ansible playbook for configuring a cluster
+    internal: true
+    dir: provision/ansible
+    summary: |
+      Args:
+        playbook: Playbook to run (required)
+    prompt: Run Ansible playbook '{{.playbook}}'... continue?
+    deps: ["deps"]
+    cmd: "ansible-playbook --inventory  {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml  {{.ANSIBLE_PLAYBOOK_DIR}}/{{.playbook}}.yml {{.CLI_ARGS}}"
+    requires:
+      vars: ["playbook"]

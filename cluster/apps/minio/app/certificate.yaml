@@ -1,0 +1,14 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: minio.hef.sh
+  namespace: networking
+spec:
+  secretName: minio.hef.sh-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: minio.hef.sh
+  dnsNames:
+    - "minio.hef.sh"

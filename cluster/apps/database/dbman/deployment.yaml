@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netshoot-hacks
+  namespace: database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netshoot
+  template:
+    metadata:
+      labels:
+        app: netshoot
+    spec:
+      schedulingGates:
+        - name: dbman.hef.sh/Ready
+      containers:
+        - name: netshoot
+          image: nicolaka/netshoot:latestr

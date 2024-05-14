@@ -1,7 +1,7 @@
 ---
 - hosts:
     - master
-    - worker
+    #- worker
   become: true
   gather_facts: true
   any_errors_fatal: true
@@ -10,13 +10,7 @@
       pause:
         seconds: 5
   tasks:
-    - name: disable multipath.service (this is just a better fix)
-      ansible.builtin.systemd:
-        name: multipathd.service
-        state: stopped
-        enabled: no
-    - name: disable multipath.socket (this is just a better fix)
-      ansible.builtin.systemd:
-        name: multipathd.socket
-        state: stopped
-        enabled: no
+    - name: Cilium
+      ansible.builtin.include_tasks: tasks/cilium.yaml
+    - name: cruft
+      ansible.builtin.include_tasks: tasks/cruft.yaml

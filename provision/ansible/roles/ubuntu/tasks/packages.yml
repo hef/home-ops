@@ -30,6 +30,7 @@
       - unattended-upgrades
       - ceph-common
       - libatasmart-bin
+      - python3-kubernetes
     install_recommends: false
     update_cache: true
     cache_valid_time: 3600
@@ -38,7 +39,6 @@
   register: apt_install_common
   retries: 5
   until: apt_install_common is success
-
 
 - name: Install raspberry specific packages
   ansible.builtin.apt:
