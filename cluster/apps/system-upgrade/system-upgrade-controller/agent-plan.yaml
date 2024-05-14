@@ -11,14 +11,18 @@ spec:
   version: "v1.30.0+k3s1"
   serviceAccountName: system-upgrade
   concurrency: 1
-  #cordon: true
   nodeSelector:
     matchExpressions:
+      - { key: k3s-upgrade, operator: Exists }
+      - { key: k3s-upgrade, operator: NotIn, values: ["disabled", "false"] }
+      - { key: k3os.io/mode, operator: DoesNotExist }
       - { key: node-role.kubernetes.io/control-plane, operator: DoesNotExist }
   prepare:
+    # Defaults to the same "resolved" tag that is used for the `upgrade` container, NOT `latest`
     image: rancher/k3s-upgrade
-    args:
-      - "prepare"
-      - "server"
+    args: ["prepare", "k3s-server"]
+  drain:
+    force: true
+    skipWaitForDeleteTimeout: 60 # 1.18+ (honor pod disruption budgets up to 60 seconds per pod then moves on)
   upgrade:
     image: rancher/k3s-upgrade
