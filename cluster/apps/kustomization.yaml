@@ -9,4 +9,4 @@ resources:
   - longhorn
   - minio/ks.yaml
   - networking
-  #- system-upgrade
+  - system-upgrade
