@@ -19,11 +19,11 @@ spec:
       containers:
         - name: hbbs
           image: rustdesk/rustdesk-server:1.1.10-3
-          args: ["hbbs", "-r", "rustdesk.${SECRET_DOMAIN}"]
+          args: ["hbbs", "-r", "rustdesk-relay.${SECRET_DOMAIN}"]
           ports:
-            - name: http
-              protocol: TCP
-              containerPort: 21114
+            #- name: http
+            #  protocol: TCP
+            #  containerPort: 21114
             - name: nat-test
               containerPort: 21115
               protocol: TCP
@@ -33,6 +33,9 @@ spec:
             - name: id-heartbeat
               containerPort: 21116
               protocol: UDP
+            - name: websocket
+              containerPort: 21118
+              protocol: TCP
           resources:
             limits:
               cpu: "100m"
