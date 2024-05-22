@@ -10,19 +10,24 @@ spec:
   selector:
     app: rustdesk-hbbs
   ports:
-    - name: http
+    - name: "21114"
+      port: 21114
       protocol: TCP
       containerPort: 21114
-    - port: 21115
+    - name: "21115"
+      port: 21115
       protocol: TCP
       targetPort: 21115
-    - port: 21116
+    - name: "21116-tcp"
+      port: 21116
       protocol: TCP
       targetPort: 21116
-    - port: 21116
+    - name: "21116-udp"
+      port: 21116
       protocol: UDP
       targetPort: 21116
-    - port: 21118
+    - name: "21118"
+      port: 21118
       protocol: TCP
       targetPort: 21118
 ---
@@ -39,10 +44,12 @@ spec:
   selector:
     app: rustdesk-hbbr
   ports:
-    - port: 21117
+    - name: "21117"
+      port: 21117
       protocol: TCP
       targetPort: 21117
-    - port: 21119
+    - name: "21119"
+      port: 21119
       protocol: TCP
       targetPort: 21119
 ---
