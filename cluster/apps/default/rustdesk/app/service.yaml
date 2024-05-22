@@ -7,6 +7,7 @@ metadata:
     external-dns.alpha.kubernetes.io/hostname: rustdesk.${SECRET_DOMAIN}
     io.cilium/lb-ipam-ips: 192.168.1.11
 spec:
+  type: LoadBalancer
   selector:
     app: rustdesk-hbbs
   ports:
@@ -38,7 +39,7 @@ metadata:
   namespace: default
   annotations:
     external-dns.alpha.kubernetes.io/hostname: rustdesk-relay.${SECRET_DOMAIN}
-    io.cilium/lb-ipam-ips: 192.168.1.12
+    io.cilium/lb-ipam-ips: 192.168.1.11
 spec:
   type: LoadBalancer
   selector:
