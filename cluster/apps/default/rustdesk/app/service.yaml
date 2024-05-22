@@ -11,10 +11,6 @@ spec:
   selector:
     app: rustdesk-hbbs
   ports:
-    - name: "21114"
-      port: 21114
-      protocol: TCP
-      containerPort: 21114
     - name: "21115"
       port: 21115
       protocol: TCP
