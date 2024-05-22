@@ -39,7 +39,7 @@ metadata:
   namespace: default
   annotations:
     external-dns.alpha.kubernetes.io/hostname: rustdesk-relay.${SECRET_DOMAIN}
-    io.cilium/lb-ipam-ips: 192.168.1.11
+    io.cilium/lb-ipam-ips: 192.168.1.12
 spec:
   type: LoadBalancer
   selector:
