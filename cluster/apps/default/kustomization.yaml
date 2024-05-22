@@ -18,6 +18,7 @@ resources:
   - openwakeword
   - pgadmin/ks.yaml
   - piper
+  - rustdesk/ks.yaml
   - smtp-relay
   - vaultwarden
   - whisper

@@ -17,4 +17,7 @@ spec:
         - name: dbman.hef.sh/Ready
       containers:
         - name: netshoot
-          image: nicolaka/netshoot:latestr
+          image: nicolaka/netshoot:latest
+          args:
+            - sleep
+            - infinity

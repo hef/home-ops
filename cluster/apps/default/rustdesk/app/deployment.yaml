@@ -1,0 +1,78 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rustdesk-hbbs
+  namespace: default
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rustdesk-hbbs
+  template:
+    metadata:
+      labels:
+        app: rustdesk-hbbs
+    spec:
+      containers:
+        - name: hbbs
+          image: rustdesk/rustdesk-server:1.1.10-3
+          args: ["hbbs", "-r", "rustdesk.${SECRET_DOMAIN}"]
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 21114
+            - name: nat-test
+              containerPort: 21115
+              protocol: TCP
+            - name: hole-punching
+              containerPort: 21116
+              protocol: TCP
+            - name: id-heartbeat
+              containerPort: 21116
+              protocol: UDP
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rustdesk-hbbr
+  namespace: default
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rustdesk-hbbr
+  template:
+    metadata:
+      labels:
+        app: rustdesk-hbbr
+    spec:
+      containers:
+        - name: hbbs
+          image: rustdesk/rustdesk-server:1.1.10-3
+          args: ["hbbr"]
+          ports:
+            - name: relay
+              protocol: TCP
+              containerPort: 21117
+            - name: http
+              protocol: TCP
+              containerPort: 21119
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
