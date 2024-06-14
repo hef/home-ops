@@ -57,7 +57,7 @@ spec:
             dependsOn: main
             image:
               repository: ghcr.io/coder/code-server
-              tag: 4.89.0
+              tag: 4.90.2
             env:
               TZ: ${SECRET_TZ}
             workingDir: /config
