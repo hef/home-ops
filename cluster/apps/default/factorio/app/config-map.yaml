@@ -8,4 +8,5 @@ data:
   LOAD_LATEST_SAVE: "false"
   GENERATE_NEW_SAVE: "true"
   #SAVE_NAME: "sadness"
-  SAVE_NAME: "on_time2"
+  #SAVE_NAME: "on_time2"
+  SAVE_NAME: "blocks"
