@@ -22,3 +22,4 @@ spec:
   postBuild:
     substitute:
       CLAIM: factorio-data
+      CAPACITY: 10G
