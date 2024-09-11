@@ -4,6 +4,7 @@ timezone: "America/Chicago"
 # (list) Additional ssh public keys to add to the nodes
 ssh_authorized_keys:
   - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBZN0861iX9qczTK96if4RFKKXNum615AZMWg8VAjUUu hef@hef-laptop
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHnPS4ZVLXiGRNhQuMPqm/eO6T5MwwsCTUmfA8MxoEXl hef@iMac-Pro.localdomain
 kube_vip_addr: 192.168.1.2
 node_cidr: 192.168.1.0/24
 cluster_cidr: 10.42.0.0/16
