@@ -22,4 +22,3 @@ spec:
   postBuild:
     substitute:
       CLAIM: code
-      CAPACITY: 100Gi
