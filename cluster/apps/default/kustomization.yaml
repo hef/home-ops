@@ -11,6 +11,7 @@ resources:
   - grafana
   - hajimari
   - homeassistant/ks.yaml
+  - immich/ks.yaml
   - lldap
   - mealie/ks.yaml
   - mosquitto
