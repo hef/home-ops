@@ -26,6 +26,20 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    env:
+      REDIS_HOSTNAME: redis-headless.database.svc.cluster.local
+      DB_HOSTNAME: postgres-rw.database.svc.cluster.local
+      DB_USERNAME:
+        valueFrom:
+          secretKeyRef:
+            name: immich-credentials
+            value: username
+
+      DB_PASSWORD:
+        valueFrom:
+          secretKeyRef: immich-credentials
+          value: password
+      DB_DATABASE_NAME: immich
     immich:
       persistence:
         library:

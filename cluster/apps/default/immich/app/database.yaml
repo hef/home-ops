@@ -1,0 +1,12 @@
+apiVersion: dbman.hef.sh/v1alpha3
+kind: Database
+metadata:
+  name: immich
+  namespace: default
+spec:
+  credentials:
+    basicAuthSecretRef: immich-credentials
+  databaseName: immich
+  databaseServerRef:
+    namespace: database
+    name: postgres
