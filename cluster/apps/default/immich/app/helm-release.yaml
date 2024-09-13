@@ -33,12 +33,12 @@ spec:
         valueFrom:
           secretKeyRef:
             name: immich-credentials
-            value: username
+            key: username
       DB_PASSWORD:
         valueFrom:
           secretKeyRef:
             name: immich-credentials
-            value: password
+            key: password
       DB_DATABASE_NAME: immich
     immich:
       persistence:
