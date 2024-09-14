@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   values:
     env:
-      REDIS_HOSTNAME: redis.database.svc.cluster.local
+      #REDIS_HOSTNAME: redis.database.svc.cluster.local
       DB_HOSTNAME: postgres-rw.database.svc.cluster.local
       DB_USERNAME:
         valueFrom:
@@ -44,3 +44,5 @@ spec:
       persistence:
         library:
           existingClaim: immich
+    redis:
+      enabled: true
