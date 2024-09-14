@@ -41,8 +41,8 @@ spec:
             key: password
       DB_DATABASE_NAME: immich
       DB_VECTOR_EXTENSION: pgvector
-    #image:
-      #tag: v1.115.0
+    image:
+      tag: v1.115.0
     immich:
       persistence:
         library:
