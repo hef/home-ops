@@ -47,3 +47,11 @@ spec:
           existingClaim: immich
     redis:
       enabled: true
+    server:
+      ingress:
+        main:
+          enabled: true
+          hosts:
+            - host: immich.${SECRET_DOMAIN}
+              paths:
+                - path: "/"
