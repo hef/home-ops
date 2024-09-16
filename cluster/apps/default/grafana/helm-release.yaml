@@ -90,8 +90,8 @@ spec:
             url: http://influxdb-influxdb2.database.svc.cluster.local
             jsonData:
               version: Flux
-              organization: cc7bcb0be72a28f5
-              defaultBucket: 9370db05764a4153
+              organization: 6d4b29ed13ee6e21
+              defaultBucket: 47f15d21b29e3f0f
             secureJsonData:
               token: $${INFLUXDB_TOKEN}
     sidecar:
