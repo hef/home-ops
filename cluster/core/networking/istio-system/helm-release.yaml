@@ -42,7 +42,7 @@ spec:
         name: istio
         namespace: flux-system
   dependsOn:
-    - name: base
+    - name: istio-base
       namespace: istio-system
   maxHistory: 2
   install:
