@@ -1,8 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - cloudflared
-  - external-dns
-  - istio-system
+  - helm-releasae.yaml
   - namespace.yaml
-  - k8s-gateway
