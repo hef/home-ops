@@ -27,5 +27,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    controllers:
+      serviceMonitor:
+        create: true
     webhook:
       enabled: false
