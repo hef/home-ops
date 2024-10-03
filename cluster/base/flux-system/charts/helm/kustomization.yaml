@@ -32,7 +32,7 @@ resources:
   - nfs-subdir-external-provisioner-charts.yaml
   - node-feature-discovery.yaml
   - piraeus.yaml
-  - prometheus-community-charts.yaml
+  - prometheus-community.yaml
   - requarks.yaml
   - rook-ceph-charts.yaml
   - runix.yaml
