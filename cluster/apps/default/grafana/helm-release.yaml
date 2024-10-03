@@ -119,7 +119,7 @@ spec:
         providers:
           - name: default
             orgId: 1
-            folder: ""
+            folder: "Cluster"
             type: file
             disableDeletion: false
             editable: true
@@ -136,6 +136,11 @@ spec:
           revision: 6
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
+        external-dns:
+          # renovate: depName="External-dns"
+          gnetId: 15038
+          revision: 3
+          datasource: Prometheus
     sidecar:
       datasources:
         enabled: true
