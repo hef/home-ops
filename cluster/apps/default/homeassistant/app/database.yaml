@@ -1,0 +1,12 @@
+apiVersion: dbman.hef.sh/v1alpha3
+kind: Database
+metadata:
+  name: homeassistant
+  namespace: default
+spec:
+  credentials:
+    basicAuthSecretRef: homeassistant-credentials
+  databaseName: homeassistant
+  databaseServerRef:
+    namespace: database
+    name: postgres
