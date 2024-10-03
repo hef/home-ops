@@ -9,4 +9,5 @@ resources:
   - longhorn
   - minio/ks.yaml
   - networking
+  - observability
   - system-upgrade
