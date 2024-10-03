@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - alert.yaml
   - ingress.yaml
+  - pod-monitor.yaml
+  - prometheus-rule.yaml
   - provider.yaml
   - receiver.yaml
   - secret.sops.yaml
