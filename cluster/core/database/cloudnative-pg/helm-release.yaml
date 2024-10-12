@@ -28,6 +28,8 @@ spec:
   dependsOn:
     - name: local-path-provisioner
       namespace: kube-system
+  driftDetection:
+    mode: enabled
   values:
     crds:
       create: true
