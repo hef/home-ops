@@ -26,11 +26,11 @@ spec:
   uninstall:
     keepHistory: false
   values:
-  resources:
-    requests: &resources
-      cpu: 1
-      memory: 4GiB
-    limits: *resources
+    resources:
+      requests: &resources
+        cpu: 1
+        memory: 4GiB
+      limits: *resources
     persistence:
       storageClass: longhorn
     ingress:
