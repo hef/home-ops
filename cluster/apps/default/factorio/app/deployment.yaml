@@ -63,9 +63,9 @@ spec:
             limits:
               cpu: "2"
               memory: "2Gi"
-          volumeMounts:
-            - name: data
-              mountPath: /factorio
+          #volumeMounts:
+          #  - name: data
+          #    mountPath: /factorio
       volumes:
         - name: data
           persistentVolumeClaim:
