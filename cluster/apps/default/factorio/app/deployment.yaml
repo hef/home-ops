@@ -47,7 +47,7 @@ spec:
               memory: "2Gi"
           volumeMounts:
             - name: data
-              mountPath: /factorio2
+              mountPath: /factorio
       volumes:
         - name: data
           persistentVolumeClaim:
