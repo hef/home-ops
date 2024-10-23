@@ -42,7 +42,7 @@ spec:
       DB_DATABASE_NAME: immich
       DB_VECTOR_EXTENSION: pgvector
     image:
-      tag: v1.115.0
+      tag: v1.118.2
     immich:
       persistence:
         library:
