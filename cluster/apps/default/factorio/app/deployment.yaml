@@ -6,7 +6,7 @@ metadata:
   annotations:
     reloader.stakater.com/auto: "true"
     another-autoscaler/start-time: "30 00 * * *"
-    another-autoscaler/stop-time: "30 03 * * *"
+    another-autoscaler/stop-time: "0 03 * * *"
 spec:
   replicas: 1
   strategy:
