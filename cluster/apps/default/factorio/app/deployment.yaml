@@ -25,7 +25,7 @@ spec:
       priorityClassName: high-priority
       containers:
         - name: factorio
-          image: factoriotools/factorio:2.0.8
+          image: factoriotools/factorio:2.0.9
           ports:
             - containerPort: 34197
               type: UDP
