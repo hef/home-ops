@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: authz
-          image: ghcr.io/hef/authz:1.1.0
+          image: ghcr.io/hef/authz:1.1.1
           ports:
             - containerPort: 50051
               type: TCP
