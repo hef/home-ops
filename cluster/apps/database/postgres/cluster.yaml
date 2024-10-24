@@ -14,6 +14,11 @@ spec:
     labels:
       kube-image-keeper.enix.io/image-caching-policy: ignore
   primaryUpdateStrategy: unsupervised
+  resources:
+    requests: &resources
+      cpu: 1
+      memory: "2Gi"
+    limits: *resources
   storage:
     size: 50Gi
     storageClass: longhorn-single
