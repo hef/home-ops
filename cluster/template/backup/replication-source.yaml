@@ -7,8 +7,7 @@ spec:
   # The PVC to be backed up
   sourcePVC: "${CLAIM}"
   trigger:
-    # Take a backup every 30 minutes
-    schedule: "0 */4 * * *"
+    schedule: "0 0 * * *"
   restic:
     # Prune the repository (repack to free space) every 2 weeks
     pruneIntervalDays: 14
