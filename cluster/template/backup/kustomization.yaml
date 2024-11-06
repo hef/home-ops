@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - ./pvc.yaml
   - ./replication-destination.yaml
-  - ./replication-source.yaml
+  #- ./replication-source.yaml
   - ./secrets.sops.yaml
