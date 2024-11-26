@@ -1,318 +1,498 @@
 {
-  "enabled": true,
-  "extends": [
-    "config:recommended",
-    ":timezone(America/Chicago)",
-    "github>hef/home-ops//.github/renovate/grafanaDashboards.json5",
+  enabled: true,
+  extends: [
+    'config:recommended',
+    ':timezone(America/Chicago)',
+    'github>hef/home-ops//.github/renovate/grafanaDashboards.json5',
   ],
-  "semanticCommits": "enabled",
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Renovate Dashboard",
-  "suppressNotifications": ["prIgnoreNotification"],
-  "rebaseWhen": "conflicted",
-  "pre-commit": {
-    "enabled": true
-  },
-  "flux": {
-    "fileMatch": [
-      "cluster/.+\\.ya?ml$"
-    ]
-  },
-  "helm-values": {
-    "fileMatch": [
-      "cluster/.+\\.ya?ml$"
-    ]
-  },
-  "kubernetes": {
-    "fileMatch": [
-      "cluster/.+\\.ya?ml$",
-      "provision/ansible/.+\\.ya?ml.j2$"
-    ]
-  },
-  "regexManagers": [
-    {
-      "description": "Process Tekton dependencies",
-      "fileMatch": [
-        "(^|/)cluster/.+\\.ya?ml(\\.j2)?$"
-      ],
-      "matchStrings": [
-        "depName=(?<depName>\\S+)?\n.*?(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "description": "Process custom dependencies",
-      "fileMatch": [
-        "cluster/.+\\.ya?ml$",
-        "provision/ansible/.+\\.ya?ml$"
-      ],
-      "matchStrings": [
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?\"(?<currentValue>.*)\"\n",
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?-\\s(.*?)\/(?<currentValue>[^/]+)\/[^/]+\n",
-        "datasource=(?<datasource>\\S+)\n.*?repo: (?<registryUrl>\\S+)\n.*?chart: (?<depName>\\S+)\n.*?version: (?<currentValue>\\S+)\n"
-      ],
-      "datasourceTemplate": "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    },
-    {
-      "description": "Process CloudnativePG Postgresql version",
-      "fileMatch": [
-        "(^|/)cluster/.+\\.ya?ml(\\.j2)?$"
-      ],
-      "matchStrings": [
-        "imageName: (?<depName>\\S+):(?<currentValue>.*\\-.*)"
-      ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "redhat"
-    },
-    {
-      "description": "Process CloudnativePG Postgresql version",
-      "fileMatch": [
-        "(^|/)cluster/.+\\.ya?ml(\\.j2)?$"
-      ],
-      "matchStrings": [
-        "imageName: (?<depName>\\S+):(?<currentValue>.*\\-.*)"
-      ],
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "redhat"
-    }
+  semanticCommits: 'enabled',
+  dependencyDashboard: true,
+  dependencyDashboardTitle: 'Renovate Dashboard',
+  suppressNotifications: [
+    'prIgnoreNotification',
   ],
-  "packageRules": [
+  rebaseWhen: 'conflicted',
+  'pre-commit': {
+    enabled: true,
+  },
+  flux: {
+    fileMatch: [
+      'cluster/.+\\.ya?ml$',
+    ],
+  },
+  'helm-values': {
+    fileMatch: [
+      'cluster/.+\\.ya?ml$',
+    ],
+  },
+  kubernetes: {
+    fileMatch: [
+      'cluster/.+\\.ya?ml$',
+      'provision/ansible/.+\\.ya?ml.j2$',
+    ],
+  },
+  customManagers: [
     {
-      "description": "Loose versioning for non-semver packages",
-      "matchDatasources": ["docker"],
-      "versioning": "loose",
-      "matchPackagePatterns": ["changedetection", "plex", "qbittorrent"]
+      customType: 'regex',
+      description: 'Process Tekton dependencies',
+      fileMatch: [
+        '(^|/)cluster/.+\\.ya?ml(\\.j2)?$',
+      ],
+      matchStrings: [
+        'depName=(?<depName>\\S+)?\n.*?(?<currentValue>v\\d+\\.\\d+\\.\\d+)',
+      ],
+      datasourceTemplate: 'github-releases',
     },
     {
-      "description": "Use custom versioning for Minio",
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$",
-      "matchPackagePatterns": ["minio"]
+      customType: 'regex',
+      description: 'Process custom dependencies',
+      fileMatch: [
+        'cluster/.+\\.ya?ml$',
+        'provision/ansible/.+\\.ya?ml$',
+      ],
+      matchStrings: [
+        'datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?"(?<currentValue>.*)"\n',
+        'datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( versioning=(?<versioning>\\S+))?\n.*?-\\s(.*?)/(?<currentValue>[^/]+)/[^/]+\n',
+        'datasource=(?<datasource>\\S+)\n.*?repo: (?<registryUrl>\\S+)\n.*?chart: (?<depName>\\S+)\n.*?version: (?<currentValue>\\S+)\n',
+      ],
+      datasourceTemplate: '{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}',
+      versioningTemplate: '{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}',
     },
     {
-      "description": "Auto merge container digests",
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "ignoreTests": true,
-      "automergeType": "branch",
-      "matchUpdateTypes": ["digest"],
-      "matchPackagePatterns": ["ghcr.io/bjw-s", "ghcr.io/onedr0p"]
+      customType: 'regex',
+      description: 'Process CloudnativePG Postgresql version',
+      fileMatch: [
+        '(^|/)cluster/.+\\.ya?ml(\\.j2)?$',
+      ],
+      matchStrings: [
+        'imageName: (?<depName>\\S+):(?<currentValue>.*\\-.*)',
+      ],
+      datasourceTemplate: 'docker',
+      versioningTemplate: 'redhat',
     },
     {
-      "description": "Auto merge GitHub Actions",
-      "matchManagers": ["github-actions"],
-      "matchDatasources": ["github-tags"],
-      "automerge": true,
-      "ignoreTests": true,
-      "automergeType": "branch",
-      "matchUpdateTypes": ["minor", "patch"]
+      customType: 'regex',
+      description: 'Process CloudnativePG Postgresql version',
+      fileMatch: [
+        '(^|/)cluster/.+\\.ya?ml(\\.j2)?$',
+      ],
+      matchStrings: [
+        'imageName: (?<depName>\\S+):(?<currentValue>.*\\-.*)',
+      ],
+      datasourceTemplate: 'docker',
+      versioningTemplate: 'redhat',
+    },
+  ],
+  packageRules: [
+    {
+      description: 'Loose versioning for non-semver packages',
+      matchDatasources: [
+        'docker',
+      ],
+      versioning: 'loose',
+      matchPackageNames: [
+        '/changedetection/',
+        '/plex/',
+        '/qbittorrent/',
+      ],
     },
     {
-      "description": "Flux Group",
-      "groupName": "Flux",
-      "matchPackagePatterns": ["flux"],
-      "matchDatasources": ["docker", "github-tags"],
-      "versioning": "semver",
-      "group": {
-        "commitMessageTopic": "{{{groupName}}} group"
+      description: 'Use custom versioning for Minio',
+      matchDatasources: [
+        'docker',
+      ],
+      versioning: 'regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T.*Z$',
+      matchPackageNames: [
+        '/minio/',
+      ],
+    },
+    {
+      description: 'Auto merge container digests',
+      matchDatasources: [
+        'docker',
+      ],
+      automerge: true,
+      ignoreTests: true,
+      automergeType: 'branch',
+      matchUpdateTypes: [
+        'digest',
+      ],
+      matchPackageNames: [
+        '/ghcr.io/bjw-s/',
+        '/ghcr.io/onedr0p/',
+      ],
+    },
+    {
+      description: 'Auto merge GitHub Actions',
+      matchManagers: [
+        'github-actions',
+      ],
+      matchDatasources: [
+        'github-tags',
+      ],
+      automerge: true,
+      ignoreTests: true,
+      automergeType: 'branch',
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+      ],
+    },
+    {
+      description: 'Flux Group',
+      groupName: 'Flux',
+      matchDatasources: [
+        'docker',
+        'github-tags',
+      ],
+      versioning: 'semver',
+      group: {
+        commitMessageTopic: '{{{groupName}}} group',
       },
-      "separateMinorPatch": true
+      separateMinorPatch: true,
+      matchPackageNames: [
+        '/flux/',
+      ],
     },
     {
-      "description": "Immich Group",
-      "groupName": "Immich",
-      "matchPackagePatterns": ["immich"],
-      "matchDatasources": ["docker"],
-      "group": {
-        "commitMessageTopic": "{{{groupName}}} group"
+      description: 'Immich Group',
+      groupName: 'Immich',
+      matchDatasources: [
+        'docker',
+      ],
+      group: {
+        commitMessageTopic: '{{{groupName}}} group',
       },
-      "separateMinorPatch": true
+      separateMinorPatch: true,
+      matchPackageNames: [
+        '/immich/',
+      ],
     },
     {
-      "description": "Rook-Ceph Group",
-      "groupName": "Rook-Ceph",
-      "matchPackagePatterns": ["rook.ceph"],
-      "matchDatasources": ["helm"],
-      "group": {
-        "commitMessageTopic": "{{{groupName}}} group"
+      description: 'Rook-Ceph Group',
+      groupName: 'Rook-Ceph',
+      matchDatasources: [
+        'helm',
+      ],
+      group: {
+        commitMessageTopic: '{{{groupName}}} group',
       },
-      "separateMinorPatch": true
+      separateMinorPatch: true,
+      matchPackageNames: [
+        '/rook.ceph/',
+      ],
     },
     {
-      "description": "External Snapshotter Group",
-      "groupName": "External Snapshotter",
-      "matchPackageNames": ["snapshot-controller", "snapshot-validation-webhook"],
-      "matchDatasources": ["helm"],
-      "group": {
-        "commitMessageTopic": "{{{groupName}}} group"
+      description: 'External Snapshotter Group',
+      groupName: 'External Snapshotter',
+      matchPackageNames: [
+        'snapshot-controller',
+        'snapshot-validation-webhook',
+      ],
+      matchDatasources: [
+        'helm',
+      ],
+      group: {
+        commitMessageTopic: '{{{groupName}}} group',
       },
-      "separateMinorPatch": true
+      separateMinorPatch: true,
     },
     {
-      "description": "Tekton Group",
-      "groupName": "Tekton",
-      "matchPackagePatterns": ["tektoncd"],
-      "matchDatasources": ["github-releases"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "group": {
-        "commitMessageTopic": "{{{groupName}}} group"
+      description: 'Tekton Group',
+      groupName: 'Tekton',
+      matchDatasources: [
+        'github-releases',
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+      ],
+      group: {
+        commitMessageTopic: '{{{groupName}}} group',
       },
-      //"separateMinorPatch": false
+      matchPackageNames: [
+        '/tektoncd/',
+      ],
     },
     {
-      "matchUpdateTypes": ["major"],
-      "labels": ["type/major"]
+      matchUpdateTypes: [
+        'major',
+      ],
+      labels: [
+        'type/major',
+      ],
     },
     {
-      "matchUpdateTypes": ["minor"],
-      "labels": ["type/minor"]
+      matchUpdateTypes: [
+        'minor',
+      ],
+      labels: [
+        'type/minor',
+      ],
     },
     {
-      "matchUpdateTypes": ["patch"],
-      "labels": ["type/patch"]
+      matchUpdateTypes: [
+        'patch',
+      ],
+      labels: [
+        'type/patch',
+      ],
     },
     {
-      "matchUpdateTypes": ["digest"],
-      "labels": ["type/digest"]
+      matchUpdateTypes: [
+        'digest',
+      ],
+      labels: [
+        'type/digest',
+      ],
     },
     {
-      "matchDatasources": ["docker"],
-      "addLabels": ["renovate/container"]
+      matchDatasources: [
+        'docker',
+      ],
+      addLabels: [
+        'renovate/container',
+      ],
     },
     {
-      "matchDatasources": ["helm"],
-      "addLabels": ["renovate/helm"]
+      matchDatasources: [
+        'helm',
+      ],
+      addLabels: [
+        'renovate/helm',
+      ],
     },
     {
-      "matchDatasources": ["galaxy", "galaxy-collection"],
-      "addLabels": ["renovate/ansible"]
+      matchDatasources: [
+        'galaxy',
+        'galaxy-collection',
+      ],
+      addLabels: [
+        'renovate/ansible',
+      ],
     },
     {
-      "matchDatasources": ["terraform-provider"],
-      "addLabels": ["renovate/terraform"]
+      matchDatasources: [
+        'terraform-provider',
+      ],
+      addLabels: [
+        'renovate/terraform',
+      ],
     },
     {
-      "matchDatasources": ["github-releases", "github-tags"],
-      "addLabels": ["renovate/github-release"]
+      matchDatasources: [
+        'github-releases',
+        'github-tags',
+      ],
+      addLabels: [
+        'renovate/github-release',
+      ],
     },
     {
-      "matchManagers": ["github-actions"],
-      "addLabels": ["renovate/github-action"]
+      matchManagers: [
+        'github-actions',
+      ],
+      addLabels: [
+        'renovate/github-action',
+      ],
     },
     {
-      "matchDatasources": ["pypi"],
-      "addLabels": ["renovate/pip"]
+      matchDatasources: [
+        'pypi',
+      ],
+      addLabels: [
+        'renovate/pip',
+      ],
     },
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(container)!: "
+      matchDatasources: [
+        'docker',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      commitMessagePrefix: 'feat(container)!: ',
     },
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat",
-      "semanticCommitScope": "container"
+      matchDatasources: [
+        'docker',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      semanticCommitType: 'feat',
+      semanticCommitScope: 'container',
     },
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["patch"],
-      "semanticCommitType": "fix",
-      "semanticCommitScope": "container"
+      matchDatasources: [
+        'docker',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      semanticCommitType: 'fix',
+      semanticCommitScope: 'container',
     },
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["digest"],
-      "semanticCommitType": "chore",
-      "semanticCommitScope": "container"
+      matchDatasources: [
+        'docker',
+      ],
+      matchUpdateTypes: [
+        'digest',
+      ],
+      semanticCommitType: 'chore',
+      semanticCommitScope: 'container',
     },
     {
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(helm)!: "
+      matchDatasources: [
+        'helm',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      commitMessagePrefix: 'feat(helm)!: ',
     },
     {
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat",
-      "semanticCommitScope": "helm"
-    },
-
-    {
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["patch"],
-      "semanticCommitType": "fix",
-      "semanticCommitScope": "helm"
+      matchDatasources: [
+        'helm',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      semanticCommitType: 'feat',
+      semanticCommitScope: 'helm',
     },
     {
-      "matchDatasources": ["galaxy", "galaxy-collection"],
-      "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(ansible)!: "
+      matchDatasources: [
+        'helm',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      semanticCommitType: 'fix',
+      semanticCommitScope: 'helm',
     },
     {
-      "matchDatasources": ["galaxy", "galaxy-collection"],
-      "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat",
-      "semanticCommitScope": "ansible"
-    },
-
-    {
-      "matchDatasources": ["galaxy", "galaxy-collection"],
-      "matchUpdateTypes": ["patch"],
-      "semanticCommitType": "fix",
-      "semanticCommitScope": "ansible"
+      matchDatasources: [
+        'galaxy',
+        'galaxy-collection',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      commitMessagePrefix: 'feat(ansible)!: ',
     },
     {
-      "matchDatasources": ["terraform-provider"],
-      "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(terraform)!: "
+      matchDatasources: [
+        'galaxy',
+        'galaxy-collection',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      semanticCommitType: 'feat',
+      semanticCommitScope: 'ansible',
     },
     {
-      "matchDatasources": ["terraform-provider"],
-      "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat",
-      "semanticCommitScope": "terraform"
+      matchDatasources: [
+        'galaxy',
+        'galaxy-collection',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      semanticCommitType: 'fix',
+      semanticCommitScope: 'ansible',
     },
     {
-      "matchDatasources": ["terraform-provider"],
-      "matchUpdateTypes": ["patch"],
-      "semanticCommitType": "fix",
-      "semanticCommitScope": "terraform"
+      matchDatasources: [
+        'terraform-provider',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      commitMessagePrefix: 'feat(terraform)!: ',
     },
     {
-      "matchDatasources": ["github-releases", "github-tags"],
-      "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(github-release)!: "
+      matchDatasources: [
+        'terraform-provider',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      semanticCommitType: 'feat',
+      semanticCommitScope: 'terraform',
     },
     {
-      "matchDatasources": ["github-releases", "github-tags"],
-      "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat",
-      "semanticCommitScope": "github-release"
+      matchDatasources: [
+        'terraform-provider',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      semanticCommitType: 'fix',
+      semanticCommitScope: 'terraform',
     },
     {
-      "matchDatasources": ["github-releases", "github-tags"],
-      "matchUpdateTypes": ["patch"],
-      "semanticCommitType": "fix",
-      "semanticCommitScope": "github-release"
+      matchDatasources: [
+        'github-releases',
+        'github-tags',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      commitMessagePrefix: 'feat(github-release)!: ',
     },
     {
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(github-action)!: "
+      matchDatasources: [
+        'github-releases',
+        'github-tags',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      semanticCommitType: 'feat',
+      semanticCommitScope: 'github-release',
     },
     {
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat",
-      "semanticCommitScope": "github-action"
+      matchDatasources: [
+        'github-releases',
+        'github-tags',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      semanticCommitType: 'fix',
+      semanticCommitScope: 'github-release',
     },
     {
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["patch"],
-      "semanticCommitType": "fix",
-      "semanticCommitScope": "github-action"
-    }
-  ]
+      matchManagers: [
+        'github-actions',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      commitMessagePrefix: 'feat(github-action)!: ',
+    },
+    {
+      matchManagers: [
+        'github-actions',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      semanticCommitType: 'feat',
+      semanticCommitScope: 'github-action',
+    },
+    {
+      matchManagers: [
+        'github-actions',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      semanticCommitType: 'fix',
+      semanticCommitScope: 'github-action',
+    },
+  ],
 }
