@@ -20,7 +20,7 @@ spec:
       memory: "1Gi"
     limits: *resources
   storage:
-    size: 50Gi
+    size: 100Gi
     storageClass: longhorn-single
   superuserSecret:
     name: superuser-secret
