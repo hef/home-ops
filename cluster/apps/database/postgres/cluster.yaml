@@ -9,7 +9,7 @@ metadata:
     kyverno.io/ignore: "true"
 spec:
   instances: 3
-  imageName: ghcr.io/cloudnative-pg/postgresql:16.4-51
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.2-4
   inheritedMetadata:
     labels:
       kube-image-keeper.enix.io/image-caching-policy: ignore
@@ -27,7 +27,7 @@ spec:
   enableSuperuserAccess: true
   bootstrap:
     recovery:
-      source: &previousCluster postgres-v8
+      source: &previousCluster postgres-v9
     #initdb:
     #  import:
     #    type: monolith
@@ -53,7 +53,7 @@ spec:
         maxParallel: 4
       destinationPath: s3://hef-cpng/
       endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
-      serverName: &currentCluster postgres-v9
+      serverName: &currentCluster postgres-v10
       s3Credentials:
         accessKeyId:
           name: cloudnative-pg-secret
