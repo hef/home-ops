@@ -16,13 +16,8 @@ spec:
     name: superuser-secret
   enableSuperuserAccess: true
   bootstrap:
-    initdb:
-      import:
-        type: monolith
-        databases: ['*']
-        roles: ['*']
-        source:
-          externalCluster: &previousCluster postgres-v9
+    recovery:
+      source: &previousCluster postgres-v9
   postgresql:
     parameters:
       max_connections: "600"
