@@ -22,7 +22,7 @@ spec:
         databases: ['*']
         roles: ['*']
         source:
-          externalCluster: &previousCluster postgres-v9
+          externalCluster: &previousCluster postgres-v10
   postgresql:
     parameters:
       max_connections: "600"
@@ -37,7 +37,7 @@ spec:
         maxParallel: 4
       destinationPath: s3://hef-cpng/
       endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
-      serverName: &currentCluster postgres16-v4
+      serverName: &currentCluster postgres16-v5
       s3Credentials:
         accessKeyId:
           name: cloudnative-pg-secret
