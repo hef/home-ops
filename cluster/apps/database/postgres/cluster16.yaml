@@ -7,7 +7,7 @@ metadata:
   namespace: database
 spec:
   instances: 3
-  imageName: ghcr.io/cloudnative-pg/postgresql:17.2-4
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.4-51
   primaryUpdateStrategy: unsupervised
   storage:
     size: 100Gi
@@ -22,7 +22,7 @@ spec:
         databases: ['*']
         roles: ['*']
         source:
-          externalCluster: &previousCluster postgres-v10
+          externalCluster: &previousCluster postgres-v9
   postgresql:
     parameters:
       max_connections: "600"
@@ -37,7 +37,7 @@ spec:
         maxParallel: 4
       destinationPath: s3://hef-cpng/
       endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
-      serverName: &currentCluster postgres16-v5
+      serverName: &currentCluster postgres16-v6
       s3Credentials:
         accessKeyId:
           name: cloudnative-pg-secret
