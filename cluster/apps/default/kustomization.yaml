@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - another-autoscaler
-  #- authelia
+  - authelia
   - code/ks.yaml
   - esphome/ks.yaml
   - factorio/ks.yaml
@@ -12,12 +12,12 @@ resources:
   - hajimari
   #- homeassistant/ks.yaml
   #- immich/ks.yaml
-  #- lldap
+  - lldap
   - mealie/ks.yaml
   - mosquitto
   - namespace.yaml
   - openwakeword
-  #- pgadmin/ks.yaml
+  - pgadmin/ks.yaml
   - piper
   - rtlamr2mqtt/ks.yaml
   - rustdesk/ks.yaml
