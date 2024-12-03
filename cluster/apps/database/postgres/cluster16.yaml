@@ -9,6 +9,11 @@ spec:
   instances: 3
   imageName: ghcr.io/cloudnative-pg/postgresql:16.4-51
   primaryUpdateStrategy: unsupervised
+  resources:
+    requests: &resources
+      cpu: 1
+      memory: "1Gi"
+    limits: *resources
   storage:
     size: 100Gi
     storageClass: longhorn
