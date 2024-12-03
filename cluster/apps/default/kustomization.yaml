@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - another-autoscaler
   #- authelia
-  - code/ks.yaml
+  #- code/ks.yaml
   - esphome/ks.yaml
   - factorio/ks.yaml
   - foundry/ks.yaml
