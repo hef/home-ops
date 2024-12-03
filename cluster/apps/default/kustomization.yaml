@@ -20,7 +20,7 @@ resources:
   #- pgadmin/ks.yaml
   - piper
   - rtlamr2mqtt/ks.yaml
-  - rustdesk/ks.yaml
+  #- rustdesk/ks.yaml
   - smtp-relay
   #- vaultwarden
   - whisper
