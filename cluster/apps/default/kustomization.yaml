@@ -17,7 +17,7 @@ resources:
   - mosquitto
   - namespace.yaml
   - openwakeword
-  - pgadmin/ks.yaml
+  #- pgadmin/ks.yaml
   - piper
   - rtlamr2mqtt/ks.yaml
   - rustdesk/ks.yaml
