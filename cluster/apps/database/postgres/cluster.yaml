@@ -17,7 +17,7 @@ spec:
   resources:
     requests: &resources
       cpu: 1
-      memory: "256Mi"
+      memory: "1Gi"
     limits: *resources
   storage:
     size: 100Gi
