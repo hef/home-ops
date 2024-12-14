@@ -10,7 +10,7 @@ resources:
   #- gitea/ks.yaml
   #- grafana
   - hajimari
-  #- homeassistant/ks.yaml
+  - homeassistant/ks.yaml
   #- immich/ks.yaml
   #- lldap
   - mealie/ks.yaml
