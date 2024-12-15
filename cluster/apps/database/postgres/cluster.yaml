@@ -29,6 +29,9 @@ spec:
     # recovery:
     #  source: &previousCluster postgres-v9
     initdb:
+      postInitSQL:
+        - CREATE EXTENSION vectors;
+        - CREATE EXTENSION earthdistance CASCADE;
       import:
         type: monolith
         databases: ['*']
