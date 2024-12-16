@@ -16,8 +16,8 @@ spec:
       protocol: TCP
       targetPort: 5432
   selector:
-    postgresql: postgres
-    role: primary
+    cnpg.io/cluster: postgres
+    cnpg.io/instanceRole: primary
 ---
 apiVersion: v1
 kind: Service
@@ -36,5 +36,5 @@ spec:
       protocol: TCP
       targetPort: 5432
   selector:
-    postgresql: postgres16
-    role: primary
+    cnpg.io/cluster: postgres16
+    cnpg.io/instanceRole: primary
