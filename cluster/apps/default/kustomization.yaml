@@ -13,11 +13,11 @@ resources:
   - homeassistant/ks.yaml
   #- immich/ks.yaml
   #- lldap
-  - mealie/ks.yaml
+  #- mealie/ks.yaml
   - mosquitto
   - namespace.yaml
   - openwakeword
-  - pgadmin/ks.yaml
+  #- pgadmin/ks.yaml
   - piper
   - rtlamr2mqtt/ks.yaml
   #- rustdesk/ks.yaml

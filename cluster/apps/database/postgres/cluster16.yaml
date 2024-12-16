@@ -23,6 +23,9 @@ spec:
   bootstrap:
     recovery:
       source: &previousCluster postgres-v9
+      recoveryTarget:
+        targetTime: "2024-11-18 00:00:08.232794+00:00"
+        #backupID: "20241118T000007"
   postgresql:
     parameters:
       max_connections: "600"
