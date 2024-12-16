@@ -41,7 +41,7 @@ spec:
           - gitea
           - grafana
           - homeassistant
-          - immich
+          #- immich
           - lldap
           - mealie
           - pgadmin
