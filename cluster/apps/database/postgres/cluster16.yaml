@@ -29,22 +29,22 @@ spec:
       shared_buffers: 512MB
   monitoring:
     enablePodMonitor: true
-  backup:
-    retentionPolicy: 30d
-    barmanObjectStore:
-      wal:
-        compression: bzip2
-        maxParallel: 4
-      destinationPath: s3://hef-cpng/
-      endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
-      serverName: &currentCluster postgres16-v8
-      s3Credentials:
-        accessKeyId:
-          name: cloudnative-pg-secret
-          key: aws-access-key-id
-        secretAccessKey:
-          name: cloudnative-pg-secret
-          key: aws-secret-access-key
+  #backup:
+  #  retentionPolicy: 30d
+  #  barmanObjectStore:
+  #    wal:
+  #      compression: bzip2
+  #      maxParallel: 4
+  #    destinationPath: s3://hef-cpng/
+  #    endpointURL: https://${SECRET_CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com
+  #    serverName: &currentCluster postgres16-v8
+  #    s3Credentials:
+  #      accessKeyId:
+  #        name: cloudnative-pg-secret
+  #        key: aws-access-key-id
+  #      secretAccessKey:
+  #        name: cloudnative-pg-secret
+  #        key: aws-secret-access-key
   # Note: externalClusters is needed when recovering from an existing cnpg cluster
   externalClusters:
     - name: *previousCluster
