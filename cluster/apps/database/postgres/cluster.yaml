@@ -34,7 +34,18 @@ spec:
         - CREATE EXTENSION IF NOT EXISTS earthdistance CASCADE;
       import:
         type: monolith
-        databases: ['*']
+        databases:
+          - db1
+          - db2
+          - authelia
+          - gitea
+          - grafana
+          - homeassistant
+          - immich
+          - lldap
+          - mealie
+          - pgadmin
+          - vaultwarden
         roles: ['*']
         source:
           externalCluster: postgres16
