@@ -30,8 +30,8 @@ spec:
     #  source: &previousCluster postgres-v9
     initdb:
       postInitSQL:
-        - CREATE EXTENSION vectors;
-        - CREATE EXTENSION earthdistance CASCADE;
+        - CREATE EXTENSION IF NOT EXISTS vectors;
+        - CREATE EXTENSION IF NOT EXISTS earthdistance CASCADE;
       import:
         type: monolith
         databases: ['*']
