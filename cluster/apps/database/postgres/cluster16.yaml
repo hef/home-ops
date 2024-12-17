@@ -24,7 +24,7 @@ spec:
     recovery:
       source: &previousCluster postgres-v9
       recoveryTarget:
-        targetTime: "2024-11-17 00:00:00.000000+00:00"
+        targetTime: "2024-11-00 00:00:00.000000+00:00"
         #backupID: "20241118T000007"
   postgresql:
     parameters:
