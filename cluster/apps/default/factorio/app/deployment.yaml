@@ -5,7 +5,7 @@ metadata:
   namespace: default
   annotations:
     reloader.stakater.com/auto: "true"
-    another-autoscaler/start-time: "30 12 * * 4"
+    another-autoscaler/start-time: "30 0 * * 4"
     another-autoscaler/stop-time: "30 3 * * 4"
 spec:
   #replicas: 1
