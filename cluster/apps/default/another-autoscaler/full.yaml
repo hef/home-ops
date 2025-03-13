@@ -72,8 +72,6 @@ spec:
         - name: another-autoscaler
           image: ghcr.io/dignajar/another-autoscaler:latest # Change the tag for the latest stable version
           imagePullPolicy: Always
-          env:
-            TZ: ${SECRET_TZ}
           envFrom:
             - configMapRef:
                 name: another-autoscaler
