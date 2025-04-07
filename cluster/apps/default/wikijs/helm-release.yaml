@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: wiki
-      version: 2.2.21
+      version: 2.2.23
       sourceRef:
         kind: HelmRepository
         name: requarks
