@@ -42,10 +42,10 @@ spec:
           resources:
             requests:
               cpu: "4"
-              memory: "4Gi"
+              memory: "8Gi"
             limits:
               cpu: "4"
-              memory: "4Gi"
+              memory: "8Gi"
           volumeMounts:
             - name: data
               mountPath: /factorio
