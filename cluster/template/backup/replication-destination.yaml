@@ -7,7 +7,8 @@ spec:
     manual: restore-once
   restic:
     repository: ${CLAIM}-backup-config
-    copyMethod: Snapshot
+    #copyMethod: Snapshot
+    copyMethod: Clone
     volumeSnapshotClassName: longhorn
     storageClassName: longhorn
     # these should match the restored PVC
