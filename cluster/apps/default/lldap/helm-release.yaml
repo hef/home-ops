@@ -34,7 +34,7 @@ spec:
           main:
             image:
               repository: ghcr.io/lldap/lldap
-              tag: v0.5.0@sha256:f0f5d92cd6c6dca9415993cfc57919f0618e87090b323a98c1536975860fa45a
+              tag: v0.6.2@sha256:9e605a66c02514bfcffd1b67cafb1e98d50992216bb2871d7ae44622047dd09d
             env:
               TZ: ${SECRET_TZ}
               LLDAP_HTTP_PORT: &port 80
